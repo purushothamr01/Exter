@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hub Locations</title>
+  <meta name="description"
+    content="Find the nearest EXTER automated battery swapping hub. 24/7 accessible stations across Bengaluru, Hyderabad, Delhi NCR, and Mumbai with instant pack availability." />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="EXTER Home">
+        <img src="images/logo-symbol-blue.png" alt="EXTER" class="logo-symbol-img" />
+        <span class="logo-text">exter</span>
+      </a>
+
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="index.html" class="navbar__link">Home</a></li>
+          <li><a href="about.html" class="navbar__link">About Us</a></li>
+          <li><a href="battery-swapping.html" class="navbar__link">Battery Swapping</a></li>
+          <li><a href="become-a-rider.html" class="navbar__link">Become a Rider</a></li>
+          <li><a href="contact.html" class="navbar__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="hub-locations.html" class="btn btn--primary btn--sm navbar__cta">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="section section--secondary" style="padding-top:calc(var(--nav-h) + 4rem); padding-bottom:4rem;">
+    <div class="container">
+      <div class="section__header-left" style="max-width:820px;">
+        <span class="apple-eyebrow">CONNECTED URBAN NETWORK</span>
+        <h1 class="section__title">Battery Swapping Hubs Near You</h1>
+        <p class="section__lead">
+          Find your closest EXTER automated swapping pod. Strategically positioned along major transit corridors,
+          logistics clusters, and delivery zones for rapid, sub-5-minute turnarounds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Network Search & Directory Layout -->
+  <section class="section">
+    <div class="container">
+      <!-- Search & Filter Controls -->
+      <div class="hub-controls">
+        <div class="hub-search-box">
+          <i class="ri-search-line"></i>
+          <input type="text" id="hubSearchInput" placeholder="Search by area, landmark, street, or hub ID..." />
+        </div>
+
+        <div>
+          <select id="hubCityFilter" style="background:#FFFFFF; font-weight:600;">
+            <option value="all">All Cities</option>
+            <option value="bengaluru">Bengaluru</option>
+
+          </select>
+        </div>
+      </div>
+
+      <!-- Hub Counter Strip -->
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid var(--border-hairline);">
+        <div style="font-size:0.95rem; font-weight:700; color:var(--text-primary);">
+          Active Network Locations
+        </div>
+        <div id="hubCountBadge"
+          style="font-size:0.82rem; font-weight:700; color:var(--clr-brand); background:var(--clr-brand-subtle); padding:4px 12px; border-radius:var(--r-full);">
+          6 Stations Active
+        </div>
+      </div>
+
+      <!-- Two-Column Layout: Stations List + Interactive Map -->
+      <div class="hub-layout">
+        <!-- Station Cards Container (Injected & Filtered by initHubsPage) -->
+        <div id="hubsList">
+          <!-- Fallback initial rendering for JPN 001 -->
+          <div class="hub-card" data-city="bengaluru" data-hub-id="JPN 001">
+            <div class="hub-card__top">
+              <span class="hub-id-pill">JPN 001</span>
+              <span class="hub-status-badge">
+                <span class="status-beacon"></span>
+                Operational
+              </span>
+            </div>
+            <h4 class="hub-card__name">JP Nagar Hub 01 (JPN 001)</h4>
+            <div class="hub-card__address">JP Nagar, Bengaluru, Karnataka</div>
+            <div class="hub-card__meta">
+              <span><i class="ri-time-line"></i> Open 24/7</span>
+              <span><i class="ri-battery-charge-line"></i> Swap Pod Ready</span>
+            </div>
+            <div class="hub-card__actions">
+              <a href="https://maps.app.goo.gl/rK4ZwhGZWPofapPy7?g_st=aw" target="_blank" rel="noopener noreferrer"
+                class="btn btn--secondary btn--sm">
+                <i class="ri-direction-line"></i> Directions
+              </a>
+              <a href="tel:+918904084545" class="btn btn--ghost btn--sm" title="Call +91 89040 84545">
+                <i class="ri-phone-line"></i> +91 89040 84545
+              </a>
+            </div>
+          </div>
+
+          <!-- Fallback initial rendering for JPN 007 -->
+          <div class="hub-card" data-city="bengaluru" data-hub-id="JPN 007">
+            <div class="hub-card__top">
+              <span class="hub-id-pill">JPN 007</span>
+              <span class="hub-status-badge">
+                <span class="status-beacon"></span>
+                Operational
+              </span>
+            </div>
+            <h4 class="hub-card__name">JP Nagar Hub 07 (JPN 007)</h4>
+            <div class="hub-card__address">JP Nagar 7th Phase, Bengaluru, Karnataka</div>
+            <div class="hub-card__meta">
+              <span><i class="ri-time-line"></i> Open 24/7</span>
+              <span><i class="ri-battery-charge-line"></i> Swap Pod Ready</span>
+            </div>
+            <div class="hub-card__actions">
+              <a href="https://maps.app.goo.gl/VaQGjH364xaHYsvw7" target="_blank" rel="noopener noreferrer"
+                class="btn btn--secondary btn--sm">
+                <i class="ri-direction-line"></i> Directions
+              </a>
+              <a href="tel:+918050263303" class="btn btn--ghost btn--sm" title="Call +91 80502 63303">
+                <i class="ri-phone-line"></i> +91 80502 63303
+              </a>
+            </div>
+          </div>
+
+          <!-- Fallback initial rendering for TVK004 -->
+          <div class="hub-card" data-city="bengaluru" data-hub-id="TVK004">
+            <div class="hub-card__top">
+              <span class="hub-id-pill">TVK004</span>
+              <span class="hub-status-badge">
+                <span class="status-beacon"></span>
+                Operational
+              </span>
+            </div>
+            <h4 class="hub-card__name">Tavarekere Hub 04 (TVK004)</h4>
+            <div class="hub-card__address">WJF5+M35 Bengaluru, Karnataka</div>
+            <div class="hub-card__meta">
+              <span><i class="ri-time-line"></i> Open 24/7</span>
+              <span><i class="ri-battery-charge-line"></i> Swap Pod Ready</span>
+            </div>
+            <div class="hub-card__actions">
+              <a href="https://www.google.com/maps/search/?api=1&query=WJF5%2BM35+Bengaluru%2C+Karnataka"
+                target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">
+                <i class="ri-direction-line"></i> Directions
+              </a>
+              <a href="tel:+919902311939" class="btn btn--ghost btn--sm" title="Call +91 99023 11939">
+                <i class="ri-phone-line"></i> +91 99023 11939
+              </a>
+            </div>
+          </div>
+
+          <!-- Fallback initial rendering for BTM003 -->
+          <div class="hub-card" data-city="bengaluru" data-hub-id="BTM003">
+            <div class="hub-card__top">
+              <span class="hub-id-pill">BTM003</span>
+              <span class="hub-status-badge">
+                <span class="status-beacon"></span>
+                Operational
+              </span>
+            </div>
+            <h4 class="hub-card__name">BTM Layout Hub 03 (BTM003)</h4>
+            <div class="hub-card__address">BTM Layout, Bengaluru, Karnataka</div>
+            <div class="hub-card__meta">
+              <span><i class="ri-time-line"></i> Open 24/7</span>
+              <span><i class="ri-battery-charge-line"></i> Swap Pod Ready</span>
+            </div>
+            <div class="hub-card__actions">
+              <a href="https://maps.app.goo.gl/yas5D3WSpiEzRXHP8" target="_blank" rel="noopener noreferrer"
+                class="btn btn--secondary btn--sm">
+                <i class="ri-direction-line"></i> Directions
+              </a>
+              <a href="tel:+918050354533" class="btn btn--ghost btn--sm" title="Call +91 80503 54533">
+                <i class="ri-phone-line"></i> +91 80503 54533
+              </a>
+            </div>
+          </div>
+
+          <!-- Fallback initial rendering for BHL002 -->
+          <div class="hub-card" data-city="bengaluru" data-hub-id="BHL002">
+            <div class="hub-card__top">
+              <span class="hub-id-pill">BHL002</span>
+              <span class="hub-status-badge">
+                <span class="status-beacon"></span>
+                Operational
+              </span>
+            </div>
+            <h4 class="hub-card__name">Bhoganhalli Hub 02 (BHL002)</h4>
+            <div class="hub-card__address">Bhoganhalli, Bengaluru, Karnataka</div>
+            <div class="hub-card__meta">
+              <span><i class="ri-time-line"></i> Open 24/7</span>
+              <span><i class="ri-battery-charge-line"></i> Swap Pod Ready</span>
+            </div>
+            <div class="hub-card__actions">
+              <a href="https://maps.app.goo.gl/vKxChGdXYkNyGh7YA" target="_blank" rel="noopener noreferrer"
+                class="btn btn--secondary btn--sm">
+                <i class="ri-direction-line"></i> Directions
+              </a>
+              <a href="tel:+918050263303" class="btn btn--ghost btn--sm" title="Call +91 80502 63303">
+                <i class="ri-phone-line"></i> +91 80502 63303
+              </a>
+            </div>
+          </div>
+
+          <!-- Fallback initial rendering for MHP 005 -->
+          <div class="hub-card" data-city="bengaluru" data-hub-id="MHP 005">
+            <div class="hub-card__top">
+              <span class="hub-id-pill">MHP 005</span>
+              <span class="hub-status-badge">
+                <span class="status-beacon"></span>
+                Operational
+              </span>
+            </div>
+            <h4 class="hub-card__name">MHP 005 – Exter Battery Swapping Hub</h4>
+            <div class="hub-card__address">MHP005 Exter Battery Swapping Hub, Bengaluru, Karnataka</div>
+            <div class="hub-card__meta">
+              <span><i class="ri-time-line"></i> Open 24/7</span>
+              <span><i class="ri-battery-charge-line"></i> Swap Pod Ready</span>
+            </div>
+            <div class="hub-card__actions">
+              <a href="https://maps.google.com/?q=12.9935115,77.6505872+(MHP005+Exter+Battery+Swapping+Hub)"
+                target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">
+                <i class="ri-direction-line"></i> Directions
+              </a>
+              <a href="tel:+918050263303" class="btn btn--ghost btn--sm" title="Call +91 80502 63303">
+                <i class="ri-phone-line"></i> +91 80502 63303
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Map Embed Container -->
+        <div style="position:sticky; top:calc(var(--nav-h) + 2rem);">
+          <div
+            style="background:var(--bg-card); border:1px solid var(--border-hairline); border-radius:var(--r-xl); overflow:hidden; box-shadow:0 12px 36px rgba(0,0,0,0.04);">
+            <div
+              style="padding:1.25rem 1.5rem; background:#FFFFFF; border-bottom:1px solid var(--border-hairline); display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong style="color:var(--text-primary); font-size:1rem;">Network Coverage Map</strong>
+                <div style="font-size:0.8rem; color:var(--text-tertiary);">Live GPS Hub Coordinates</div>
+              </div>
+              <span
+                style="display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; color:var(--clr-green); background:rgba(0,168,89,0.1); padding:3px 10px; border-radius:var(--r-full);">
+                <span class="status-beacon"></span> LIVE
+              </span>
+            </div>
+            <div style="width:100%; height:480px; position:relative; background:#E5E3DF;">
+              <iframe title="EXTER Swapping Network Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.954413976106!2d77.59008427507554!3d12.910651487399152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae155de5db8bd5%3A0x1e57c79f8c34eee2!2sJPN001%20-%20exter%20Battery%20Swapping%20Point!5e0!3m2!1sen!2sin!4v1794398772421!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
+            <div
+              style="padding:1rem 1.5rem; background:#FFFFFF; font-size:0.82rem; color:var(--text-tertiary); display:flex; align-items:center; gap:8px;">
+              <i class="ri-information-line" style="color:var(--clr-brand); font-size:1rem;"></i>
+              <span>Hub availability and ready battery counts refresh dynamically every 60 seconds.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner / Host a Hub Banner -->
+  <section class="section section--secondary">
+    <div class="container">
+      <div
+        style="background:#FFFFFF; border:1px solid var(--border-hairline); border-radius:var(--r-2xl); padding:3.5rem; display:grid; grid-template-columns:1.2fr 1fr; gap:3rem; align-items:center;">
+        <div>
+          <span class="apple-eyebrow">PROPERTY &amp; RETAIL PARTNERSHIPS</span>
+          <h2
+            style="font-size:2.2rem; font-weight:800; color:var(--text-primary); letter-spacing:-0.02em; margin-bottom:1rem;">
+            Host an EXTER Swapping Station on Your Property
+          </h2>
+          <p style="font-size:1.05rem; color:var(--text-secondary); line-height:1.7; margin-bottom:1.75rem;">
+            Do you own commercial real estate, retail parking, fuel stations, or metro-adjacent land? Partner with EXTER
+            to monetize underutilized spaces, attract daily high-frequency rider footfall, and support the clean
+            mobility revolution.
+          </p>
+          <ul class="plan-features" style="margin-bottom:2rem;">
+            <li><i class="ri-check-line"></i> <span>Zero capital investment required from host</span></li>
+            <li><i class="ri-check-line"></i> <span>Fixed monthly rental or revenue-sharing models</span></li>
+            <li><i class="ri-check-line"></i> <span>Complete installation, maintenance, and insurance handled by
+                EXTER</span></li>
+            <li><i class="ri-check-line"></i> <span>Compact footprint requires just 25 40 sq. ft. of space</span></li>
+          </ul>
+          <a href="contact.html" class="btn btn--brand btn--large">Inquire for Station Hosting</a>
+        </div>
+
+        <div
+          style="background:var(--bg-secondary); border:1px solid var(--border-hairline); border-radius:var(--r-xl); padding:2.5rem;">
+          <h4 style="font-size:1.2rem; font-weight:800; color:var(--text-primary); margin-bottom:1rem;">Host
+            Requirements</h4>
+          <div style="display:flex; flex-direction:column; gap:1.25rem;">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div
+                style="background:var(--clr-brand-subtle); color:var(--clr-brand); width:28px; height:28px; border-radius:var(--r-full); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.85rem; font-weight:700;">
+                1</div>
+              <div>
+                <strong style="font-size:0.95rem; color:var(--text-primary);">Space Footprint</strong>
+                <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">30 to 50 sq. ft. ground-level or
+                  accessible drive-in parking.</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div
+                style="background:var(--clr-brand-subtle); color:var(--clr-brand); width:28px; height:28px; border-radius:var(--r-full); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.85rem; font-weight:700;">
+                2</div>
+              <div>
+                <strong style="font-size:0.95rem; color:var(--text-primary);">Power Connection</strong>
+                <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">Commercial 3-phase power supply (10
+                  kW to 25 kW connected load).</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div
+                style="background:var(--clr-brand-subtle); color:var(--clr-brand); width:28px; height:28px; border-radius:var(--r-full); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.85rem; font-weight:700;">
+                3</div>
+              <div>
+                <strong style="font-size:0.95rem; color:var(--text-primary);">24/7 Accessibility</strong>
+                <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">Unrestricted access for delivery
+                  riders at any hour of the day or night.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo">
+            <img src="../../media/images/logo/exter.png" alt="EXTER" class="logo-symbol-img" />
+            <span class="logo-text">exter</span>
+          </a>
+          <p>Smart Electric Mobility. Simplified. Accelerating the transition to sustainable urban transport with
+            dependable EVs and automated battery swapping.</p>
+          <div class="footer__social" aria-label="EXTER Social Media">
+            <a href="https://www.instagram.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--instagram" title="Follow EXTER on Instagram"
+              aria-label="EXTER Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="https://www.facebook.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--facebook" title="Follow EXTER on Facebook"
+              aria-label="EXTER Facebook">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+              rel="noopener noreferrer" class="footer__social-link footer__social-link--linkedin"
+              title="Follow EXTER on LinkedIn" aria-label="EXTER LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <div class="footer__col">
+            <h5>Navigation</h5>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="battery-swapping.html">Battery Swapping</a></li>
+              <li><a href="become-a-rider.html">Become a Rider</a></li>
+              <li><a href="hub-locations.html">Hub Locations</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h5>Solutions</h5>
+            <ul>
+              <li><a href="become-a-rider.html">EV Rentals</a></li>
+              <li><a href="battery-swapping.html">Battery Swapping</a></li>
+              <li><a href="contact.html">Enterprise Fleets</a></li>
+              <li><a href="hub-locations.html">Station Hosting</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h5>Contact &amp; Help</h5>
+            <ul>
+              <li><a href="contact.html">Support Desk</a></li>
+              <li><a href="tel:+918050263303">+91 8050263303</a></li>
+              <li><a href="mailto:hello@exterenergy.com">hello@exterenergy.com</a></li>
+              <li><a href="https://wa.me/918050263303" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></li>
+              <li><a href="https://www.instagram.com/exter.ev.club/" target="_blank"
+                  rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://www.facebook.com/exter.ev.club/" target="_blank"
+                  rel="noopener noreferrer">Facebook</a></li>
+              <li><a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>&copy; 2026 Exter Energy Private Limited. All Rights Reserved. Powering India's Mobility.</div>
+        <div class="footer__legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span></span>
+          <a href="terms.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

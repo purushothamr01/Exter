@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — EXTER</title>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../media/images/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../media/images/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../media/images/favicon/apple-touch-icon.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body style="min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="../../../index.html" class="navbar__logo" aria-label="EXTER Home">
+        <img src="../../media/images/logo/exter.png" alt="EXTER" class="logo-symbol-img" />
+        <span class="logo-text">exter</span>
+      </a>
+
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="../../../index.html" class="navbar__link">Home</a></li>
+          <li><a href="about.html" class="navbar__link">About Us</a></li>
+          <li><a href="../../../index.html#solutions" class="navbar__link">Our Solutions</a></li>
+          <li><a href="battery-swapping.html" class="navbar__link">Battery Swapping</a></li>
+          <li><a href="become-a-rider.html" class="navbar__link">Become a Rider</a></li>
+          <li><a href="hub-locations.html" class="navbar__link">Hub Locations</a></li>
+          <li><a href="contact.html" class="navbar__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="become-a-rider.html" class="btn btn--primary btn--sm navbar__cta">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 404 Hero -->
+  <main class="section"
+    style="padding-top:calc(var(--nav-h) + 6rem); padding-bottom:6rem; text-align:center; flex-grow:1; display:flex; align-items:center;">
+    <div class="container">
+      <div style="max-width:600px; margin:0 auto;">
+        <span class="apple-eyebrow" style="color:var(--clr-brand);">ERROR 404</span>
+        <h1
+          style="font-size:3.5rem; font-weight:900; color:var(--text-primary); letter-spacing:-0.03em; margin:0.5rem 0 1rem; line-height:1.1;">
+          Page Not Found
+        </h1>
+        <p class="section__lead" style="margin-bottom:2.5rem;">
+          The route you requested could not be found. Let’s get you back to the network and moving forward.
+        </p>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <a href="index.html" class="btn btn--primary btn--large">Return to Home</a>
+          <a href="hub-locations.html" class="btn btn--secondary btn--large">Find Swapping Hubs</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer
+    style="background:#FFFFFF; border-top:1px solid var(--border-hairline); padding:1.5rem 0; text-align:center; font-size:0.85rem; color:var(--text-tertiary);">
+    <div class="container">
+      &copy; 2026 Exter Energy Private Limited. All Rights Reserved. Powering India's Mobility.
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+
+</html>
