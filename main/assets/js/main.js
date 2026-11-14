@@ -1,4 +1,4 @@
-﻿/**
+/**
  * EXTER — Main Application Script
  * Clean Apple-Inspired Interactivity & Central Configuration
  */
@@ -67,7 +67,7 @@ window.EXTER_CONFIG = {
       weeklyRentFormatted: "₹1,869",
       securityDeposit: 1011,
       securityDepositFormatted: "₹1,011",
-      image: "main/media/images/vehicles/exter-100.jpg",
+      image: "main/media/images/Bike/Side.png",
       popular: true,
       badgeType: "extended",
       ctaExploreText: "Explore EXTER 100",
@@ -738,6 +738,99 @@ function initBikeRentalSystem() {
     pan: null,
     cheque: null
   };
+  let isKycSkipped = false;
+
+  // Google Forms Integration (Form ID: 1FAIpQLScdYmknntKThDZ2oup6eYdp1cw4qXUOcQBFtSiN4Vapj6SH0A)
+  const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScdYmknntKThDZ2oup6eYdp1cw4qXUOcQBFtSiN4Vapj6SH0A/formResponse';
+  const GOOGLE_FORM_ENTRIES = {
+    name: 'entry.1562364320',
+    phone: 'entry.1196345465',
+    email: 'entry.205828220',
+    hub: 'entry.396766316',
+    address: 'entry.19993910'
+  };
+
+  function formatGoogleFormHub(hubSelect) {
+    if (!hubSelect) return 'JPN 001     Battery Hub Location';
+    const val = hubSelect.value;
+    const text = hubSelect.options[hubSelect.selectedIndex]?.text || '';
+    if (val === 'JPN 001') {
+      return 'JPN 001     Battery Hub Location';
+    }
+    return text || 'JPN 001     Battery Hub Location';
+  }
+
+  function showAppleSyncToast(message) {
+    let toast = qs('#appleSyncToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'appleSyncToast';
+      toast.className = 'apple-sync-toast';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i class="ri-checkbox-circle-fill"></i> <span>${message}</span>`;
+    toast.classList.add('is-visible');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
+      toast.classList.remove('is-visible');
+    }, 2800);
+  }
+
+  function submitBookingToGoogleForm(data) {
+    try {
+      const formData = new URLSearchParams();
+      formData.append(GOOGLE_FORM_ENTRIES.name, data.name || '');
+      formData.append(GOOGLE_FORM_ENTRIES.phone, data.phone || '');
+      formData.append(GOOGLE_FORM_ENTRIES.email, data.email || '');
+      formData.append(GOOGLE_FORM_ENTRIES.hub, data.hub || 'JPN 001     Battery Hub Location');
+      formData.append(GOOGLE_FORM_ENTRIES.address, data.address || '');
+
+      // 1. Fetch POST with no-cors mode (silent background dispatch)
+      fetch(GOOGLE_FORM_ACTION_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData.toString()
+      }).catch(() => {});
+
+      // 2. Hidden iframe fallback to guarantee delivery across all devices
+      let iframe = qs('#gform_hidden_iframe');
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.id = 'gform_hidden_iframe';
+        iframe.name = 'gform_hidden_iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+      }
+
+      const hiddenForm = document.createElement('form');
+      hiddenForm.style.display = 'none';
+      hiddenForm.method = 'POST';
+      hiddenForm.action = GOOGLE_FORM_ACTION_URL;
+      hiddenForm.target = 'gform_hidden_iframe';
+
+      for (const [key, val] of formData.entries()) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = val;
+        hiddenForm.appendChild(input);
+      }
+
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+      setTimeout(() => {
+        hiddenForm.remove();
+      }, 1500);
+
+      return true;
+    } catch (err) {
+      console.warn('Google Form background sync:', err);
+      return false;
+    }
+  }
 
   const steps = qsa('.booking-step-pane', rentalRoot);
   const stepIndicators = qsa('.booking-nav-step', rentalRoot);
@@ -839,13 +932,31 @@ function initBikeRentalSystem() {
       if (reviewPickupHub) reviewPickupHub.textContent = hubText;
 
       if (reviewAadhaarStatus) {
-        reviewAadhaarStatus.textContent = uploadedDocs.aadhaar ? uploadedDocs.aadhaar.name : 'Aadhaar Attached ✓';
+        if (uploadedDocs.aadhaar) {
+          reviewAadhaarStatus.innerHTML = `<span class="doc-badge doc-badge--success">${uploadedDocs.aadhaar.name} ✓</span>`;
+        } else if (isKycSkipped) {
+          reviewAadhaarStatus.innerHTML = `<span class="doc-badge doc-badge--skipped"><i class="ri-time-line"></i> Verify at Hub (Physical KYC)</span>`;
+        } else {
+          reviewAadhaarStatus.textContent = 'Aadhaar Attached ✓';
+        }
       }
       if (reviewPanStatus) {
-        reviewPanStatus.textContent = uploadedDocs.pan ? uploadedDocs.pan.name : 'PAN Attached ✓';
+        if (uploadedDocs.pan) {
+          reviewPanStatus.innerHTML = `<span class="doc-badge doc-badge--success">${uploadedDocs.pan.name} ✓</span>`;
+        } else if (isKycSkipped) {
+          reviewPanStatus.innerHTML = `<span class="doc-badge doc-badge--skipped"><i class="ri-time-line"></i> Verify at Hub (Physical KYC)</span>`;
+        } else {
+          reviewPanStatus.textContent = 'PAN Attached ✓';
+        }
       }
       if (reviewChequeStatus) {
-        reviewChequeStatus.textContent = uploadedDocs.cheque ? uploadedDocs.cheque.name : 'Cheque Attached ✓';
+        if (uploadedDocs.cheque) {
+          reviewChequeStatus.innerHTML = `<span class="doc-badge doc-badge--success">${uploadedDocs.cheque.name} ✓</span>`;
+        } else if (isKycSkipped) {
+          reviewChequeStatus.innerHTML = `<span class="doc-badge doc-badge--skipped"><i class="ri-time-line"></i> 2 Cheques at Hub Collection</span>`;
+        } else {
+          reviewChequeStatus.textContent = 'Cheque Attached ✓';
+        }
       }
     }
 
@@ -875,9 +986,10 @@ function initBikeRentalSystem() {
       let isValid = true;
       [nameInput, phoneInput, emailInput, addressInput, hubInput].forEach(inp => {
         if (!inp) return;
-        inp.classList.remove('has-error');
+        inp.classList.remove('has-error', 'field-apple-shake');
         if (!inp.value.trim()) {
-          inp.classList.add('has-error');
+          inp.classList.add('has-error', 'field-apple-shake');
+          setTimeout(() => inp.classList.remove('field-apple-shake'), 450);
           isValid = false;
         }
       });
@@ -890,14 +1002,16 @@ function initBikeRentalSystem() {
       // 10-digit mobile check
       const phoneClean = phoneInput.value.replace(/[^0-9]/g, '');
       if (phoneClean.length < 10) {
-        phoneInput.classList.add('has-error');
+        phoneInput.classList.add('has-error', 'field-apple-shake');
+        setTimeout(() => phoneInput.classList.remove('field-apple-shake'), 450);
         alert('Please enter a valid 10-digit mobile number.');
         return false;
       }
 
       // Email format
       if (!emailInput.value.includes('@') || !emailInput.value.includes('.')) {
-        emailInput.classList.add('has-error');
+        emailInput.classList.add('has-error', 'field-apple-shake');
+        setTimeout(() => emailInput.classList.remove('field-apple-shake'), 450);
         alert('Please enter a valid email address.');
         return false;
       }
@@ -906,9 +1020,17 @@ function initBikeRentalSystem() {
     }
 
     if (stepNum === 3) {
+      // If user chose to skip KYC for in-person hub verification
+      if (isKycSkipped) {
+        return true;
+      }
       // Check documents
       if (!uploadedDocs.aadhaar || !uploadedDocs.pan || !uploadedDocs.cheque) {
-        alert('Please upload all 3 required documents (Aadhaar Card, PAN Card, and Bank Cheque) to continue.');
+        const confirmSkip = confirm('You have not uploaded all 3 required documents.\n\nWould you like to skip this step for now and verify physically at the hub during bike pickup?');
+        if (confirmSkip) {
+          isKycSkipped = true;
+          return true;
+        }
         return false;
       }
       return true;
@@ -927,7 +1049,7 @@ function initBikeRentalSystem() {
   }
 
   // Bind Offer Card Selection Buttons & Wizard controls
-  rentalRoot.addEventListener('click', e => {
+  rentalRoot.addEventListener('click', async e => {
     // Select offer button from top comparison cards
     const selectOfferBtn = e.target.closest('.btn-select-offer');
     if (selectOfferBtn) {
@@ -954,12 +1076,48 @@ function initBikeRentalSystem() {
       return;
     }
 
+    // Skip KYC document upload button or link (Apple-style deferral)
+    const skipBtn = e.target.closest('.btn-wizard-skip-docs');
+    if (skipBtn) {
+      e.preventDefault();
+      isKycSkipped = true;
+      setStep(4);
+      return;
+    }
+
     // Next step button
     const nextBtn = e.target.closest('.btn-wizard-next');
     if (nextBtn) {
       e.preventDefault();
       if (validateStep(currentStep)) {
-        setStep(currentStep + 1);
+        if (currentStep === 2) {
+          // Apple micro-interaction & Google Form background sync
+          const origHtml = nextBtn.innerHTML;
+          nextBtn.disabled = true;
+          nextBtn.innerHTML = '<span class="apple-sync-spinner"></span> <span>Syncing with Hub Fleet...</span>';
+
+          const name = qs('#bookingFullName', rentalRoot)?.value.trim() || '';
+          const phone = qs('#bookingPhone', rentalRoot)?.value.trim() || '';
+          const email = qs('#bookingEmail', rentalRoot)?.value.trim() || '';
+          const hubSelect = qs('#bookingPickupHub', rentalRoot);
+          const hub = formatGoogleFormHub(hubSelect);
+          const address = qs('#bookingAddress', rentalRoot)?.value.trim() || '';
+
+          // Submit silently to Google Form in background
+          submitBookingToGoogleForm({ name, phone, email, hub, address });
+
+          await new Promise(r => setTimeout(r, 480));
+          nextBtn.innerHTML = '<i class="ri-check-line"></i> <span>Details Saved ✓</span>';
+
+          await new Promise(r => setTimeout(r, 280));
+          nextBtn.disabled = false;
+          nextBtn.innerHTML = origHtml;
+
+          setStep(3);
+          showAppleSyncToast('Personal details securely synced with Google Cloud');
+        } else {
+          setStep(currentStep + 1);
+        }
       }
       return;
     }
@@ -988,6 +1146,7 @@ function initBikeRentalSystem() {
       e.preventDefault();
       const form = qs('#bikeBookingForm', rentalRoot);
       if (form) form.reset();
+      isKycSkipped = false;
       uploadedDocs.aadhaar = null;
       uploadedDocs.pan = null;
       uploadedDocs.cheque = null;
@@ -1097,6 +1256,21 @@ function initBikeRentalSystem() {
       const hubText = hubSelect ? hubSelect.options[hubSelect.selectedIndex]?.text : 'JP Nagar Hub 01 (JPN 001)';
       const totalAmount = offer.weeklyRent + offer.securityDeposit;
 
+      // Ensure final confirmed booking is updated into Google Form & Google Sheet
+      const rawAddress = qs('#bookingAddress', rentalRoot)?.value.trim() || '';
+      const email = qs('#bookingEmail', rentalRoot)?.value.trim() || '';
+      const planName = offer?.name || 'EXTER 100';
+      const kycInfo = isKycSkipped ? 'Physical KYC at Hub' : 'Digital KYC Attached';
+      const finalAddress = `${rawAddress} [Booking: ${bookingId} | Plan: ${planName} | ${kycInfo}]`;
+
+      submitBookingToGoogleForm({
+        name,
+        phone,
+        email,
+        hub: formatGoogleFormHub(hubSelect),
+        address: finalAddress
+      });
+
       // Populate Step 5 Confirmation View
       const receiptIdEl = qs('#receiptBookingId', rentalRoot);
       const receiptDateEl = qs('#receiptDate', rentalRoot);
@@ -1119,7 +1293,8 @@ function initBikeRentalSystem() {
       if (receiptTotalEl) receiptTotalEl.textContent = `₹${totalAmount.toLocaleString('en-IN')}`;
 
       if (receiptWhatsAppBtn) {
-        const msg = encodeURIComponent(`Hi EXTER Team, I just submitted an EV rental application on your website.\nBooking ID: ${bookingId}\nName: ${name}\nPlan: ${offer.name}\nPickup Hub: ${hubText}.\nPlease verify my documents and confirm key handover.`);
+        const kycNote = isKycSkipped ? 'KYC Status: Will complete physical verification at hub.' : 'KYC Status: Digital documents attached.';
+        const msg = encodeURIComponent(`Hi EXTER Team, I just submitted an EV rental application on your website.\nBooking ID: ${bookingId}\nName: ${name}\nPlan: ${offer.name}\nPickup Hub: ${hubText}.\n${kycNote}\nPlease confirm key handover.`);
         receiptWhatsAppBtn.href = `https://wa.me/918050263303?text=${msg}`;
       }
 
@@ -1618,9 +1793,81 @@ function initHeroVideo() {
    5C. CUSTOMER SUPPORT WIDGET CONTROLLER
    ========================================================================== */
 function initSupportWidget() {
-  const avatarBtn = qs('#supportAvatarBtn');
-  const popup = qs('#supportPopup');
-  const closeBtn = qs('#supportPopupClose');
+  let avatarBtn = qs('#supportAvatarBtn');
+  let popup = qs('#supportPopup');
+  let closeBtn = qs('#supportPopupClose');
+
+  if (!avatarBtn || !popup) {
+    // Dynamically inject Apple Customer Support & RSA Widget if not present
+    const widgetEl = document.createElement('div');
+    widgetEl.className = 'hero__support-widget';
+    widgetEl.id = 'supportWidget';
+    widgetEl.innerHTML = `
+      <button type="button" class="support-avatar-btn" id="supportAvatarBtn" aria-label="Contact EXTER Support">
+        <div class="support-btn-icon-wrapper">
+          <i class="ri-customer-service-2-fill support-icon-default"></i>
+          <i class="ri-close-line support-icon-close"></i>
+        </div>
+        <span class="support-avatar-status" title="Support Online"></span>
+      </button>
+      <div class="support-popup" id="supportPopup">
+        <div class="support-popup__header">
+          <div class="support-popup__avatar">
+            <i class="ri-customer-service-2-fill"></i>
+          </div>
+          <div class="support-popup__header-info">
+            <h4 class="support-popup__title">EXTER Support</h4>
+            <p class="support-popup__status"><span class="dot-online"></span> Support Team Online</p>
+          </div>
+          <button class="support-popup__close" id="supportPopupClose" aria-label="Close">&times;</button>
+        </div>
+        <div class="support-popup__body">
+          <a href="tel:+918050263303" class="support-popup__item support-popup__item--bike">
+            <div class="support-popup__icon support-popup__icon--bike"><i class="ri-e-bike-2-line"></i></div>
+            <div class="support-popup__details">
+              <div class="support-popup__label-row">
+                <span class="support-popup__label">Book a Bike</span>
+              </div>
+              <div class="support-popup__value">+91 80502 63303</div>
+            </div>
+            <div class="support-popup__action"><i class="ri-phone-fill"></i></div>
+          </a>
+
+          <a href="tel:+919845110419" class="support-popup__item support-popup__item--care">
+            <div class="support-popup__icon support-popup__icon--care"><i class="ri-headphone-line"></i></div>
+            <div class="support-popup__details">
+              <div class="support-popup__label-row">
+                <span class="support-popup__label">Customer Care</span>
+              </div>
+              <div class="support-popup__value">+91 98451 10419</div>
+            </div>
+            <div class="support-popup__action"><i class="ri-phone-fill"></i></div>
+          </a>
+
+          <a href="tel:+918861859595" class="support-popup__item support-popup__item--rsa">
+            <div class="support-popup__icon support-popup__icon--rsa"><i class="ri-alarm-warning-line"></i></div>
+            <div class="support-popup__details">
+              <div class="support-popup__label-row">
+                <span class="support-popup__label">Roadside Assistance (RSA)</span>
+                <span class="support-popup__badge support-popup__badge--rsa">24/7 SOS</span>
+              </div>
+              <div class="support-popup__value">+91 88618 59595</div>
+            </div>
+            <div class="support-popup__action"><i class="ri-phone-fill"></i></div>
+          </a>
+
+          <a href="https://wa.me/918050263303?text=Hi%20Exter,%20I%20would%20like%20to%20connect%20with%20support"
+            target="_blank" rel="noopener noreferrer" class="support-popup__whatsapp">
+            <i class="ri-whatsapp-line"></i> <span>Chat on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(widgetEl);
+    avatarBtn = qs('#supportAvatarBtn');
+    popup = qs('#supportPopup');
+    closeBtn = qs('#supportPopupClose');
+  }
 
   if (!avatarBtn || !popup) return;
 
@@ -1951,13 +2198,94 @@ function initRiderFeedbackWidget() {
     });
   });
 
+  function sanitizeInput(str, maxLen = 60) {
+    if (typeof str !== 'string') return '';
+    return str.replace(/[\u0000-\u001F\u007F<>"'&]/g, '').trim().slice(0, maxLen);
+  }
+
+  ratingCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const rating = card.getAttribute('data-rating');
+      selectedRating = sanitizeInput(rating, 30) || 'Exceptional';
+
+      // Update current mood on widget (switches color theme in real-time)
+      const mood = moodMap[selectedRating] || 'exceptional';
+      widget.setAttribute('data-current-mood', mood);
+
+      ratingCards.forEach(c => {
+        c.classList.remove('is-active', 'is-popping');
+        c.setAttribute('aria-checked', 'false');
+      });
+
+      card.classList.add('is-active', 'is-popping');
+      card.setAttribute('aria-checked', 'true');
+
+      // Remove spring animation class after settling
+      setTimeout(() => {
+        card.classList.remove('is-popping');
+      }, 450);
+    });
+  });
+
+  appChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      appChips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      selectedApp = sanitizeInput(chip.getAttribute('data-app') || chip.textContent, 40) || 'Blinkit';
+    });
+  });
+
   hubChips.forEach(chip => {
     chip.addEventListener('click', () => {
       hubChips.forEach(c => c.classList.remove('is-active'));
       chip.classList.add('is-active');
-      selectedHub = chip.getAttribute('data-hub') || chip.textContent.trim();
+      selectedHub = sanitizeInput(chip.getAttribute('data-hub') || chip.textContent, 50) || 'Tavarekere Hub 04';
     });
   });
+
+  // Character Counter & Max Length Enforcement
+  const charCounter = qs('#feedbackCharCounter', widget);
+  const charCountDisplay = qs('#feedbackCharCount', widget);
+  const MAX_FEEDBACK_LENGTH = 1000;
+  const MIN_FEEDBACK_LENGTH = 10;
+
+  if (textarea && charCountDisplay) {
+    const updateCharCount = () => {
+      let val = textarea.value;
+      if (val.length > MAX_FEEDBACK_LENGTH) {
+        val = val.slice(0, MAX_FEEDBACK_LENGTH);
+        textarea.value = val;
+      }
+      const len = val.length;
+      charCountDisplay.textContent = String(len);
+      if (charCounter) {
+        charCounter.classList.toggle('is-warning', len >= 850 && len < MAX_FEEDBACK_LENGTH);
+        charCounter.classList.toggle('is-limit', len >= MAX_FEEDBACK_LENGTH);
+      }
+    };
+    textarea.addEventListener('input', updateCharCount);
+    textarea.addEventListener('paste', () => setTimeout(updateCharCount, 0));
+  }
+
+  // 100% XSS-Safe DOM Preview Construction (Zero innerHTML parsing)
+  function renderSafePreview(container, text) {
+    container.textContent = '';
+    const cleanText = text.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '');
+    if (!cleanText.trim()) {
+      const emptyNote = document.createElement('span');
+      emptyNote.style.color = '#86868B';
+      emptyNote.style.fontStyle = 'italic';
+      emptyNote.textContent = 'Nothing to preview. Enter your feedback above.';
+      container.appendChild(emptyNote);
+      return;
+    }
+
+    const lines = cleanText.split('\n');
+    lines.forEach((line, idx) => {
+      if (idx > 0) container.appendChild(document.createElement('br'));
+      container.appendChild(document.createTextNode(line));
+    });
+  }
 
   if (previewBtn && previewArea && textarea) {
     previewBtn.addEventListener('click', () => {
@@ -1966,18 +2294,7 @@ function initRiderFeedbackWidget() {
         previewBtn.textContent = 'Edit';
         textarea.style.display = 'none';
         previewArea.style.display = 'block';
-        const rawFeedback = textarea.value.trim();
-        if (rawFeedback) {
-          const safeText = rawFeedback
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-          previewArea.innerHTML = safeText.replace(/\n/g, '<br>');
-        } else {
-          previewArea.innerHTML = '<em>Nothing to preview. Enter your feedback above.</em>';
-        }
+        renderSafePreview(previewArea, textarea.value);
       } else {
         previewBtn.textContent = 'Preview';
         previewArea.style.display = 'none';
@@ -1987,50 +2304,93 @@ function initRiderFeedbackWidget() {
     });
   }
 
+  // Anti-Spam / Rate-limiting throttle
+  let lastSubmissionTime = 0;
+  const SUBMISSION_COOLDOWN_MS = 6000;
+
   if (submitBtn) {
     submitBtn.addEventListener('click', async () => {
-      const feedback = textarea ? textarea.value.trim() : '';
-      if (!feedback) {
-        textarea?.focus();
-        textarea?.setAttribute('placeholder', 'Please write a short note about your rider experience first...');
+      const rawText = textarea ? textarea.value : '';
+      const cleanFeedback = rawText.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').trim().slice(0, MAX_FEEDBACK_LENGTH);
+
+      // Validate length
+      if (cleanFeedback.length < MIN_FEEDBACK_LENGTH) {
+        if (textarea) {
+          if (isPreviewMode) {
+            // switch back to edit mode if currently previewing
+            previewBtn?.click();
+          }
+          textarea.classList.add('is-invalid');
+          textarea.focus();
+          textarea.setAttribute('placeholder', `Please write at least ${MIN_FEEDBACK_LENGTH} characters about your experience...`);
+          setTimeout(() => textarea.classList.remove('is-invalid'), 800);
+        }
         return;
       }
 
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Submitting Review...</span>';
+      // Check Rate Limit
+      const now = Date.now();
+      if (now - lastSubmissionTime < SUBMISSION_COOLDOWN_MS) {
+        const remaining = Math.ceil((SUBMISSION_COOLDOWN_MS - (now - lastSubmissionTime)) / 1000);
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Wait ${remaining}s...</span>`;
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Submit Experience</span>';
+        }, 1200);
+        return;
+      }
+      lastSubmissionTime = now;
 
-      // Simulate sending to fleet operations
-      await new Promise(r => setTimeout(r, 700));
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Submitting Experience...</span>';
+
+      // Simulate sending to fleet operations safely
+      await new Promise(r => setTimeout(r, 650));
 
       if (formBody) formBody.style.display = 'none';
       if (successArea) {
         successArea.style.display = 'flex';
         const summaryMsg = qs('p', successArea);
         if (summaryMsg) {
-          summaryMsg.innerHTML = `Your <strong>${selectedRating}</strong> review for <strong>${selectedApp}</strong> deliveries from <strong>${selectedHub}</strong> has been received. Thank you for powering a cleaner Bangalore!`;
+          // Zero innerHTML DOM XSS vector: construct using DOM text nodes
+          summaryMsg.textContent = '';
+          summaryMsg.appendChild(document.createTextNode('Your '));
+          const strongRating = document.createElement('strong');
+          strongRating.textContent = selectedRating;
+          summaryMsg.appendChild(strongRating);
+          summaryMsg.appendChild(document.createTextNode(' review for '));
+          const strongApp = document.createElement('strong');
+          strongApp.textContent = selectedApp;
+          summaryMsg.appendChild(strongApp);
+          summaryMsg.appendChild(document.createTextNode(' deliveries from '));
+          const strongHub = document.createElement('strong');
+          strongHub.textContent = selectedHub;
+          summaryMsg.appendChild(strongHub);
+          summaryMsg.appendChild(document.createTextNode(' has been received. Thank you for powering a cleaner Bangalore!'));
         }
       }
-
-      console.log('Rider Feedback Submitted:', {
-        rating: selectedRating,
-        app: selectedApp,
-        hub: selectedHub,
-        feedback
-      });
 
       // Reset after 5 seconds
       setTimeout(() => {
         if (successArea) successArea.style.display = 'none';
         if (formBody) formBody.style.display = 'block';
-        if (textarea) textarea.value = '';
+        if (textarea) {
+          textarea.value = '';
+          if (charCountDisplay) charCountDisplay.textContent = '0';
+          if (charCounter) {
+            charCounter.classList.remove('is-warning', 'is-limit');
+          }
+        }
         if (previewArea) {
           previewArea.style.display = 'none';
-          previewArea.innerHTML = '';
+          previewArea.textContent = '';
         }
         if (previewBtn) previewBtn.textContent = 'Preview';
         if (textarea) textarea.style.display = 'block';
+        isPreviewMode = false;
         submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span>Submit Rider Feedback</span>';
+        submitBtn.innerHTML = '<span>Submit Experience</span>';
       }, 5000);
     });
   }
@@ -2048,25 +2408,61 @@ function initRiderOnboardingShowcase() {
   const phoneMockup = qs('.smartphone-frame', section);
   const btnExplore = qs('#btnExploreRidersApp', section);
 
+  let currentActiveStep = 0;
+
+  function updateTrackProgress(index) {
+    if (!trackFill || steps.length < 2) return;
+    const track = qs('.onboarding-timeline-track', section);
+    if (!track) return;
+
+    // Connects seamlessly to the next stage or full track:
+    // When index is 0 (Step 1 active): liquid line pours to the center of Step 2
+    // When index is 1 (Step 2 active): liquid line pours to the center of Step 3
+    // When index is 2 (Step 3 active): liquid line completes the entire 100% path
+    const trackRect = track.getBoundingClientRect();
+    const targetIdx = Math.min(index + 1, steps.length - 1);
+    const targetStep = steps[targetIdx];
+    if (!targetStep) return;
+    const targetIndicator = targetStep.querySelector('.step-indicator');
+    if (!targetIndicator) return;
+
+    const indRect = targetIndicator.getBoundingClientRect();
+    const targetY = (indRect.top + indRect.height / 2) - trackRect.top;
+    const clampedY = Math.max(0, Math.min(trackRect.height, targetY));
+
+    trackFill.style.height = `${clampedY}px`;
+  }
+
   function setActiveStep(index) {
+    currentActiveStep = index;
     steps.forEach((step, idx) => {
       const isActive = idx === index;
+      const isCompleted = idx < index;
       step.classList.toggle('is-active', isActive);
+      step.classList.toggle('is-completed', isCompleted);
+      step.setAttribute('aria-current', isActive ? 'step' : 'false');
     });
 
-    if (trackFill) {
-      const fillPercentage = index === 0 ? '33%' : index === 1 ? '66%' : '100%';
-      trackFill.style.height = fillPercentage;
-    }
+    updateTrackProgress(index);
 
     if (phoneMockup) {
-      phoneMockup.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
-      phoneMockup.style.transform = 'scale(1.02)';
+      phoneMockup.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      phoneMockup.style.transform = 'scale(1.025)';
       setTimeout(() => {
         phoneMockup.style.transform = 'scale(1)';
-      }, 250);
+      }, 280);
     }
   }
+
+  // Handle window resizing to keep track alignment 100% pixel perfect
+  window.addEventListener('resize', () => {
+    updateTrackProgress(currentActiveStep);
+  }, { passive: true });
+
+  // Initial calculation on load / DOM ready
+  requestAnimationFrame(() => {
+    updateTrackProgress(currentActiveStep);
+  });
 
     // Apple App Screen Switcher (Production Ready Duo & Single Modes)
   const stage = qs('#appleAppStage', section);
@@ -2104,10 +2500,21 @@ function initRiderOnboardingShowcase() {
     });
   }
 
-  // Click on step cards to activate
+  // Click on step cards to activate + keyboard accessibility
   steps.forEach((step, idx) => {
+    step.setAttribute('tabindex', '0');
+    step.setAttribute('role', 'button');
+    step.setAttribute('aria-label', `Onboarding Step ${idx + 1}`);
+
     step.addEventListener('click', () => {
       setActiveStep(idx);
+    });
+
+    step.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setActiveStep(idx);
+      }
     });
   });
 
@@ -2753,6 +3160,9 @@ function initBikePromoPopup() {
   function openPopup() {
     // If modal is already open, don't duplicate
     if (backdrop.classList.contains('is-active')) return;
+    // Don't show if referral promo popup is active
+    const refBackdrop = qs('#referralPromoBackdrop');
+    if (refBackdrop && refBackdrop.classList.contains('is-active')) return;
     // Prevent appearing over active form typing
     if (isInBookingOrCheckoutFlow()) return;
 
@@ -2870,6 +3280,534 @@ function initBikePromoPopup() {
 }
 
 /* ==========================================================================
+   21. APPLE-INSPIRED COOKIE CONSENT MODULE (Cupertino Privacy Banner)
+   ========================================================================== */
+function initAppleCookieConsent() {
+  const STORAGE_KEY = 'exter_cookie_consent_v1';
+
+  // Check if consent has already been given
+  let savedConsent = null;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      savedConsent = JSON.parse(raw);
+    }
+  } catch (err) {
+    console.warn('EXTER: localStorage not available for cookie consent', err);
+  }
+
+  // Create the banner DOM if not already present
+  if (document.getElementById('appleCookieConsent')) {
+    return;
+  }
+
+  const consentEl = document.createElement('div');
+  consentEl.id = 'appleCookieConsent';
+  consentEl.className = 'apple-cookie-consent';
+  consentEl.setAttribute('role', 'dialog');
+  consentEl.setAttribute('aria-modal', 'false');
+  consentEl.setAttribute('aria-label', 'Cookie Privacy Settings');
+
+  consentEl.innerHTML = `
+    <div class="apple-cookie-card">
+      <div class="apple-cookie-header">
+        <div class="apple-cookie-text">
+          <div class="apple-cookie-title-row">
+            <span class="apple-cookie-emoji-badge" aria-label="Cookie preferences">
+              <span class="apple-cookie-animated-emoji">🍪</span>
+            </span>
+            <h2 class="apple-cookie-heading">We value your privacy</h2>
+          </div>
+          <p class="apple-cookie-subtext">
+            We use cookies to improve your experience, analyze traffic, and personalize content. Choose which cookies to allow.
+          </p>
+        </div>
+        <button type="button" class="apple-cookie-dismiss" id="appleCookieDismissBtn" aria-label="Dismiss cookie notice">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Expandable Categories Drawer -->
+      <div class="apple-cookie-drawer" id="appleCookieDrawer" aria-hidden="true">
+        <div class="apple-cookie-divider"></div>
+        <div class="apple-cookie-categories">
+          <!-- Strictly Necessary -->
+          <div class="apple-cookie-cat-item">
+            <div class="apple-cookie-cat-text">
+              <span class="apple-cookie-cat-title">Strictly necessary</span>
+              <span class="apple-cookie-cat-desc">Required for the site to function. Always on.</span>
+            </div>
+            <label class="apple-ios-switch apple-ios-switch-disabled" title="Required - Always on">
+              <input type="checkbox" checked disabled id="cookieCatNecessary" aria-label="Strictly necessary cookies">
+              <span class="apple-ios-slider"></span>
+            </label>
+          </div>
+
+          <!-- Analytics -->
+          <div class="apple-cookie-cat-item">
+            <div class="apple-cookie-cat-text">
+              <span class="apple-cookie-cat-title">Analytics</span>
+              <span class="apple-cookie-cat-desc">Help us understand how the product is used.</span>
+            </div>
+            <label class="apple-ios-switch" for="cookieCatAnalytics">
+              <input type="checkbox" checked id="cookieCatAnalytics" aria-label="Analytics cookies">
+              <span class="apple-ios-slider"></span>
+            </label>
+          </div>
+
+          <!-- Marketing -->
+          <div class="apple-cookie-cat-item">
+            <div class="apple-cookie-cat-text">
+              <span class="apple-cookie-cat-title">Marketing</span>
+              <span class="apple-cookie-cat-desc">Used to personalize ads and measure campaigns.</span>
+            </div>
+            <label class="apple-ios-switch" for="cookieCatMarketing">
+              <input type="checkbox" id="cookieCatMarketing" aria-label="Marketing cookies">
+              <span class="apple-ios-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="apple-cookie-divider"></div>
+
+      <!-- Actions -->
+      <div class="apple-cookie-footer">
+        <button type="button" class="apple-cookie-btn apple-cookie-btn-ghost" id="appleCookieCustomizeBtn">
+          Customize
+        </button>
+        <div class="apple-cookie-actions-group">
+          <button type="button" class="apple-cookie-btn apple-cookie-btn-secondary" id="appleCookieRejectBtn">
+            Reject all
+          </button>
+          <button type="button" class="apple-cookie-btn apple-cookie-btn-primary" id="appleCookieAcceptBtn">
+            Accept all
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(consentEl);
+
+  const card = consentEl.querySelector('.apple-cookie-card');
+  const dismissBtn = consentEl.querySelector('#appleCookieDismissBtn');
+  const customizeBtn = consentEl.querySelector('#appleCookieCustomizeBtn');
+  const rejectBtn = consentEl.querySelector('#appleCookieRejectBtn');
+  const acceptBtn = consentEl.querySelector('#appleCookieAcceptBtn');
+  const drawer = consentEl.querySelector('#appleCookieDrawer');
+  const analyticsInput = consentEl.querySelector('#cookieCatAnalytics');
+  const marketingInput = consentEl.querySelector('#cookieCatMarketing');
+
+  let isExpanded = false;
+
+  function showBanner() {
+    consentEl.classList.add('is-visible');
+  }
+
+  function hideBanner() {
+    consentEl.classList.remove('is-visible');
+  }
+
+  function savePreferences(analytics, marketing) {
+    const consent = {
+      necessary: true,
+      analytics: !!analytics,
+      marketing: !!marketing,
+      savedAt: new Date().toISOString()
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    } catch (e) {
+      console.warn('EXTER: unable to save cookie consent', e);
+    }
+    hideBanner();
+  }
+
+  // Populate from existing saved consent if any
+  if (savedConsent) {
+    if (analyticsInput) analyticsInput.checked = !!savedConsent.analytics;
+    if (marketingInput) marketingInput.checked = !!savedConsent.marketing;
+  } else {
+    // Show banner after brief natural entrance delay (800ms)
+    setTimeout(() => {
+      showBanner();
+    }, 800);
+  }
+
+  // Dismiss button: hides for this session
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      hideBanner();
+    });
+  }
+
+  // Customize toggle
+  if (customizeBtn) {
+    customizeBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      if (isExpanded) {
+        drawer.classList.add('is-open');
+        drawer.setAttribute('aria-hidden', 'false');
+        customizeBtn.style.display = 'none';
+        acceptBtn.textContent = 'Save preferences';
+      }
+    });
+  }
+
+  // Reject All
+  if (rejectBtn) {
+    rejectBtn.addEventListener('click', () => {
+      if (analyticsInput) analyticsInput.checked = false;
+      if (marketingInput) marketingInput.checked = false;
+      savePreferences(false, false);
+    });
+  }
+
+  // Accept All / Save preferences
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      if (isExpanded) {
+        savePreferences(analyticsInput ? analyticsInput.checked : false, marketingInput ? marketingInput.checked : false);
+      } else {
+        if (analyticsInput) analyticsInput.checked = true;
+        if (marketingInput) marketingInput.checked = true;
+        savePreferences(true, true);
+      }
+    });
+  }
+
+  // Allow reopening anytime via links with href="#cookie-settings" or .open-cookie-settings
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[href="#cookie-settings"], [href="#cookie-preferences"], .open-cookie-settings');
+    if (trigger) {
+      e.preventDefault();
+      // Auto expand when opened via footer trigger
+      isExpanded = true;
+      if (drawer) {
+        drawer.classList.add('is-open');
+        drawer.setAttribute('aria-hidden', 'false');
+      }
+      if (customizeBtn) customizeBtn.style.display = 'none';
+      if (acceptBtn) acceptBtn.textContent = 'Save preferences';
+      showBanner();
+    }
+  });
+}
+
+/* ==========================================================================
+   22. APPLE-INSPIRED REFER & EARN PROMOTIONAL POPUP CONTROLLER
+   ========================================================================== */
+function initReferralPromoPopup() {
+  const backdrop = qs('#referralPromoBackdrop');
+  const modal = qs('#referralPromoModal');
+  const closeBtn = qs('#referralPromoClose');
+  const dismissBtn = qs('#referralDismissBtn');
+  const shareBtn = qs('#referralShareBtn');
+  const copyCodeBtn = qs('#referralCopyCodeBtn');
+  const copyLinkBtn = qs('#referralCopyLinkBtn');
+  const codeDisplay = qs('#referralCodeDisplay');
+  const linkInput = qs('#referralLinkInput');
+  const toast = qs('#referralToast');
+  const toastMsg = qs('#referralToastMsg');
+  const navTrigger = qs('#navReferBtn');
+  const footerTrigger = qs('#footerReferLink');
+  const bookingReferralInput = qs('#bookingReferralCode');
+
+  if (!backdrop || !modal) return;
+
+  const STORAGE_KEY_CODE = 'exter_user_referral_code';
+  const STORAGE_KEY_DISMISSED = 'exter_referral_dismissed_at';
+  const STORAGE_KEY_REFERRED_BY = 'exter_referred_by_code';
+  const AUTO_DISPLAY_DELAY_MS = 8000; // 8 seconds delay
+  const DISMISSAL_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days cooldown
+
+  let previousActiveElement = null;
+  let toastTimer = null;
+
+  // 1. Generate or retrieve persistent unique referral code for this user
+  let userReferralCode = '';
+  try {
+    userReferralCode = localStorage.getItem(STORAGE_KEY_CODE);
+  } catch (err) {
+    console.warn('LocalStorage unavailable:', err);
+  }
+
+  if (!userReferralCode) {
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    userReferralCode = `EXTER-RIDE-${randomSuffix}`;
+    try {
+      localStorage.setItem(STORAGE_KEY_CODE, userReferralCode);
+    } catch (e) {
+      console.warn('Could not save referral code:', e);
+    }
+  }
+
+  // Generate unique URL link
+  const origin = window.location.origin && window.location.origin !== 'null' ? window.location.origin : 'https://exter.co';
+  const pathname = window.location.pathname || '/';
+  const referralLink = `${origin}${pathname}?ref=${userReferralCode}`;
+
+  // Populate UI elements
+  if (codeDisplay) codeDisplay.textContent = userReferralCode;
+  if (linkInput) linkInput.value = referralLink;
+
+  // 2. Handle incoming ?ref= referral link in URL query parameters
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const incomingRef = urlParams.get('ref');
+    if (incomingRef) {
+      const sanitizedRef = incomingRef.trim().toUpperCase();
+      try {
+        localStorage.setItem(STORAGE_KEY_REFERRED_BY, sanitizedRef);
+      } catch (e) {}
+      if (bookingReferralInput) {
+        bookingReferralInput.value = sanitizedRef;
+      }
+      trackEvent('referral_link_landed', {
+        referral_code: sanitizedRef,
+        url: window.location.href
+      });
+    } else {
+      const storedReferredBy = localStorage.getItem(STORAGE_KEY_REFERRED_BY);
+      if (storedReferredBy && bookingReferralInput && !bookingReferralInput.value) {
+        bookingReferralInput.value = storedReferredBy;
+      }
+    }
+  } catch (err) {
+    console.warn('Error processing referral parameters:', err);
+  }
+
+  // Telemetry helper
+  function trackEvent(eventName, payload = {}) {
+    const eventData = {
+      event: eventName,
+      timestamp: new Date().toISOString(),
+      user_referral_code: userReferralCode,
+      ...payload
+    };
+    if (window.exterTelemetry && typeof window.exterTelemetry.track === 'function') {
+      window.exterTelemetry.track(eventName, eventData);
+    }
+    window.dispatchEvent(new CustomEvent('exter:telemetry', { detail: eventData }));
+    console.info(`[EXTER Referral Telemetry] ${eventName}`, eventData);
+  }
+
+  // Toast notification
+  function showToast(message) {
+    if (!toast) return;
+    if (toastMsg) toastMsg.textContent = message;
+    toast.classList.add('is-active');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('is-active');
+    }, 3200);
+  }
+
+  // Check if user is typing in forms or completing booking
+  function isInBookingOrCheckoutFlow() {
+    const hash = window.location.hash;
+    if (hash === '#rentalPricing' || hash === '#rentalSystem' || hash === '#savingsCalculator') {
+      return true;
+    }
+    const activeEl = document.activeElement;
+    if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'SELECT' || activeEl.tagName === 'TEXTAREA')) {
+      if (activeEl.closest('#rentalSystem') || activeEl.closest('#savingsCalculator') || activeEl.closest('form')) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // Check if cooldown has passed
+  function isUnderCooldown() {
+    try {
+      const dismissedAt = localStorage.getItem(STORAGE_KEY_DISMISSED);
+      if (!dismissedAt) return false;
+      const timeDiff = Date.now() - parseInt(dismissedAt, 10);
+      return timeDiff < DISMISSAL_COOLDOWN_MS;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function openPopup(forceManual = false) {
+    if (backdrop.classList.contains('is-active')) return;
+
+    // If auto-triggered, check cooldown and booking flow
+    if (!forceManual) {
+      if (isUnderCooldown()) return;
+      if (isInBookingOrCheckoutFlow()) return;
+    }
+
+    // Ensure bike promo popup isn't currently displaying
+    const bikeBackdrop = qs('#bikePromoBackdrop');
+    if (bikeBackdrop && bikeBackdrop.classList.contains('is-active')) return;
+
+    previousActiveElement = document.activeElement;
+
+    backdrop.classList.add('is-active');
+    backdrop.setAttribute('aria-hidden', 'false');
+
+    if (shareBtn) {
+      shareBtn.focus();
+    } else if (closeBtn) {
+      closeBtn.focus();
+    }
+
+    trackEvent('referral_popup_impression', {
+      trigger: forceManual ? 'manual_user_click' : 'auto_delay_8s'
+    });
+  }
+
+  function closePopup(reason = 'dismissed') {
+    if (!backdrop.classList.contains('is-active')) return;
+
+    backdrop.classList.remove('is-active');
+    backdrop.setAttribute('aria-hidden', 'true');
+
+    if (reason === 'dismissed' || reason === 'maybe_later' || reason === 'close_button' || reason === 'backdrop_click' || reason === 'escape_key') {
+      try {
+        localStorage.setItem(STORAGE_KEY_DISMISSED, Date.now().toString());
+      } catch (e) {
+        console.warn('Storage unavailable:', e);
+      }
+    }
+
+    if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+      previousActiveElement.focus();
+    }
+
+    trackEvent('referral_popup_closed', { reason });
+  }
+
+  // Copy Code to Clipboard
+  if (copyCodeBtn) {
+    copyCodeBtn.addEventListener('click', () => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(userReferralCode).then(() => {
+          showToast('Referral code copied to clipboard!');
+          trackEvent('referral_code_copied', { code: userReferralCode });
+        }).catch(() => {
+          fallbackCopy(userReferralCode, 'Referral code copied!');
+        });
+      } else {
+        fallbackCopy(userReferralCode, 'Referral code copied!');
+      }
+    });
+  }
+
+  // Copy Link to Clipboard
+  if (copyLinkBtn) {
+    copyLinkBtn.addEventListener('click', () => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(referralLink).then(() => {
+          showToast('Referral link copied to clipboard!');
+          trackEvent('referral_link_copied', { link: referralLink });
+        }).catch(() => {
+          fallbackCopy(referralLink, 'Referral link copied!');
+        });
+      } else {
+        fallbackCopy(referralLink, 'Referral link copied!');
+      }
+    });
+  }
+
+  function fallbackCopy(text, successMsg) {
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+      showToast(successMsg);
+    } catch (err) {
+      showToast('Press Ctrl+C to copy');
+    }
+    document.body.removeChild(tempInput);
+  }
+
+  // WhatsApp Share Action
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      const shareText = `Hey! I ride an EXTER Smart EV scooter for my deliveries. Rent yours with zero fuel expense, 100% free battery swaps, and get ₹500 off when you join using my code: ${userReferralCode}! Sign up here: ${referralLink}`;
+      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+      trackEvent('referral_shared_whatsapp', { code: userReferralCode, link: referralLink });
+    });
+  }
+
+  // Dismiss Actions
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => closePopup('close_button'));
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => closePopup('maybe_later'));
+  }
+
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closePopup('backdrop_click');
+    }
+  });
+
+  // Manual trigger buttons (Navbar pill & Footer link)
+  if (navTrigger) {
+    navTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup(true);
+    });
+  }
+
+  if (footerTrigger) {
+    footerTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup(true);
+    });
+  }
+
+  // Keyboard accessibility
+  document.addEventListener('keydown', (e) => {
+    if (!backdrop.classList.contains('is-active')) return;
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closePopup('escape_key');
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusableEls = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!focusableEls.length) return;
+
+      const firstEl = focusableEls[0];
+      const lastEl = focusableEls[focusableEls.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
+  });
+
+  // Display after short delay (8 seconds), only if not dismissed recently
+  setTimeout(() => {
+    openPopup(false);
+  }, AUTO_DISPLAY_DELAY_MS);
+}
+
+/* ==========================================================================
    6. GLOBAL INITIALIZATION
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
@@ -2893,6 +3831,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initInteractiveHubMap();
   initContactForm();
   initBikePromoPopup();
+  initReferralPromoPopup();
+  initAppleCookieConsent();
 
   // Print brand console signature
   console.log('%cEXTER %cSmart Electric Mobility. Simplified.', 'color:#0038FF;font-weight:900;font-size:16px;', 'color:#6E6E73;font-size:13px;');
