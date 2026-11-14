@@ -3208,6 +3208,9 @@ function initBikePromoPopup() {
         reason: reason
       });
     }
+
+    // Signal that main notification has been completed/dismissed
+    window.dispatchEvent(new CustomEvent('exter:main-notification-dismissed', { detail: { reason } }));
   }
 
   // Event Listeners
@@ -3268,10 +3271,11 @@ function initBikePromoPopup() {
     }
   });
 
-  // First appearance 1 minute (60s) after page load, and every 1 minute recurring
+  // First appearance 6 seconds after page load for the main notification
+  const INITIAL_MAIN_POPUP_DELAY_MS = 6000;
   setTimeout(() => {
     openPopup();
-  }, POPUP_INTERVAL_MS);
+  }, INITIAL_MAIN_POPUP_DELAY_MS);
 
   // Set recurring 1-minute interval (60,000ms)
   setInterval(() => {
@@ -3684,34 +3688,52 @@ function initReferralPromoPopup() {
     trackEvent('referral_popup_closed', { reason });
   }
 
+  function triggerButtonCopied(button, originalHtml, temporaryHtml = '<i class="ri-check-line"></i><span>Copied</span>') {
+    if (!button) return;
+    button.innerHTML = temporaryHtml;
+    button.classList.add('is-copied');
+    setTimeout(() => {
+      button.innerHTML = originalHtml;
+      button.classList.remove('is-copied');
+    }, 2000);
+  }
+
   // Copy Code to Clipboard
   if (copyCodeBtn) {
+    const origCodeHtml = copyCodeBtn.innerHTML;
     copyCodeBtn.addEventListener('click', () => {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(userReferralCode).then(() => {
           showToast('Referral code copied to clipboard!');
+          triggerButtonCopied(copyCodeBtn, origCodeHtml);
           trackEvent('referral_code_copied', { code: userReferralCode });
         }).catch(() => {
           fallbackCopy(userReferralCode, 'Referral code copied!');
+          triggerButtonCopied(copyCodeBtn, origCodeHtml);
         });
       } else {
         fallbackCopy(userReferralCode, 'Referral code copied!');
+        triggerButtonCopied(copyCodeBtn, origCodeHtml);
       }
     });
   }
 
   // Copy Link to Clipboard
   if (copyLinkBtn) {
+    const origLinkHtml = copyLinkBtn.innerHTML;
     copyLinkBtn.addEventListener('click', () => {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(referralLink).then(() => {
           showToast('Referral link copied to clipboard!');
+          triggerButtonCopied(copyLinkBtn, origLinkHtml);
           trackEvent('referral_link_copied', { link: referralLink });
         }).catch(() => {
           fallbackCopy(referralLink, 'Referral link copied!');
+          triggerButtonCopied(copyLinkBtn, origLinkHtml);
         });
       } else {
         fallbackCopy(referralLink, 'Referral link copied!');
+        triggerButtonCopied(copyLinkBtn, origLinkHtml);
       }
     });
   }
@@ -3801,10 +3823,25 @@ function initReferralPromoPopup() {
     }
   });
 
-  // Display after short delay (8 seconds), only if not dismissed recently
+  // Trigger referral notification AFTER the main notification is dismissed
+  let mainNotificationHandled = false;
+  window.addEventListener('exter:main-notification-dismissed', () => {
+    if (mainNotificationHandled) return;
+    mainNotificationHandled = true;
+    setTimeout(() => {
+      openPopup(false);
+    }, 3500); // 3.5 seconds after main notification is dismissed
+  });
+
+  // Fallback: If user stays on page and main notification did not show after 28 seconds
   setTimeout(() => {
-    openPopup(false);
-  }, AUTO_DISPLAY_DELAY_MS);
+    if (!mainNotificationHandled) {
+      const bikeBackdrop = qs('#bikePromoBackdrop');
+      if (!bikeBackdrop || !bikeBackdrop.classList.contains('is-active')) {
+        openPopup(false);
+      }
+    }
+  }, 28000);
 }
 
 /* ==========================================================================
