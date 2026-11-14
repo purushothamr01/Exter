@@ -59,8 +59,11 @@
   </header>
 
   <!-- Hero Header (Apple Specular Glow & Fluid Typography) -->
-  <section class="section section--secondary" style="padding-top:calc(var(--nav-h) + 4rem); padding-bottom:4.5rem; position:relative; overflow:hidden;">
-    <div aria-hidden="true" style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:1000px; height:450px; background:radial-gradient(ellipse 65% 55% at 50% 0%, rgba(48, 40, 165, 0.08) 0%, transparent 70%); pointer-events:none;"></div>
+  <section class="section section--secondary"
+    style="padding-top:calc(var(--nav-h) + 4rem); padding-bottom:4.5rem; position:relative; overflow:hidden;">
+    <div aria-hidden="true"
+      style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:1000px; height:450px; background:radial-gradient(ellipse 65% 55% at 50% 0%, rgba(48, 40, 165, 0.08) 0%, transparent 70%); pointer-events:none;">
+    </div>
     <div class="container" style="position:relative; z-index:2;">
       <div class="section__header-left apple-reveal">
         <div class="apple-hero-pill">
@@ -85,16 +88,19 @@
         <div class="solution-card apple-reveal" style="padding:2.5rem;">
           <div class="solution-card__icon-box"><i class="ri-compass-3-line"></i></div>
           <span class="apple-eyebrow">Our Mission</span>
-          <h3 style="font-size:1.75rem; font-weight:800; margin-bottom:1rem; letter-spacing:-0.02em;">Convenient &amp; Dependable</h3>
+          <h3 style="font-size:1.75rem; font-weight:800; margin-bottom:1rem; letter-spacing:-0.02em;">Convenient &amp;
+            Dependable</h3>
           <p style="font-size:1.05rem; color:var(--text-secondary); line-height:1.7;">
-            Make electric mobility convenient with reliable swapping, affordable plans and dependable scooters for high-usage riders.
+            Make electric mobility convenient with reliable swapping, affordable plans and dependable scooters for
+            high-usage riders.
           </p>
         </div>
 
         <div class="solution-card apple-reveal" style="padding:2.5rem; transition-delay:0.12s;">
           <div class="solution-card__icon-box"><i class="ri-eye-line"></i></div>
           <span class="apple-eyebrow">Our Vision</span>
-          <h3 style="font-size:1.75rem; font-weight:800; margin-bottom:1rem; letter-spacing:-0.02em;">India’s Most Trusted Network</h3>
+          <h3 style="font-size:1.75rem; font-weight:800; margin-bottom:1rem; letter-spacing:-0.02em;">India’s Most
+            Trusted Network</h3>
           <p style="font-size:1.05rem; color:var(--text-secondary); line-height:1.7;">
             Become one of India’s most trusted battery swapping networks, powering millions of cleaner kilometres.
           </p>
@@ -215,37 +221,73 @@
   </section>
 
   <!-- Technology & Infrastructure -->
-  <section class="section section--secondary">
+  <section class="section section--secondary" style="overflow: hidden; position: relative;">
     <div class="container">
-      <div class="section__header-center">
+      <div class="section__header-center apple-reveal">
         <span class="apple-eyebrow">Core Capabilities</span>
-        <h2 class="section__title">Technology &amp; Infrastructure</h2>
+        <h2 class="section__title">Technology &amp; <span class="apple-gradient-text">Infrastructure.</span></h2>
         <p class="section__lead">
           Built from the ground up with automotive-grade durability, proprietary battery safety telemetry, and smart
           grid orchestration.
         </p>
       </div>
 
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon"><i class="ri-battery-2-charge-line"></i></div>
-          <h4>Smart Battery Architecture</h4>
-          <p>Multi-layered thermal shielding, internal fire suppression safeguards, and active cell balancing ensure
-            safety under extreme operating climates.</p>
+      <div class="apple-tech-bento">
+        <!-- Card 1: Smart Battery Architecture -->
+        <div class="apple-tech-card apple-reveal">
+          <div class="apple-tech-card__top">
+            <div class="apple-tech-chip">
+              <i class="ri-battery-2-charge-line"></i>
+            </div>
+            <span class="apple-tech-badge">AIS-156 · IP67</span>
+          </div>
+          <h3 class="apple-tech-title">Smart Battery Architecture</h3>
+          <p class="apple-tech-desc">
+            Multi-layered thermal shielding, internal fire suppression safeguards, and active cell balancing ensure uncompromised safety under extreme tropical climates and high workloads.
+          </p>
+          <ul class="apple-check-list">
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Phase-change thermal isolation shield</li>
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Continuous active cell balancing</li>
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Dual-layer flame retardant housing</li>
+          </ul>
         </div>
 
-        <div class="why-card">
-          <div class="why-icon"><i class="ri-cloud-line"></i></div>
-          <h4>Real-Time Cloud Telemetry</h4>
-          <p>Every battery pack communicates state-of-health, remaining range, and internal temperature to our
-            centralized operations cloud.</p>
+        <!-- Card 2: Real-Time Cloud Telemetry -->
+        <div class="apple-tech-card apple-reveal" style="transition-delay:0.1s;">
+          <div class="apple-tech-card__top">
+            <div class="apple-tech-chip">
+              <i class="ri-cloud-line"></i>
+            </div>
+            <span class="apple-tech-badge">4G LTE · 500MS</span>
+          </div>
+          <h3 class="apple-tech-title">Real-Time Cloud Telemetry</h3>
+          <p class="apple-tech-desc">
+            Every battery pack communicates state-of-health, remaining range, impedance, and internal temperature to our centralized operations cloud with sub-second responsiveness.
+          </p>
+          <ul class="apple-check-list">
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Live State of Health (SoH) diagnostics</li>
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Predictive cell degradation protection</li>
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Automatic quarantine of stressed packs</li>
+          </ul>
         </div>
 
-        <div class="why-card">
-          <div class="why-icon"><i class="ri-server-line"></i></div>
-          <h4>Automated Station Vaults</h4>
-          <p>Micro-climate controlled charging slots protect batteries from power surges and optimize charging curves to
-            prolong battery longevity.</p>
+        <!-- Card 3: Automated Station Vaults -->
+        <div class="apple-tech-card apple-reveal" style="transition-delay:0.2s;">
+          <div class="apple-tech-card__top">
+            <div class="apple-tech-chip">
+              <i class="ri-server-line"></i>
+            </div>
+            <span class="apple-tech-badge">24-BAY · SURGE SAFE</span>
+          </div>
+          <h3 class="apple-tech-title">Automated Station Vaults</h3>
+          <p class="apple-tech-desc">
+            Micro-climate controlled charging slots protect batteries from power surges and dynamically optimize charging curves to prolong battery longevity and guarantee ready packs.
+          </p>
+          <ul class="apple-check-list">
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Climate-shield air-conditioned bays</li>
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> 10kA transient power surge arrestors</li>
+            <li><span class="apple-check-icon"><i class="ri-check-line"></i></span> Rapid 60-second robotic latch release</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -254,16 +296,16 @@
   <!-- Company Values -->
   <section class="section">
     <div class="container">
-      <div class="section__header-center">
+      <div class="section__header-center apple-reveal">
         <span class="apple-eyebrow">Our Values</span>
-        <h2 class="section__title">The Principles Guiding EXTER</h2>
+        <h2 class="section__title">The Principles <span class="apple-gradient-text">Guiding EXTER.</span></h2>
         <p class="section__lead">
           How we build products, support our rider community, and engage with partners.
         </p>
       </div>
 
       <div class="steps-grid">
-        <div class="step-card">
+        <div class="step-card apple-reveal">
           <div class="step-number"><i class="ri-focus-2-line" style="font-size:2.5rem; color:var(--clr-brand);"></i>
           </div>
           <h4>Rider-First Obsession</h4>
@@ -271,7 +313,7 @@
             safety, comfort, and productivity.</p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card apple-reveal" style="transition-delay:0.1s;">
           <div class="step-number"><i class="ri-shield-check-line"
               style="font-size:2.5rem; color:var(--clr-brand);"></i></div>
           <h4>Radical Transparency</h4>
@@ -279,7 +321,7 @@
             charges.</p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card apple-reveal" style="transition-delay:0.2s;">
           <div class="step-number"><i class="ri-leaf-line" style="font-size:2.5rem; color:var(--clr-brand);"></i></div>
           <h4>Tangible Sustainability</h4>
           <p>Measurable carbon displacement tracked on every kilometer driven, powering real ecological progress in our
@@ -306,9 +348,7 @@
         <div class="leadership-card apple-reveal">
           <div class="leadership-card__media">
             <img src="../../media/images/Team/Leadership/abhilash-dv.jpg?v=20261112"
-                 alt="Abhilash D.V. - Founder &amp; Director"
-                 class="leadership-card__img"
-                 loading="lazy">
+              alt="Abhilash D.V. - Founder &amp; Director" class="leadership-card__img" loading="lazy">
             <div class="leadership-card__media-glow" aria-hidden="true"></div>
           </div>
           <div class="leadership-card__body">
@@ -318,10 +358,12 @@
             <h3 class="leadership-card__name">Abhilash D.V.</h3>
             <span class="leadership-card__designation">Founder &bull; Director &bull; Chief Operating Officer</span>
             <p class="leadership-card__bio">
-              Orchestrating citywide swapping hub logistics, real-time battery lifecycle management, automotive engineering, and rider earnings optimization across metropolitan corridors.
+              Orchestrating citywide swapping hub logistics, real-time battery lifecycle management, automotive
+              engineering, and rider earnings optimization across metropolitan corridors.
             </p>
             <div class="leadership-card__footer">
-              <a href="https://www.linkedin.com/company/exterapp/" target="_blank" rel="noopener noreferrer" class="leadership-social-link" aria-label="Abhilash D.V. on LinkedIn">
+              <a href="https://www.linkedin.com/company/exterapp/" target="_blank" rel="noopener noreferrer"
+                class="leadership-social-link" aria-label="Abhilash D.V. on LinkedIn">
                 <i class="ri-linkedin-fill"></i> <span>LinkedIn Profile</span>
               </a>
             </div>
@@ -339,66 +381,69 @@
       <div class="team-showcase" id="teamShowcase">
         <!-- Left: Staggered 3-Column Photo Mosaic -->
         <div class="team-showcase__mosaic">
-          <!-- Column 1 (Index 0, 3, 6 -> Nagabhooshana Hegde, Shiaraj Kumar Melgeri, Vivek M D) -->
+          <!-- Column 1 (Top: Mukesh Kumar [Manager], Mid: Nagabhooshana Hegde [Asst Mgr], Bot: Vivek M D [Asst Mgr]) -->
           <div class="team-showcase__col team-showcase__col--1">
-            <div class="team-photo-card" data-member="1" tabindex="0" role="button" aria-label="Nagabhooshana Hegde - Assistant Manager – Battery, Charging Infrastructure &amp; Maintenance">
-              <img src="../../media/images/Team/Manager/Bhushn.jpeg" alt="Nagabhooshana Hegde" class="team-photo-card__img" loading="lazy" />
+            <div class="team-photo-card" data-member="1" tabindex="0" role="button"
+              aria-label="Mukesh Kumar - Manager - Hub Expansion &amp; Execution">
+              <img src="../../media/images/Team/Manager/Mukesh.jpeg" alt="Mukesh Kumar" class="team-photo-card__img"
+                loading="lazy" />
             </div>
-            <div class="team-photo-card" data-member="4" tabindex="0" role="button" aria-label="Shiaraj Kumar Melgeri - Assistant Manager - Rider Growth &amp; Sales">
-              <img src="../../media/images/Team/Manager/shivu.jpeg" alt="Shiaraj Kumar Melgeri" class="team-photo-card__img" loading="lazy" />
+            <div class="team-photo-card" data-member="4" tabindex="0" role="button"
+              aria-label="Nagabhooshana Hegde - Assistant Manager – Battery, Charging Infrastructure &amp; Maintenance">
+              <img src="../../media/images/Team/Manager/Bhushn.jpeg" alt="Nagabhooshana Hegde"
+                class="team-photo-card__img" loading="lazy" />
             </div>
-            <div class="team-photo-card" data-member="7" tabindex="0" role="button" aria-label="Vivek M D - Assistant Manager - EV Fleet Operations &amp; Maintenance">
-              <img src="../../media/images/Team/Manager/Vivek.jpeg" alt="Vivek M D" class="team-photo-card__img" loading="lazy" />
+            <div class="team-photo-card" data-member="7" tabindex="0" role="button"
+              aria-label="Vivek M D - Assistant Manager - EV Fleet Operations &amp; Maintenance">
+              <img src="../../media/images/Team/Manager/Vivek.jpeg" alt="Vivek M D" class="team-photo-card__img"
+                loading="lazy" />
             </div>
           </div>
 
-          <!-- Column 2 (Index 1, 4 -> Mukesh Kumar, Sunil Kumar Ravi) - Offset Top -->
+          <!-- Column 2 (Top: Santhosh Kumar NY [Manager], Bot: Shiaraj Kumar Melgeri [Asst Mgr]) - Offset Top -->
           <div class="team-showcase__col team-showcase__col--2">
-            <div class="team-photo-card" data-member="2" tabindex="0" role="button" aria-label="Mukesh Kumar - Manager - Hub Expansion &amp; Execution">
-              <img src="../../media/images/Team/Manager/Mukesh.jpeg" alt="Mukesh Kumar" class="team-photo-card__img" loading="lazy" />
+            <div class="team-photo-card" data-member="2" tabindex="0" role="button"
+              aria-label="Santhosh Kumar NY - Manager - Service Manager">
+              <img src="../../media/images/Team/Manager/santhu.jpg" alt="Santhosh Kumar NY" class="team-photo-card__img"
+                loading="lazy" />
             </div>
-            <div class="team-photo-card" data-member="5" tabindex="0" role="button" aria-label="Sunil Kumar Ravi - Manager - Battery Swapping Operations">
-              <img src="../../media/images/Team/Manager/Sunil.jpeg" alt="Sunil Kumar Ravi" class="team-photo-card__img" loading="lazy" />
+            <div class="team-photo-card" data-member="5" tabindex="0" role="button"
+              aria-label="Shiaraj Kumar Melgeri - Assistant Manager - Rider Growth &amp; Sales">
+              <img src="../../media/images/Team/Manager/shivu.jpeg" alt="Shiaraj Kumar Melgeri"
+                class="team-photo-card__img" loading="lazy" />
             </div>
           </div>
 
-          <!-- Column 3 (Index 2, 5 -> Santhosh Kumar NY, TILAK C) - Offset Top -->
+          <!-- Column 3 (Top: Sunil Kumar Ravi [Manager], Bot: TILAK C [Asst Mgr]) - Offset Top -->
           <div class="team-showcase__col team-showcase__col--3">
-            <div class="team-photo-card" data-member="3" tabindex="0" role="button" aria-label="Santhosh Kumar NY - Manager - Service Manager">
-              <img src="../../media/images/Team/Manager/santhu.jpg" alt="Santhosh Kumar NY" class="team-photo-card__img" loading="lazy" />
+            <div class="team-photo-card" data-member="3" tabindex="0" role="button"
+              aria-label="Sunil Kumar Ravi - Manager - Battery Swapping Operations">
+              <img src="../../media/images/Team/Manager/Sunil.jpeg" alt="Sunil Kumar Ravi" class="team-photo-card__img"
+                loading="lazy" />
             </div>
-            <div class="team-photo-card" data-member="6" tabindex="0" role="button" aria-label="TILAK C - Assistant Manager - Backend Software Implementation &amp; Asset Manager">
-              <img src="../../media/images/Team/Manager/Tilak.jpeg" alt="TILAK C" class="team-photo-card__img" loading="lazy" />
+            <div class="team-photo-card" data-member="6" tabindex="0" role="button"
+              aria-label="TILAK C - Assistant Manager - Backend Software Implementation &amp; Asset Manager">
+              <img src="../../media/images/Team/Manager/Tilak.jpeg" alt="TILAK C" class="team-photo-card__img"
+                loading="lazy" />
             </div>
           </div>
         </div>
 
         <!-- Right: Interactive Member List with Expanding Indicator & Slide-in Socials -->
         <div class="team-showcase__list" role="list">
-          <!-- Member 1: Nagabhooshana Hegde -->
-          <div class="team-member-row" data-member="1" tabindex="0" role="listitem">
-            <div class="team-member-row__header">
-              <span class="team-member-pill" aria-hidden="true"></span>
-              <span class="team-member-name">Nagabhooshana Hegde</span>
-              <div class="team-member-social">
-                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
-                  <i class="ri-linkedin-fill"></i>
-                </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X profile">
-                  <i class="ri-twitter-x-line"></i>
-                </a>
-              </div>
-            </div>
-            <span class="team-member-role">ASSISTANT MANAGER – BATTERY, CHARGING INFRASTRUCTURE &amp; MAINTENANCE</span>
+          <!-- GROUP 1: MANAGERS (FIRST) -->
+          <div class="team-group-header">
+            <span class="team-group-pill">Managers</span>
           </div>
 
-          <!-- Member 2: Mukesh Kumar -->
-          <div class="team-member-row" data-member="2" tabindex="0" role="listitem">
+          <!-- Member 1: Mukesh Kumar -->
+          <div class="team-member-row" data-member="1" tabindex="0" role="listitem">
             <div class="team-member-row__header">
               <span class="team-member-pill" aria-hidden="true"></span>
               <span class="team-member-name">Mukesh Kumar</span>
               <div class="team-member-social">
-                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
                   <i class="ri-linkedin-fill"></i>
                 </a>
               </div>
@@ -406,16 +451,18 @@
             <span class="team-member-role">MANAGER - HUB EXPANSION &amp; EXECUTION</span>
           </div>
 
-          <!-- Member 3: Santhosh Kumar NY -->
-          <div class="team-member-row" data-member="3" tabindex="0" role="listitem">
+          <!-- Member 2: Santhosh Kumar NY -->
+          <div class="team-member-row" data-member="2" tabindex="0" role="listitem">
             <div class="team-member-row__header">
               <span class="team-member-pill" aria-hidden="true"></span>
               <span class="team-member-name">Santhosh Kumar NY</span>
               <div class="team-member-social">
-                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
                   <i class="ri-linkedin-fill"></i>
                 </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X profile">
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
                   <i class="ri-twitter-x-line"></i>
                 </a>
               </div>
@@ -423,35 +470,62 @@
             <span class="team-member-role">MANAGER - SERVICE MANAGER</span>
           </div>
 
-          <!-- Member 4: Shiaraj Kumar Melgeri -->
-          <div class="team-member-row" data-member="4" tabindex="0" role="listitem">
-            <div class="team-member-row__header">
-              <span class="team-member-pill" aria-hidden="true"></span>
-              <span class="team-member-name">Shiaraj Kumar Melgeri</span>
-              <div class="team-member-social">
-                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
-                  <i class="ri-linkedin-fill"></i>
-                </a>
-              </div>
-            </div>
-            <span class="team-member-role">ASSISTANT MANAGER - RIDER GROWTH &amp; SALES</span>
-          </div>
-
-          <!-- Member 5: Sunil Kumar Ravi -->
-          <div class="team-member-row" data-member="5" tabindex="0" role="listitem">
+          <!-- Member 3: Sunil Kumar Ravi -->
+          <div class="team-member-row" data-member="3" tabindex="0" role="listitem">
             <div class="team-member-row__header">
               <span class="team-member-pill" aria-hidden="true"></span>
               <span class="team-member-name">Sunil Kumar Ravi</span>
               <div class="team-member-social">
-                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
                   <i class="ri-linkedin-fill"></i>
                 </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X profile">
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
                   <i class="ri-twitter-x-line"></i>
                 </a>
               </div>
             </div>
             <span class="team-member-role">MANAGER - BATTERY SWAPPING OPERATIONS</span>
+          </div>
+
+          <!-- GROUP 2: ASSISTANT MANAGERS (SECOND) -->
+          <div class="team-group-header" style="margin-top: 0.6rem;">
+            <span class="team-group-pill">Assistant Managers</span>
+          </div>
+
+          <!-- Member 4: Nagabhooshana Hegde -->
+          <div class="team-member-row" data-member="4" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Nagabhooshana Hegde</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">ASSISTANT MANAGER – BATTERY, CHARGING INFRASTRUCTURE &amp; MAINTENANCE</span>
+          </div>
+
+          <!-- Member 5: Shiaraj Kumar Melgeri -->
+          <div class="team-member-row" data-member="5" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Shiaraj Kumar Melgeri</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">ASSISTANT MANAGER - RIDER GROWTH &amp; SALES</span>
           </div>
 
           <!-- Member 6: TILAK C -->
@@ -460,7 +534,8 @@
               <span class="team-member-pill" aria-hidden="true"></span>
               <span class="team-member-name">TILAK C</span>
               <div class="team-member-social">
-                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
                   <i class="ri-linkedin-fill"></i>
                 </a>
               </div>
@@ -474,10 +549,12 @@
               <span class="team-member-pill" aria-hidden="true"></span>
               <span class="team-member-name">Vivek M D</span>
               <div class="team-member-social">
-                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
                   <i class="ri-linkedin-fill"></i>
                 </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X profile">
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
                   <i class="ri-twitter-x-line"></i>
                 </a>
               </div>
@@ -554,13 +631,19 @@
           <p>Smart Electric Mobility. Simplified. Accelerating the transition to sustainable urban transport with
             dependable EVs and automated battery swapping.</p>
           <div class="footer__social" aria-label="EXTER Social Media">
-            <a href="https://www.instagram.com/exter.ev.club/" target="_blank" rel="noopener noreferrer" class="footer__social-link footer__social-link--instagram" title="Follow EXTER on Instagram" aria-label="EXTER Instagram">
+            <a href="https://www.instagram.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--instagram" title="Follow EXTER on Instagram"
+              aria-label="EXTER Instagram">
               <i class="ri-instagram-line"></i>
             </a>
-            <a href="https://www.facebook.com/exter.ev.club/" target="_blank" rel="noopener noreferrer" class="footer__social-link footer__social-link--facebook" title="Follow EXTER on Facebook" aria-label="EXTER Facebook">
+            <a href="https://www.facebook.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--facebook" title="Follow EXTER on Facebook"
+              aria-label="EXTER Facebook">
               <i class="ri-facebook-fill"></i>
             </a>
-            <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="footer__social-link footer__social-link--linkedin" title="Follow EXTER on LinkedIn" aria-label="EXTER LinkedIn">
+            <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+              rel="noopener noreferrer" class="footer__social-link footer__social-link--linkedin"
+              title="Follow EXTER on LinkedIn" aria-label="EXTER LinkedIn">
               <i class="ri-linkedin-fill"></i>
             </a>
           </div>
@@ -571,7 +654,6 @@
             <h5>Navigation</h5>
             <ul>
               <li><a href="../../../index.html">Home</a></li>
-              <li><a href="about.html">About Us</a></li>
               <li><a href="battery-swapping.html">Battery Swapping</a></li>
               <li><a href="become-a-rider.html">Become a Rider</a></li>
               <li><a href="hub-locations.html">Hub Locations</a></li>
@@ -595,9 +677,6 @@
               <li><a href="tel:+918050263303">+91 8050263303</a></li>
               <li><a href="mailto:hello@exterenergy.com">hello@exterenergy.com</a></li>
               <li><a href="https://wa.me/918050263303" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></li>
-              <li><a href="https://www.instagram.com/exter.ev.club/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="https://www.facebook.com/exter.ev.club/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-              <li><a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
           </div>
         </div>
@@ -609,6 +688,8 @@
           <a href="privacy-policy.html">Privacy Policy</a>
           <span>·</span>
           <a href="terms.html">Terms &amp; Conditions</a>
+          <span>·</span>
+          <a href="#cookie-settings" class="open-cookie-settings">Cookie Settings</a>
         </div>
       </div>
     </div>
