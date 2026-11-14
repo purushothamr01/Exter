@@ -67,7 +67,7 @@ window.EXTER_CONFIG = {
       weeklyRentFormatted: "₹1,869",
       securityDeposit: 1011,
       securityDepositFormatted: "₹1,011",
-      image: "main/media/images/vehicles/exter-100.jpg",
+      image: "main/media/images/Bike/Side.png",
       popular: true,
       badgeType: "extended",
       ctaExploreText: "Explore EXTER 100",
