@@ -855,7 +855,8 @@
               <div class="form-group">
                 <label for="bookingReferralCode">Referral Code (Optional)</label>
                 <input type="text" id="bookingReferralCode" placeholder="e.g. EXTER-RIDE-7842" autocomplete="off" />
-                <span class="form-hint" id="bookingReferralHint"><i class="ri-gift-line"></i> Have a friend riding with EXTER? Enter their code for zero-deposit referral benefits.</span>
+                <span class="form-hint" id="bookingReferralHint"><i class="ri-gift-line"></i> Have a friend riding with
+                  EXTER? Enter their code for zero-deposit referral benefits.</span>
                 <div class="step2-sync-footer">
                   <span class="form-hint"><i class="ri-shield-check-line"></i> End-to-end encrypted &bull; Auto-syncs to
                     EXTER Google Fleet Sheet</span>
@@ -1384,7 +1385,7 @@
                 <div class="cost-bar-fill cost-bar-fill--petrol" id="petrolBarFill" style="width: 100%;"></div>
               </div>
               <div class="cost-bar-subtext">
-                Fuel: ₹<span id="calcPetrolFuel">9,664</span> + Maint/Oil: ₹<span id="calcPetrolMaint">4,552</span>
+                Fuel: ₹<span id="calcPetrolFuel">9,664</span> &bull; Maint/Oil: ₹<span id="calcPetrolMaint">4,552</span>
               </div>
             </div>
 
@@ -3716,27 +3717,60 @@
        8A. ROADSIDE ASSISTANCE (RSA)
   ========================================================= -->
   <section class="section section--rsa" id="rsaSupport">
+    <!-- Apple Ambient Studio Lighting Glow -->
+    <div class="rsa-ambient-spotlight" aria-hidden="true"></div>
+
     <div class="container">
       <div class="section__header-center apple-reveal">
-        <div class="apple-eyebrow-pill" role="note" aria-label="Roadside Assistance 24/7 Coverage">
-          <span class="apple-eyebrow-pill__dot"></span>
-          <span class="apple-eyebrow-pill__text">Roadside Assistance · 24/7 Support</span>
+        <!-- Apple Frosted Glass Eyebrow Pill with Live Beacon -->
+        <div class="rsa-apple-pill" role="note" aria-label="Roadside Assistance 24/7 Coverage">
+          <span class="rsa-apple-pill__beacon" aria-hidden="true"></span>
+          <span class="rsa-apple-pill__text">Roadside Assistance &bull; 24/7 Support</span>
         </div>
-        <h2 class="section__title rsa-section__title">RSA. Help is always within reach.</h2>
+
+        <!-- Apple Bold Display Headline with Subtle Contrast Highlighting -->
+        <h2 class="section__title rsa-section__title">
+          RSA. <span class="rsa-title-highlight">Help is always within reach.</span>
+        </h2>
+
+        <!-- Apple Editorial Subtitle -->
         <p class="section__lead rsa-section__lead">
           Reliable roadside assistance to keep every EXTER rider moving. Get support whenever you experience a breakdown
           or unexpected issue.
         </p>
-        <div class="rsa-coverage-callout" role="note">
-          <i class="ri-map-pin-range-line"></i>
-          <span>Roadside Assistance will be provided within a 6 km radius of the designated godown or applicable
-            hub.</span>
+
+        <!-- Apple Dynamic Interactive Coverage Capsule -->
+        <div class="rsa-apple-capsule" role="note">
+          <div class="rsa-radar-icon" aria-hidden="true">
+            <span class="rsa-radar-wave"></span>
+            <i class="ri-map-pin-range-fill"></i>
+          </div>
+          <div class="rsa-capsule-content">
+            <span class="rsa-capsule-tag">6 KM GUARANTEE</span>
+            <span class="rsa-capsule-message">Rapid roadside dispatch provided within a <strong>6 km radius</strong> of the designated godown or hub.</span>
+          </div>
+          <div class="rsa-capsule-status" aria-hidden="true">
+            <span class="rsa-status-dot"></span>
+            <span>Live Standby</span>
+          </div>
         </div>
       </div>
-
-      <div class="rsa-grid">
+      <div class="rsa-grid rsa-bento-grid">
         <!-- 1. Breakdown assistance -->
-        <div class="rsa-bento-card">
+        <div class="rsa-bento-card ruixen-plus-card">
+          <span class="ruixen-corner-plus ruixen-corner-plus--tl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--tr" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--bl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--br" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+
           <div class="rsa-card__icon-wrap">
             <i class="ri-tools-line"></i>
           </div>
@@ -3749,7 +3783,20 @@
         </div>
 
         <!-- 2. Emergency roadside support -->
-        <div class="rsa-bento-card">
+        <div class="rsa-bento-card ruixen-plus-card">
+          <span class="ruixen-corner-plus ruixen-corner-plus--tl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--tr" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--bl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--br" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+
           <div class="rsa-card__icon-wrap rsa-card__icon-wrap--amber">
             <i class="ri-shield-flash-line"></i>
           </div>
@@ -3762,7 +3809,20 @@
         </div>
 
         <!-- 3. Technical assistance -->
-        <div class="rsa-bento-card">
+        <div class="rsa-bento-card ruixen-plus-card">
+          <span class="ruixen-corner-plus ruixen-corner-plus--tl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--tr" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--bl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--br" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+
           <div class="rsa-card__icon-wrap rsa-card__icon-wrap--blue">
             <i class="ri-cpu-line"></i>
           </div>
@@ -3775,7 +3835,20 @@
         </div>
 
         <!-- 4. Quick support request -->
-        <div class="rsa-bento-card">
+        <div class="rsa-bento-card ruixen-plus-card">
+          <span class="ruixen-corner-plus ruixen-corner-plus--tl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--tr" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--bl" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+          <span class="ruixen-corner-plus ruixen-corner-plus--br" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+          </span>
+
           <div class="rsa-card__icon-wrap rsa-card__icon-wrap--green">
             <i class="ri-customer-service-2-line"></i>
           </div>
@@ -3788,8 +3861,21 @@
         </div>
       </div>
 
-      <!-- RSA Call To Action Bar -->
-      <div class="rsa-cta-bar apple-reveal">
+      <!-- RSA Call To Action Bar (Ruixen Bento Style) -->
+      <div class="rsa-cta-bar ruixen-plus-card apple-reveal">
+        <span class="ruixen-corner-plus ruixen-corner-plus--tl" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+        </span>
+        <span class="ruixen-corner-plus ruixen-corner-plus--tr" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+        </span>
+        <span class="ruixen-corner-plus ruixen-corner-plus--bl" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+        </span>
+        <span class="ruixen-corner-plus ruixen-corner-plus--br" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+        </span>
+
         <div class="rsa-cta-bar__info">
           <div class="rsa-cta-bar__badge">
             <i class="ri-time-line"></i> <span>Avg. 25-Min Response Across Bengaluru</span>
@@ -4257,8 +4343,7 @@
             <img src="main/media/images/logo/exter.png" alt="EXTER" class="logo-symbol-img" />
             <span class="logo-text">exter</span>
           </a>
-          <p>Smart Electric Mobility. Simplified. Accelerating the transition to sustainable urban transport with
-            dependable EVs and automated battery swapping.</p>
+          <p class="footer__tagline">Power in Motion.</p>
           <div class="footer__social" aria-label="EXTER Social Media">
             <a href="https://www.instagram.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
               class="footer__social-link footer__social-link--instagram" title="Follow EXTER on Instagram"
@@ -4275,6 +4360,11 @@
               title="Follow EXTER on LinkedIn" aria-label="EXTER LinkedIn">
               <i class="ri-linkedin-fill"></i>
             </a>
+          </div>
+          <div class="footer__rider-container" aria-hidden="true">
+            <img src="main/media/images/Bike/rider-footer.png" alt="EXTER Delivery Partner on Smart EV"
+              class="footer__rider-img" loading="lazy" />
+            <div class="footer__rider-shadow" aria-hidden="true"></div>
           </div>
         </div>
 
@@ -4415,154 +4505,108 @@
   <div class="referral-promo-backdrop" id="referralPromoBackdrop" aria-hidden="true">
     <div class="referral-promo-modal" id="referralPromoModal" role="dialog" aria-modal="true"
       aria-labelledby="referralPromoHeading" aria-describedby="referralPromoDesc">
-      <!-- Apple Translucent Close Button -->
+      
+      <!-- Apple Minimal Translucent Close Button -->
       <button type="button" class="referral-promo-close" id="referralPromoClose" aria-label="Close referral promotion">
         <i class="ri-close-line" aria-hidden="true"></i>
       </button>
 
-      <div class="referral-promo-grid">
-        <!-- Left Visual Stage: Apple Cash Showcase -->
-        <div class="referral-promo-visual">
-          <div class="referral-promo-visual__stage">
-            <div class="referral-stage-glow" aria-hidden="true"></div>
+      <!-- Apple Studio Hero Showcase (Top Card + Scooter Still Life) -->
+      <div class="referral-hero-stage">
+        <div class="referral-hero-glow" aria-hidden="true"></div>
 
-            <div class="referral-promo-badge">
-              <span class="referral-promo-badge__dot"></span>
-              <span>EXTER RIDER CLUB REWARDS</span>
-            </div>
-
-            <!-- Apple Cash Style Reward Card & Hero Scooter -->
-            <div class="referral-3d-art">
-              <div class="apple-cash-card">
-                <div class="apple-cash-card__glow" aria-hidden="true"></div>
-                <div class="apple-cash-card__header">
-                  <div class="apple-cash-card__brand">
-                    <span class="apple-cash-logo">EXTER</span>
-                    <div class="apple-emv-chip" aria-hidden="true">
-                      <span class="chip-circuit chip-circuit--h"></span>
-                      <span class="chip-circuit chip-circuit--v"></span>
-                    </div>
-                  </div>
-                  <span class="apple-cash-tag">₹500 REWARD</span>
-                </div>
-                <div class="apple-cash-card__body">
-                  <span class="apple-cash-card__currency">₹</span>
-                  <span class="apple-cash-card__value">500</span>
-                </div>
-                <div class="apple-cash-card__footer">
-                  <span class="apple-cash-sub"><i class="ri-rfid-line" aria-hidden="true"></i> Direct Bank Transfer</span>
-                  <span class="apple-cash-badge">Per Referral</span>
+        <!-- 3D Artwork Composition -->
+        <div class="referral-art-composition">
+          <!-- Apple Cash Style Emerald Card -->
+          <div class="apple-cash-card">
+            <div class="apple-cash-card__sheen" aria-hidden="true"></div>
+            <div class="apple-cash-card__header">
+              <div class="apple-cash-card__brand">
+                <span class="apple-cash-logo">EXTER</span>
+                <div class="apple-emv-chip" aria-hidden="true">
+                  <span class="chip-circuit chip-circuit--h"></span>
+                  <span class="chip-circuit chip-circuit--v"></span>
                 </div>
               </div>
-
-              <div class="referral-scooter-showcase">
-                <img src="main/media/images/Bike/Side.png" alt="EXTER Commercial Electric Scooter"
-                  class="referral-scooter-img" loading="lazy" width="460" height="320">
-                <div class="referral-contact-shadow" aria-hidden="true"></div>
-              </div>
+              <span class="apple-cash-tag">CASH</span>
             </div>
-
-            <!-- Apple Spec Capsules -->
-            <div class="referral-promo-spec-chips">
-              <div class="apple-spec-pill">
-                <span class="apple-spec-val">₹500</span>
-                <span class="apple-spec-lbl">Per Friend</span>
-              </div>
-              <div class="apple-spec-sep" aria-hidden="true"></div>
-              <div class="apple-spec-pill">
-                <span class="apple-spec-val">Direct</span>
-                <span class="apple-spec-lbl">UPI / Bank</span>
-              </div>
-              <div class="apple-spec-sep" aria-hidden="true"></div>
-              <div class="apple-spec-pill">
-                <span class="apple-spec-val">Unlimited</span>
-                <span class="apple-spec-lbl">Referrals</span>
-              </div>
+            <div class="apple-cash-card__body">
+              <span class="apple-cash-card__currency">&#8377;</span>
+              <span class="apple-cash-card__value">500</span>
             </div>
-          </div>
-        </div>
-
-        <!-- Right Content Column: Apple Minimal Typography & Interactive Actions -->
-        <div class="referral-promo-content">
-          <div class="referral-promo-pill">
-            <i class="ri-gift-2-line" aria-hidden="true"></i>
-            <span>Rider Referral Reward</span>
-          </div>
-
-          <h3 class="referral-promo-heading" id="referralPromoHeading">
-            Refer a Rider. <span class="referral-reward-gradient">Earn ₹500.</span>
-          </h3>
-
-          <p class="referral-promo-desc" id="referralPromoDesc">
-            Know someone who rides? Invite a friend to join EXTER and earn ₹500 in referral rewards when their referral is successfully completed.
-          </p>
-
-          <!-- Unique Referral Code Card (Apple Cupertino UI) -->
-          <div class="referral-code-card">
-            <div class="referral-code-header">
-              <span class="referral-code-label">YOUR UNIQUE REFERRAL CODE</span>
-              <span class="referral-code-status"><span class="status-pulse-dot"></span> Active &bull; Unlimited</span>
-            </div>
-            <div class="referral-code-action-row">
-              <div class="referral-code-box">
-                <span class="referral-code-prefix">CODE</span>
-                <span class="referral-code-text" id="referralCodeDisplay">EXTER-RIDE-7842</span>
-              </div>
-              <button type="button" class="btn-referral-copy" id="referralCopyCodeBtn" title="Copy Referral Code">
-                <i class="ri-file-copy-line" aria-hidden="true"></i>
-                <span>Copy Code</span>
-              </button>
-            </div>
-            <div class="referral-link-subrow">
-              <div class="referral-link-preview">
-                <i class="ri-links-line" aria-hidden="true"></i>
-                <input type="text" class="referral-link-input" id="referralLinkInput" readonly
-                  value="https://exter.co/?ref=EXTER-RIDE-7842" aria-label="Unique Referral Link">
-              </div>
-              <button type="button" class="btn-referral-link-copy" id="referralCopyLinkBtn" title="Copy Referral Link">
-                <i class="ri-clipboard-line" aria-hidden="true"></i>
-                <span>Copy Link</span>
-              </button>
+            <div class="apple-cash-card__footer">
+              <span class="apple-cash-sub"><i class="ri-rfid-line" aria-hidden="true"></i> Direct Bank Transfer</span>
+              <span class="apple-cash-badge">Per Referral</span>
             </div>
           </div>
 
-          <!-- Eligibility Criteria Banner (Strict Requirement) -->
-          <div class="referral-eligibility-card">
-            <div class="referral-eligibility-icon">
-              <i class="ri-shield-check-fill" aria-hidden="true"></i>
-            </div>
-            <div class="referral-eligibility-info">
-              <strong>Reward Eligibility Criteria:</strong>
-              <p>The ₹500 cash reward is awarded strictly after your referred rider completes KYC verification, picks up their scooter at any hub, and completes their first week's subscription.</p>
-            </div>
-          </div>
-
-          <!-- Actions -->
-          <div class="referral-promo-actions">
-            <button type="button" class="btn btn--apple-primary referral-promo-btn-primary" id="referralShareBtn">
-              <i class="ri-whatsapp-line" aria-hidden="true"></i>
-              <span>Refer a Friend</span>
-            </button>
-            <button type="button" class="referral-promo-btn-secondary" id="referralDismissBtn">
-              Maybe Later
-            </button>
-          </div>
-
-          <span class="referral-promo-footnote">
-            <i class="ri-shield-keyhole-line" aria-hidden="true"></i>
-            Tracked automatically via EXTER Fleet Ledger &bull; Real-time payout
-          </span>
-
-          <!-- Feedback Toast -->
-          <div class="referral-toast" id="referralToast" aria-live="polite">
-            <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-            <span id="referralToastMsg">Referral code copied to clipboard!</span>
+          <!-- Hero Scooter with Ground Ambient Occlusion -->
+          <div class="referral-scooter-showcase">
+            <img src="main/media/images/Bike/Side.png" alt="EXTER Commercial Electric Scooter"
+              class="referral-scooter-img" loading="lazy" width="460" height="320">
+            <div class="referral-contact-shadow" aria-hidden="true"></div>
           </div>
         </div>
       </div>
+
+      <!-- Apple Sheet Content & Typography -->
+      <div class="referral-sheet-body">
+        <div class="referral-sheet-eyebrow">EXTER REWARDS</div>
+        
+        <h3 class="referral-promo-heading" id="referralPromoHeading">
+          Refer a Rider. <span class="referral-reward-gradient">Earn &#8377;500.</span>
+        </h3>
+
+        <p class="referral-promo-desc" id="referralPromoDesc">
+          Know someone who rides? Invite them to join EXTER and earn &#8377;500 in referral rewards when their subscription begins.
+        </p>
+
+        <!-- Apple Minimal Code Inset Capsule (Single Unbroken Line) -->
+        <div class="referral-code-capsule">
+          <div class="referral-code-meta">
+            <span class="referral-code-label">YOUR CODE</span>
+            <span class="referral-code-text" id="referralCodeDisplay">EXTER-RIDE-2626</span>
+          </div>
+          <button type="button" class="btn-referral-copy" id="referralCopyCodeBtn" title="Copy Referral Code">
+            <i class="ri-file-copy-line" aria-hidden="true"></i>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <!-- Hidden input for main.js and sleek secondary copy link -->
+        <input type="hidden" class="referral-link-input" id="referralLinkInput" value="https://exter.co/?ref=EXTER-RIDE-2626">
+        <div class="referral-sublink-row">
+          <button type="button" class="btn-referral-sublink" id="referralCopyLinkBtn" title="Copy Referral Link">
+            <i class="ri-links-line" aria-hidden="true"></i>
+            <span>Copy personal invite link</span>
+          </button>
+        </div>
+
+        <!-- Apple Primary CTA -->
+        <button type="button" class="referral-btn-apple-primary" id="referralShareBtn">
+          <i class="ri-whatsapp-line" aria-hidden="true"></i>
+          <span>Refer a Friend</span>
+        </button>
+
+        <!-- Secondary Dismiss Action -->
+        <button type="button" class="referral-btn-apple-dismiss" id="referralDismissBtn">
+          Maybe Later
+        </button>
+
+        <!-- Eligibility Criteria (Apple Footnote Style) -->
+        <div class="referral-sheet-terms">
+          <i class="ri-shield-check-fill" aria-hidden="true"></i>
+          <span>&#8377;500 awarded after referred rider completes KYC &amp; 1st week subscription.</span>
+        </div>
+      </div>
+
+      <!-- Feedback Toast -->
+      <div class="referral-toast" id="referralToast" aria-live="polite">
+        <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+        <span id="referralToastMsg">Referral code copied to clipboard!</span>
+      </div>
     </div>
   </div>
-
   <!-- Scripts -->
   <script src="main/assets/js/main.js"></script>
 </body>
