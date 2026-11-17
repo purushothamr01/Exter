@@ -1,0 +1,1246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Headers & Directives -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <title>About Us</title>
+  <meta name="description"
+    content="Learn about EXTER's mission, vision, technology infrastructure, and the leadership team driving the transition to accessible clean urban mobility." />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../media/images/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../media/images/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../media/images/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../../media/images/favicon/site.webmanifest" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css?v=4.0" />
+</head>
+
+<body>
+  <!-- Apple Skeleton Loading Screen -->
+  <div class="skeleton-screen" id="skeletonScreen" aria-hidden="true">
+    <div class="skeleton-screen__inner">
+      <div class="skeleton-nav">
+        <div class="skeleton-pill skeleton-nav__logo"></div>
+        <div class="skeleton-nav__links">
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+        </div>
+        <div class="skeleton-pill skeleton-nav__cta"></div>
+      </div>
+      <div class="skeleton-hero">
+        <div class="skeleton-pill skeleton-hero__badge"></div>
+        <div class="skeleton-bar skeleton-hero__title-1"></div>
+        <div class="skeleton-bar skeleton-hero__title-2"></div>
+        <div class="skeleton-bar skeleton-hero__sub"></div>
+        <div class="skeleton-hero__actions">
+          <div class="skeleton-pill skeleton-btn"></div>
+          <div class="skeleton-pill skeleton-btn skeleton-btn--secondary"></div>
+        </div>
+      </div>
+      <div class="skeleton-grid">
+        <div class="skeleton-card">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+        <div class="skeleton-card skeleton-card--desktop">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var s = document.getElementById('skeletonScreen');
+      if (!s) return;
+      function d() { s.classList.add('is-loaded'); setTimeout(function () { s.style.display = 'none'; }, 450); }
+      if (document.readyState === 'complete') { setTimeout(d, 280); } else { window.addEventListener('load', function () { setTimeout(d, 200); }); setTimeout(d, 1200); }
+    })();
+  </script>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="../../../index.html" class="navbar__logo" aria-label="EXTER Home">
+        <img src="../../media/images/logo/exter.png" alt="EXTER" class="logo-symbol-img" />
+        <span class="logo-text">exter</span>
+      </a>
+
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="../../../index.html" class="navbar__link">Home</a></li>
+          <li><a href="about.html" class="navbar__link active">About Us</a></li>
+          <li><a href="battery-swapping.html" class="navbar__link">Battery Swapping</a></li>
+          <li><a href="become-a-rider.html" class="navbar__link">Become a Rider</a></li>
+          <li><a href="hub-locations.html" class="navbar__link">Hub Locations</a></li>
+          <li><a href="careers.html" class="navbar__link">Careers</a></li>
+          <li><a href="contact.html" class="navbar__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="tel:+918050263303" class="btn btn--apple-brand btn--sm navbar__cta">Book a Bike</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header (Apple Specular Glow & Fluid Typography) -->
+  <section class="section section--apple-hero" id="heroOverview">
+    <div class="apple-hero-ambient-glow" aria-hidden="true"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="apple-hero-header apple-reveal">
+        <div class="apple-hero-pill">
+          <span class="apple-hero-pill__tag">OUR MISSION &amp; HERITAGE</span>
+          <span class="apple-hero-pill__divider"></span>
+          <span class="apple-hero-pill__text">Pioneering Clean Urban Energy</span>
+        </div>
+        <h1 class="apple-hero-title">Accelerating Clean <span class="apple-gradient-brand">Urban Mobility.</span></h1>
+        <p class="apple-hero-lead">
+          Exter is building India’s most reliable and efficient Battery Swapping Network for electric two-wheelers
+          powering 1,500+ commercial vehicles across 7+ metropolitan hubs.
+        </p>
+
+        <!-- 4 Core Overview Stats from Official Deck (Apple Bento Specular Grid) -->
+        <div class="apple-overview-stats">
+          <!-- Card 1 -->
+          <div class="apple-stat-card apple-reveal">
+            <div class="apple-stat-card__header">
+              <div class="apple-stat-pill apple-stat-pill--blue">
+                <span>Live Fleet</span>
+              </div>
+            </div>
+            <div class="apple-stat-card__body">
+              <div class="apple-stat-card__number">1,500+</div>
+              <div class="apple-stat-card__label">Commercial Vehicles</div>
+              <div class="apple-stat-card__sub">Active electric fleet deployed</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="apple-stat-card apple-reveal" style="transition-delay:0.08s;">
+            <div class="apple-stat-card__header">
+              <div class="apple-stat-pill apple-stat-pill--teal">
+                <span>Corridors</span>
+              </div>
+            </div>
+            <div class="apple-stat-card__body">
+              <div class="apple-stat-card__number">7+</div>
+              <div class="apple-stat-card__label">Swapping Hubs</div>
+              <div class="apple-stat-card__sub">Across Bengaluru corridors</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="apple-stat-card apple-reveal" style="transition-delay:0.16s;">
+            <div class="apple-stat-card__header">
+              <div class="apple-stat-pill apple-stat-pill--indigo">
+                <span>Rapid Swaps</span>
+              </div>
+            </div>
+            <div class="apple-stat-card__body">
+              <div class="apple-stat-card__number apple-stat-card__number--compact">Multi-Hub</div>
+              <div class="apple-stat-card__label">Connected Network</div>
+              <div class="apple-stat-card__sub">Rapid sub-5 min battery swaps</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="apple-stat-card apple-reveal" style="transition-delay:0.24s;">
+            <div class="apple-stat-card__header">
+              <div class="apple-stat-pill apple-stat-pill--amber">
+                <span>Govt. Grant</span>
+              </div>
+            </div>
+            <div class="apple-stat-card__body">
+              <div class="apple-stat-card__number apple-stat-card__number--compact">₹15 Lakhs</div>
+              <div class="apple-stat-card__label">Govt. Grant Winner</div>
+              <div class="apple-stat-card__sub">Startup Karnataka Elevate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision (Apple Designer Minimalist Bento) -->
+  <section class="section section--apple-mission" style="padding-top: 1.5rem; padding-bottom: 4.5rem;">
+    <div class="container">
+      <div class="apple-mission-grid">
+        <!-- Card 1: Our Mission -->
+        <article class="apple-mission-card apple-reveal">
+          <div class="apple-mission-header">
+            <div class="apple-mission-badge apple-mission-badge--brand">
+              <span>OUR MISSION</span>
+            </div>
+          </div>
+          <h3 class="apple-mission-title">Convenient &amp; <span class="apple-gradient-brand">Dependable.</span></h3>
+          <p class="apple-mission-desc">
+            Make electric mobility accessible, affordable, and sustainable with reliable swapping, transparent plans,
+            and dependable scooters for high-usage riders.
+          </p>
+          <div class="apple-mission-footer">
+            <span class="apple-mission-chip">
+              <i class="ri-flashlight-line"></i> Sub-5 Min Swaps
+            </span>
+            <span class="apple-mission-chip">
+              <i class="ri-shield-check-line"></i> 100% Battery Health
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 2: Our Vision -->
+        <article class="apple-mission-card apple-reveal" style="transition-delay:0.1s;">
+          <div class="apple-mission-header">
+            <div class="apple-mission-badge apple-mission-badge--blue">
+              <span>OUR VISION</span>
+            </div>
+          </div>
+          <h3 class="apple-mission-title">India’s Most <span class="apple-gradient-blue">Trusted Network.</span></h3>
+          <p class="apple-mission-desc">
+            Become India’s most trusted and innovative EV mobility platform, powering millions of cleaner kilometres
+            across our connected metropolitan network.
+          </p>
+          <div class="apple-mission-footer">
+            <span class="apple-mission-chip">
+              <i class="ri-map-pin-2-line"></i> Metropolitan Hubs
+            </span>
+            <span class="apple-mission-chip">
+              <i class="ri-leaf-line"></i> Zero Tailpipe Emissions
+            </span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Stand For (Apple Cinematic Showcase) -->
+  <section class="section section--apple-stand-for" id="whatWeStandFor">
+    <div class="container">
+      <div class="section__header-center apple-reveal">
+        <div class="apple-stand-pill">
+          <span>OUR CORE PURPOSE</span>
+        </div>
+        <h2 class="apple-stand-title">What We <span class="apple-gradient-brand">Stand For.</span></h2>
+        <p class="apple-stand-lead">
+          Three guiding commitments powering every scooter, swapping station, and rider partnership at EXTER.
+        </p>
+      </div>
+
+      <div class="stand-for-grid">
+        <!-- People Card -->
+        <div class="stand-for-card apple-reveal">
+          <div class="stand-for-card__top">
+            <div class="apple-stand-card-pill apple-stand-card-pill--blue">
+              <span>For Riders</span>
+            </div>
+          </div>
+          <div class="stand-for-card__header">
+            <h3 class="stand-for-card__title">People</h3>
+            <p class="stand-for-card__desc">
+              Riders keep moving and keep earning with sub-5 min rapid battery swaps.
+            </p>
+          </div>
+          <div class="stand-for-card__stage">
+            <div class="stand-for-card__ambient-glow stand-for-card__ambient-glow--blue" aria-hidden="true"></div>
+            <img src="../../media/images/Bike/rider-footer.png" alt="People - Empowering Riders"
+              class="stand-for-card__img stand-for-card__img--contain" loading="lazy" />
+          </div>
+          <div class="stand-for-card__footer">
+            <div class="apple-card-link">
+              <span>Empowering Livelihoods</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Card -->
+        <div class="stand-for-card apple-reveal" style="transition-delay:0.12s;">
+          <div class="stand-for-card__top">
+            <div class="apple-stand-card-pill apple-stand-card-pill--indigo">
+              <span>Fleet Scale</span>
+            </div>
+          </div>
+          <div class="stand-for-card__header">
+            <h3 class="stand-for-card__title">Business</h3>
+            <p class="stand-for-card__desc">
+              Commercial electric mobility engineered for superior fleet unit economics.
+            </p>
+          </div>
+          <div class="stand-for-card__stage">
+            <div class="stand-for-card__ambient-glow stand-for-card__ambient-glow--indigo" aria-hidden="true"></div>
+            <img src="../../media/images/Bike/front.png" alt="Business - Commercial Fleet Mobility"
+              class="stand-for-card__img stand-for-card__img--contain" loading="lazy" />
+          </div>
+          <div class="stand-for-card__footer">
+            <div class="apple-card-link">
+              <span>Enterprise Fleet Uptime</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Planet Card -->
+        <div class="stand-for-card apple-reveal" style="transition-delay:0.24s;">
+          <div class="stand-for-card__top">
+            <div class="apple-stand-card-pill apple-stand-card-pill--green">
+              <span>Clean Energy</span>
+            </div>
+          </div>
+          <div class="stand-for-card__header">
+            <h3 class="stand-for-card__title">Planet</h3>
+            <p class="stand-for-card__desc">
+              One less petrol scooter with every switch powering cleaner skies.
+            </p>
+          </div>
+          <div class="stand-for-card__stage stand-for-card__stage--framed">
+            <img src="../../media/images/Others/save.png" alt="Planet - Clean Urban Energy"
+              class="stand-for-card__img stand-for-card__img--cover" loading="lazy" />
+          </div>
+          <div class="stand-for-card__footer">
+            <div class="apple-card-link">
+              <span>Zero Tailpipe Emissions</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aceternity UI Timeline: Milestones Journey (by Manu Arora / 21st.dev style) -->
+  <section class="section section--aceternity-timeline" id="journeyMilestones">
+    <div class="container">
+      <div class="aceternity-timeline__header apple-reveal">
+        <div class="apple-story-pill">
+          <span>THE JOURNEY</span>
+        </div>
+        <h2 class="aceternity-timeline__title">
+          Milestones. <span class="apple-gradient-brand">From Day One.</span>
+        </h2>
+        <p class="aceternity-timeline__subtitle">
+          Building India’s most reliable battery swapping ecosystem, one hub at a time.
+        </p>
+      </div>
+
+      <div class="aceternity-timeline" id="aceternityTimeline">
+        <!-- Vertical Animated Scroll Beam Line -->
+        <div class="aceternity-timeline__track" id="timelineTrack" aria-hidden="true">
+          <div class="aceternity-timeline__beam" id="timelineBeam"></div>
+        </div>
+
+        <!-- Timeline Item 01: 2020-21 Inception -->
+        <div class="aceternity-timeline__item apple-reveal">
+          <div class="aceternity-timeline__sticky">
+            <div class="aceternity-timeline__node" aria-hidden="true">
+              <div class="aceternity-timeline__node-inner"></div>
+            </div>
+            <h3 class="aceternity-timeline__year">2020 – 21</h3>
+          </div>
+
+          <div class="aceternity-timeline__content">
+            <h3 class="aceternity-timeline__mobile-year">2020 – 21</h3>
+            <div class="aceternity-timeline__badge">Inception &amp; R&amp;D Foundation</div>
+            <h4 class="aceternity-timeline__heading">Validating the Vision</h4>
+            <p class="aceternity-timeline__desc">
+              Founded to eliminate EV commercial downtime in India. Early engineering was validated with competitive
+              national honors and state grants, establishing the core architectural foundation for our modular battery
+              packs and connected swapping hardware.
+            </p>
+
+            <div class="aceternity-timeline__cards">
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Accelerator Honor</div>
+                <div class="aceternity-bento-card__title">BITS Pilani Conquest</div>
+                <div class="aceternity-bento-card__sub">Selected Top 50 startups nationwide out of 3,000+ pan-India
+                  applicants.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Govt. Grant</div>
+                <div class="aceternity-bento-card__title">&#8377;15 Lakhs Seed Capital</div>
+                <div class="aceternity-bento-card__sub">Won competitive grant from Startup Karnataka Elevate for core
+                  battery R&amp;D.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Hardware Prototype</div>
+                <div class="aceternity-bento-card__title">First Pilot Hub</div>
+                <div class="aceternity-bento-card__sub">Built initial modular swapping station and custom IoT battery
+                  telemetry modules.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 02: 2021-22 Swapping Vaults -->
+        <div class="aceternity-timeline__item apple-reveal">
+          <div class="aceternity-timeline__sticky">
+            <div class="aceternity-timeline__node" aria-hidden="true">
+              <div class="aceternity-timeline__node-inner"></div>
+            </div>
+            <h3 class="aceternity-timeline__year">2021 – 22</h3>
+          </div>
+
+          <div class="aceternity-timeline__content">
+            <h3 class="aceternity-timeline__mobile-year">2021 – 22</h3>
+            <div class="aceternity-timeline__badge">Hardware Engineering</div>
+            <h4 class="aceternity-timeline__heading">Swapping Vaults &amp; Fleet Trials</h4>
+            <p class="aceternity-timeline__desc">
+              Engineered EXTER’s proprietary multi-battery swapping cabinet prototype from the ground up. Tailored for
+              extreme tropical temperatures and rapid mechanical swaps under high-mileage commercial delivery workloads.
+            </p>
+
+            <div class="aceternity-timeline__cards">
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Vault Architecture</div>
+                <div class="aceternity-bento-card__title">Multi-Bay Vault Cabinet</div>
+                <div class="aceternity-bento-card__sub">Micro-climate air-conditioned charging slots with 10kA surge
+                  arrestors.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Turnaround Speed</div>
+                <div class="aceternity-bento-card__title">Sub-5 Min Rapid Swaps</div>
+                <div class="aceternity-bento-card__sub">Quick robotic latch mechanism minimizing rider turnaround to
+                  zero.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Field Testing</div>
+                <div class="aceternity-bento-card__title">Live Delivery Fleet Trials</div>
+                <div class="aceternity-bento-card__sub">Tested across demanding last-mile delivery routes in Bengaluru
+                  corridors.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 03: 2023-24 Fleet ERP & BMS -->
+        <div class="aceternity-timeline__item apple-reveal">
+          <div class="aceternity-timeline__sticky">
+            <div class="aceternity-timeline__node" aria-hidden="true">
+              <div class="aceternity-timeline__node-inner"></div>
+            </div>
+            <h3 class="aceternity-timeline__year">2023 – 24</h3>
+          </div>
+
+          <div class="aceternity-timeline__content">
+            <h3 class="aceternity-timeline__mobile-year">2023 – 24</h3>
+            <div class="aceternity-timeline__badge">Connected Operations</div>
+            <h4 class="aceternity-timeline__heading">Fleet ERP, 4G IoT &amp; BMS Kit</h4>
+            <p class="aceternity-timeline__desc">
+              Transitioned from hardware to full-stack connected platform. Launched operations ERP, integrating our
+              custom Smart Battery Kit with advanced BMS, 4G LTE telemetry, sub-second GPS tracking, and remote security
+              controls.
+            </p>
+
+            <div class="aceternity-timeline__cards">
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Cloud Platform</div>
+                <div class="aceternity-bento-card__title">Operations Fleet ERP</div>
+                <div class="aceternity-bento-card__sub">Real-time battery SoC, SoH diagnostics, and predictive
+                  degradation monitoring.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Smart Telemetry</div>
+                <div class="aceternity-bento-card__title">4G IoT BMS Kit</div>
+                <div class="aceternity-bento-card__sub">Multi-layer thermal isolation and continuous active cell
+                  balancing.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Fleet Security</div>
+                <div class="aceternity-bento-card__title">Geo-Fencing &amp; Remote Lock</div>
+                <div class="aceternity-bento-card__sub">Automated immobilizer with instant theft protection and live
+                  route monitoring.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 04: 2025 1,500+ Vehicles -->
+        <div class="aceternity-timeline__item apple-reveal">
+          <div class="aceternity-timeline__sticky">
+            <div class="aceternity-timeline__node" aria-hidden="true">
+              <div class="aceternity-timeline__node-inner"></div>
+            </div>
+            <h3 class="aceternity-timeline__year">2025</h3>
+          </div>
+
+          <div class="aceternity-timeline__content">
+            <h3 class="aceternity-timeline__mobile-year">2025</h3>
+            <div class="aceternity-timeline__badge">Commercial Scale</div>
+            <h4 class="aceternity-timeline__heading">1,500+ Vehicles &amp; 7+ Corridors</h4>
+            <p class="aceternity-timeline__desc">
+              Full commercial Battery-as-a-Service (BaaS) and EV-as-a-Service (EVaaS) deployment. Powering delivery
+              riders across Bengaluru’s busiest arterial routes with guaranteed battery uptime and transparent pricing.
+            </p>
+
+            <div class="aceternity-timeline__cards">
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Fleet Deployment</div>
+                <div class="aceternity-bento-card__title">1,500+ Commercial EVs</div>
+                <div class="aceternity-bento-card__sub">High-efficiency electric two-wheelers earning daily across
+                  Bangalore.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Network Hubs</div>
+                <div class="aceternity-bento-card__title">7+ Swapping Hubs</div>
+                <div class="aceternity-bento-card__sub">Strategically positioned in Indiranagar, Koramangala, JP Nagar,
+                  and beyond.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Rider Community</div>
+                <div class="aceternity-bento-card__title">Zomato, Swiggy, Zepto &amp; Blinkit</div>
+                <div class="aceternity-bento-card__sub">Preferred clean mobility partner for India’s fastest-growing gig
+                  delivery workforce.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 05: Next Pan-India -->
+        <div class="aceternity-timeline__item apple-reveal">
+          <div class="aceternity-timeline__sticky">
+            <div class="aceternity-timeline__node" aria-hidden="true">
+              <div class="aceternity-timeline__node-inner"></div>
+            </div>
+            <h3 class="aceternity-timeline__year">Next</h3>
+          </div>
+
+          <div class="aceternity-timeline__content">
+            <h3 class="aceternity-timeline__mobile-year">Next</h3>
+            <div class="aceternity-timeline__badge">The Future</div>
+            <h4 class="aceternity-timeline__heading">Pan-India Energy Infrastructure</h4>
+            <p class="aceternity-timeline__desc">
+              Expanding our high-uptime battery swapping network into top tier-1 and tier-2 metropolitan corridors
+              nationwide building India’s definitive clean energy utility for electric commercial transportation.
+            </p>
+
+            <div class="aceternity-timeline__cards">
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">National Reach</div>
+                <div class="aceternity-bento-card__title">Tier-1 &amp; Tier-2 Metros</div>
+                <div class="aceternity-bento-card__sub">Replicating high-density swapping corridors across major Indian
+                  urban hubs.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Next-Gen Tech</div>
+                <div class="aceternity-bento-card__title">Automated Robotic Vaults</div>
+                <div class="aceternity-bento-card__sub">Higher-density battery vaults with autonomous swap bays and
+                  solar grid links.</div>
+              </div>
+              <div class="aceternity-bento-card">
+                <div class="aceternity-bento-card__tag">Sustainability</div>
+                <div class="aceternity-bento-card__title">Clean Kilometer Impact</div>
+                <div class="aceternity-bento-card__sub">Targeting 50M+ zero-tailpipe emission kilometers powered by
+                  clean energy.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards & Recognitions (Apple Storytelling Showcase) -->
+  <section class="section section--apple-awards" id="awardsRecognition">
+    <div class="apple-awards-ambient" aria-hidden="true"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="section__header-center apple-reveal">
+        <div class="apple-story-pill">
+          <span>VALIDATED BY INSTITUTIONS</span>
+        </div>
+        <h2 class="apple-story-headline">
+          Built with Conviction. <span class="apple-gradient-brand">Proven on Every Stage.</span>
+        </h2>
+        <p class="apple-story-lead">
+          From ministerial honors at Bengaluru Tech Summit to national accelerator selections and government R&amp;D
+          grants,
+          EXTER’s clean energy ecosystem is validated by India’s foremost institutions.
+        </p>
+      </div>
+
+      <div class="apple-story-grid">
+        <!-- Story 1: State Innovation Award -->
+        <article class="apple-story-card apple-reveal">
+          <div class="apple-story-card__top">
+            <span class="apple-story-tag apple-story-tag--brand">State Level Honor</span>
+            <span class="apple-story-year">2023</span>
+          </div>
+
+          <div class="apple-story-card__hero">
+            <div class="apple-story-kicker">Ministerial Felicitation</div>
+            <h3 class="apple-story-card__title">Innovation Award</h3>
+            <div class="apple-story-card__venue">Bengaluru Tech Summit &bull; Govt. of Karnataka</div>
+          </div>
+
+          <p class="apple-story-card__narrative">
+            Felicitated by Hon. Priyank Kharge, Minister for IT &amp; BT, Govt. of Karnataka. Awarded for Innovative
+            Display in recognition of EXTER Energy’s proprietary battery swapping hardware and zero-downtime urban
+            mobility infrastructure.
+          </p>
+
+          <div class="apple-story-card__footer">
+            <div class="apple-story-citation">
+              <span class="apple-story-citation__org">Govt. of Karnataka</span>
+              <span class="apple-story-citation__sub">Dept. of Electronics, IT &amp; BT</span>
+            </div>
+            <div class="apple-story-tag-group">
+              <span class="apple-meta-pill">Hardware Innovation</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Story 2: BITS Pilani Conquest -->
+        <article class="apple-story-card apple-reveal" style="transition-delay:0.08s;">
+          <div class="apple-story-card__top">
+            <span class="apple-story-tag apple-story-tag--blue">National Selection</span>
+            <span class="apple-story-year">2024</span>
+          </div>
+
+          <div class="apple-story-card__hero">
+            <div class="apple-story-metric">
+              <span class="apple-story-metric__val">Top 50</span>
+              <span class="apple-story-metric__sub">from 3,000+ Ventures</span>
+            </div>
+            <h3 class="apple-story-card__title">BITS Pilani Conquest</h3>
+            <div class="apple-story-card__venue">India's Premier Student-Run Accelerator</div>
+          </div>
+
+          <p class="apple-story-card__narrative">
+            Selected as one of the Top 50 breakout startups nationwide out of 3,000+ applicants across India for
+            transformative clean technology in electric commercial mobility and fleet unit economics.
+          </p>
+
+          <div class="apple-story-card__footer">
+            <div class="apple-story-citation">
+              <span class="apple-story-citation__org">BITS Pilani Conquest</span>
+              <span class="apple-story-citation__sub">Pan-India Deep Tech Accelerator</span>
+            </div>
+            <div class="apple-story-tag-group">
+              <span class="apple-meta-pill">National Cohort</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Story 3: Karnataka Startup Cell Grant -->
+        <article class="apple-story-card apple-reveal" style="transition-delay:0.16s;">
+          <div class="apple-story-card__top">
+            <span class="apple-story-tag apple-story-tag--emerald">Government Grant</span>
+            <span class="apple-story-year">2024</span>
+          </div>
+
+          <div class="apple-story-card__hero">
+            <div class="apple-story-metric">
+              <span class="apple-story-metric__val">&#8377;15 Lakhs</span>
+              <span class="apple-story-metric__sub">Non-Dilutive R&amp;D Seed Grant</span>
+            </div>
+            <h3 class="apple-story-card__title">Karnataka Startup Cell</h3>
+            <div class="apple-story-card__venue">Startup Karnataka Elevate Initiative</div>
+          </div>
+
+          <p class="apple-story-card__narrative">
+            Won a competitive grant of ₹15,00,000 under the Startup Karnataka Elevate initiative to accelerate core
+            R&amp;D, battery safety engineering, and the deployment of pilot automated swapping hubs.
+          </p>
+
+          <div class="apple-story-card__footer">
+            <div class="apple-story-citation">
+              <span class="apple-story-citation__org">Startup Karnataka</span>
+              <span class="apple-story-citation__sub">Govt. of Karnataka Elevate Scheme</span>
+            </div>
+            <div class="apple-story-tag-group">
+              <span class="apple-meta-pill">Elevate Grantee</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Company Values (Features-4 Divided Architectural Grid) -->
+  <section class="section section--apple-values" id="companyValues">
+    <div class="container">
+      <div class="section__header-center apple-reveal">
+        <div class="apple-story-pill">
+          <span>OUR VALUES</span>
+        </div>
+        <h2 class="section__title">The Principles <span class="apple-gradient-brand">Guiding EXTER.</span></h2>
+        <p class="section__lead">
+          How we build products, support our rider community, and engage with partners.
+        </p>
+      </div>
+
+      <div class="features-grid-wrapper apple-reveal">
+        <div class="features-grid">
+          <!-- Value 01: Customer First -->
+          <div class="features-grid__item">
+            <div class="features-grid__header">
+              <span class="features-grid__icon"><i class="ri-heart-pulse-line"></i></span>
+              <h3 class="features-grid__title">Customer First</h3>
+            </div>
+            <p class="features-grid__desc">
+              Every design choice — from vehicle ergonomics to 2-minute station swap speeds — is prioritized
+              around rider safety, convenience, and daily earning potential.
+            </p>
+          </div>
+
+          <!-- Value 02: Integrity -->
+          <div class="features-grid__item">
+            <div class="features-grid__header">
+              <span class="features-grid__icon"><i class="ri-shield-check-line"></i></span>
+              <h3 class="features-grid__title">Integrity</h3>
+            </div>
+            <p class="features-grid__desc">
+              Transparent rental plans, clear battery deposit guidelines, and honest communication with zero
+              hidden charges or surprise deductions.
+            </p>
+          </div>
+
+          <!-- Value 03: Innovation -->
+          <div class="features-grid__item">
+            <div class="features-grid__header">
+              <span class="features-grid__icon"><i class="ri-cpu-line"></i></span>
+              <h3 class="features-grid__title">Innovation</h3>
+            </div>
+            <p class="features-grid__desc">
+              Proprietary battery charging vaults, custom BMS telemetry, and cloud-connected IoT systems built
+              in-house for extreme durability.
+            </p>
+          </div>
+
+          <!-- Value 04: Ownership -->
+          <div class="features-grid__item">
+            <div class="features-grid__header">
+              <span class="features-grid__icon"><i class="ri-fingerprint-line"></i></span>
+              <h3 class="features-grid__title">Ownership</h3>
+            </div>
+            <p class="features-grid__desc">
+              Taking deep personal accountability from the hub floor to the executive desk, ensuring
+              flawless uptime and fleet reliability.
+            </p>
+          </div>
+
+          <!-- Value 05: Teamwork -->
+          <div class="features-grid__item">
+            <div class="features-grid__header">
+              <span class="features-grid__icon"><i class="ri-team-line"></i></span>
+              <h3 class="features-grid__title">Teamwork</h3>
+            </div>
+            <p class="features-grid__desc">
+              Collaborative problem solving and mutual respect connecting on-ground hub captains, operational
+              managers, and engineers.
+            </p>
+          </div>
+
+          <!-- Value 06: Impact -->
+          <div class="features-grid__item">
+            <div class="features-grid__header">
+              <span class="features-grid__icon"><i class="ri-sparkling-line"></i></span>
+              <h3 class="features-grid__title">Impact</h3>
+            </div>
+            <p class="features-grid__desc">
+              Measurable carbon reduction with every kilometre driven, creating tangible ecological and
+              socio-economic progress in urban India.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership & Team Showcase (Authentic Management Team) -->
+  <section class="section section--secondary">
+    <div class="container">
+      <div class="section__header-center">
+        <span class="apple-eyebrow">Our People</span>
+        <h2 class="section__title">Leadership &amp; Management</h2>
+        <p class="section__lead">
+          The experienced operational, technological, and automotive leaders steering EXTER's growth.
+        </p>
+      </div>
+
+      <!-- Founder & Executive Leadership (Apple Spotlight Card) -->
+      <div class="leadership-grid leadership-grid--spotlight" style="margin-bottom: 4.5rem;">
+        <!-- Abhilash D.V. - Founder & Director -->
+        <div class="leadership-card leadership-card--hover2 apple-reveal">
+          <div class="leadership-card__media">
+            <img src="../../media/images/Team/Leadership/abhilash-dv.png?v=20261117"
+              alt="Abhilash D.V. - Founder &amp; Director" class="leadership-card__img" loading="lazy">
+            <div class="leadership-card__media-glow" aria-hidden="true"></div>
+          </div>
+          <div class="leadership-card__body">
+            <div class="leadership-card__info-content">
+              <div class="leadership-card__role-pill">
+                Founder &amp; Director
+              </div>
+              <h3 class="leadership-card__name">Abhilash D.V.</h3>
+              <span class="leadership-card__designation">Founder &bull; Director &bull; Chief Operating Officer</span>
+              <p class="leadership-card__bio">
+                Orchestrating citywide swapping hub logistics, real-time battery lifecycle management, automotive
+                engineering, and rider earnings optimization across metropolitan corridors.
+              </p>
+            </div>
+            <div class="leadership-card__footer">
+              <a href="https://www.linkedin.com/company/exterapp/" target="_blank" rel="noopener noreferrer"
+                class="leadership-social-link" aria-label="Abhilash D.V. on LinkedIn">
+                <i class="ri-linkedin-fill"></i> <span>LinkedIn Profile</span>
+              </a>
+            </div>
+            <!-- HoverCard2 Sliding Action Button -->
+            <a href="https://www.linkedin.com/company/exterapp/" target="_blank" rel="noopener noreferrer"
+              class="leadership-card__hover-btn" aria-label="Connect with Abhilash D.V. on LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+              <span>Connect on LinkedIn</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operations & Fleet Management Team Header -->
+      <div class="section__header-center" style="margin-bottom: 2.5rem;">
+        <span class="apple-eyebrow">Operations &amp; Engineering</span>
+        <h3 class="section__title" style="font-size: clamp(1.6rem, 2.8vw, 2.2rem);">Management Team</h3>
+      </div>
+
+      <!-- Apple Staggered Mosaic & Bi-directional Team Showcase -->
+      <div class="team-showcase" id="teamShowcase">
+        <!-- Left: Staggered 3-Column Photo Mosaic -->
+        <div class="team-showcase__mosaic">
+          <!-- Column 1 (Top: Mukesh Kumar [Manager], Mid: Nagabhooshana Hegde [Asst Mgr], Bot: Vivek M D [Asst Mgr]) -->
+          <div class="team-showcase__col team-showcase__col--1">
+            <div class="team-photo-card" data-member="1" tabindex="0" role="button"
+              aria-label="Mukesh Kumar - Manager - Hub Expansion &amp; Execution">
+              <img src="../../media/images/Team/Manager/Mukesh.jpeg" alt="Mukesh Kumar" class="team-photo-card__img"
+                loading="lazy" />
+            </div>
+            <div class="team-photo-card" data-member="4" tabindex="0" role="button"
+              aria-label="Nagabhooshana Hegde - Assistant Manager – Battery, Charging Infrastructure &amp; Maintenance">
+              <img src="../../media/images/Team/Manager/Bhushn.jpeg" alt="Nagabhooshana Hegde"
+                class="team-photo-card__img" loading="lazy" />
+            </div>
+            <div class="team-photo-card" data-member="7" tabindex="0" role="button"
+              aria-label="Vivek M D - Assistant Manager - EV Fleet Operations &amp; Maintenance">
+              <img src="../../media/images/Team/Manager/Vivek.jpeg" alt="Vivek M D" class="team-photo-card__img"
+                loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Column 2 (Top: Santhosh Kumar NY [Manager], Bot: Shiaraj Kumar Melgeri [Asst Mgr]) - Offset Top -->
+          <div class="team-showcase__col team-showcase__col--2">
+            <div class="team-photo-card" data-member="2" tabindex="0" role="button"
+              aria-label="Santhosh Kumar NY - Manager - Service Manager">
+              <img src="../../media/images/Team/Manager/santhu.jpg" alt="Santhosh Kumar NY" class="team-photo-card__img"
+                loading="lazy" />
+            </div>
+            <div class="team-photo-card" data-member="5" tabindex="0" role="button"
+              aria-label="Shiaraj Kumar Melgeri - Assistant Manager - Rider Growth &amp; Sales">
+              <img src="../../media/images/Team/Manager/shivu.jpeg" alt="Shiaraj Kumar Melgeri"
+                class="team-photo-card__img" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Column 3 (Top: Sunil Kumar Ravi [Manager], Bot: TILAK C [Asst Mgr]) - Offset Top -->
+          <div class="team-showcase__col team-showcase__col--3">
+            <div class="team-photo-card" data-member="3" tabindex="0" role="button"
+              aria-label="Sunil Kumar Ravi - Manager - Battery Swapping Operations">
+              <img src="../../media/images/Team/Manager/Sunil.jpeg" alt="Sunil Kumar Ravi" class="team-photo-card__img"
+                loading="lazy" />
+            </div>
+            <div class="team-photo-card" data-member="6" tabindex="0" role="button"
+              aria-label="TILAK C - Assistant Manager - Backend Software Implementation &amp; Asset Manager">
+              <img src="../../media/images/Team/Manager/Tilak.jpeg" alt="TILAK C" class="team-photo-card__img"
+                loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Member List with Expanding Indicator & Slide-in Socials -->
+        <div class="team-showcase__list" role="list">
+          <!-- GROUP 1: MANAGERS (FIRST) -->
+          <div class="team-group-header">
+            <span class="team-group-pill">Managers</span>
+          </div>
+
+          <!-- Member 1: Mukesh Kumar -->
+          <div class="team-member-row" data-member="1" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Mukesh Kumar</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">MANAGER - HUB EXPANSION &amp; EXECUTION</span>
+          </div>
+
+          <!-- Member 2: Santhosh Kumar NY -->
+          <div class="team-member-row" data-member="2" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Santhosh Kumar NY</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">MANAGER - SERVICE MANAGER</span>
+          </div>
+
+          <!-- Member 3: Sunil Kumar Ravi -->
+          <div class="team-member-row" data-member="3" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Sunil Kumar Ravi</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">MANAGER - BATTERY SWAPPING OPERATIONS</span>
+          </div>
+
+          <!-- GROUP 2: ASSISTANT MANAGERS (SECOND) -->
+          <div class="team-group-header" style="margin-top: 0.6rem;">
+            <span class="team-group-pill">Assistant Managers</span>
+          </div>
+
+          <!-- Member 4: Nagabhooshana Hegde -->
+          <div class="team-member-row" data-member="4" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Nagabhooshana Hegde</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">ASSISTANT MANAGER – BATTERY, CHARGING INFRASTRUCTURE &amp;
+              MAINTENANCE</span>
+          </div>
+
+          <!-- Member 5: Shiaraj Kumar Melgeri -->
+          <div class="team-member-row" data-member="5" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Shivarajkumar </span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">ASSISTANT MANAGER - RIDER GROWTH &amp; SALES</span>
+          </div>
+
+          <!-- Member 6: TILAK C -->
+          <div class="team-member-row" data-member="6" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">TILAK C</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">ASSISTANT MANAGER - BACKEND SOFTWARE IMPLEMENTATION &amp; ASSET
+              MANAGER</span>
+          </div>
+
+          <!-- Member 7: Vivek M D -->
+          <div class="team-member-row" data-member="7" tabindex="0" role="listitem">
+            <div class="team-member-row__header">
+              <span class="team-member-pill" aria-hidden="true"></span>
+              <span class="team-member-name">Vivek M D</span>
+              <div class="team-member-social">
+                <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" title="X / Twitter"
+                  aria-label="X profile">
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+              </div>
+            </div>
+            <span class="team-member-role">ASSISTANT MANAGER - EV FLEET OPERATIONS &amp; MAINTENANCE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Career Progression & Culture Spotlight: From Hub Captains to Managers (From Official Deck) -->
+      <div class="apple-career-spotlight apple-reveal">
+        <div class="apple-career-spotlight__header">
+          <span class="apple-eyebrow">Culture &amp; Career Pathways</span>
+          <h3 class="section__title" style="font-size: clamp(1.6rem, 2.5vw, 2.2rem);">From Hub Captains to Managers:
+            Growth That Inspires.</h3>
+          <p class="section__lead">
+            At EXTER, we believe in nurturing talent from the ground up. Many of our operational leaders began their
+            journey as on-ground Hub Captains and grew into impactful Managers through dedication, hands-on learning,
+            and consistent performance.
+          </p>
+        </div>
+
+        <div class="apple-career-path-grid">
+          <!-- Step 1 -->
+          <div class="apple-career-step">
+            <span class="apple-career-step__year">2021 · Step 01</span>
+            <h4 class="apple-career-step__role">Joined as Hub Captain</h4>
+            <p class="apple-career-step__desc">Executed on-ground battery swaps, maintained station safety, and
+              supported daily rider turnarounds.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="apple-career-step">
+            <span class="apple-career-step__year">2022 · Step 02</span>
+            <h4 class="apple-career-step__role">Took Ownership &amp; Learned</h4>
+            <p class="apple-career-step__desc">Developed operational skills, helped scale hub capacity, and mentored
+              newly onboarded captains.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="apple-career-step">
+            <span class="apple-career-step__year">2023 · Step 03</span>
+            <h4 class="apple-career-step__role">Handled Multiple Hubs</h4>
+            <p class="apple-career-step__desc">Managed operations across cluster hubs, optimized battery turnaround
+              speed, and boosted fleet uptime.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="apple-career-step">
+            <span class="apple-career-step__year">2024+ · Step 04</span>
+            <h4 class="apple-career-step__role">Now Leading as Manager</h4>
+            <p class="apple-career-step__desc">Promoted to core Management — leading citywide teams, fleet
+              maintenance,
+              and driving sustainable business growth.</p>
+          </div>
+        </div>
+
+        <!-- Inspiring Motto Banner -->
+        <div class="apple-career-motto">
+          <div class="apple-career-motto__text">
+            "Your ideas matter. Your growth matters. <span class="apple-career-motto__highlight">You matter.</span>"
+          </div>
+          <span style="font-size:0.85rem; color:rgba(255,255,255,0.7); font-weight:500;">
+            Real growth. Real opportunities. Real impact.
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CTA BANNER (Apple Minimal Showcase)
+  ========================================================= -->
+  <section class="section section--cta-banner" id="aboutCtaBanner">
+    <div class="container">
+      <div class="apple-cta-showcase apple-reveal">
+
+        <div class="apple-eyebrow-pill apple-eyebrow-pill--light" style="margin-bottom: 1.25rem;">
+          <span>Next-Gen Clean Mobility</span>
+        </div>
+
+        <h2 class="apple-cta-title">
+          Join Us in Powering <span class="apple-cta-accent">Clean Mobility.</span>
+        </h2>
+
+        <p class="apple-cta-desc">
+          Whether you want to drive with our rider network, host a station on your property, or collaborate on fleet
+          operations, we would love to connect.
+        </p>
+
+        <div class="apple-cta-actions">
+          <a href="contact.html" class="btn btn--apple-primary">
+            <span>Contact Our Team</span>
+          </a>
+          <a href="become-a-rider.html" class="btn btn--apple-secondary-light">
+            <i class="ri-user-star-line"></i>
+            <span>Become a Rider</span>
+          </a>
+        </div>
+
+        <!-- Apple Micro Trust Badges -->
+        <div class="apple-cta-trust-row">
+          <div class="trust-badge-item">
+            <i class="ri-leaf-line" style="color: #34C759;"></i>
+            <span>100% Electric &bull; Zero Tailpipe</span>
+          </div>
+          <div class="trust-badge-divider"></div>
+          <div class="trust-badge-item">
+            <i class="ri-flashlight-line" style="color: #3028A5;"></i>
+            <span>2-Min Rapid Swaps</span>
+          </div>
+          <div class="trust-badge-divider"></div>
+          <div class="trust-badge-item">
+            <i class="ri-shield-check-line" style="color: #0071E3;"></i>
+            <span>24/7 Roadside Assistance</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="../../../index.html" class="navbar__logo">
+            <img src="../../media/images/logo/exter.png" alt="EXTER" class="logo-symbol-img" />
+            <span class="logo-text">exter</span>
+          </a>
+          <p class="footer__tagline">Power in Motion.</p>
+          <div class="footer__social" aria-label="EXTER Social Media">
+            <a href="https://www.instagram.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--instagram" title="Follow EXTER on Instagram"
+              aria-label="EXTER Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="https://www.facebook.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--facebook" title="Follow EXTER on Facebook"
+              aria-label="EXTER Facebook">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+              rel="noopener noreferrer" class="footer__social-link footer__social-link--linkedin"
+              title="Follow EXTER on LinkedIn" aria-label="EXTER LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="https://x.com/exterenergy" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--twitter" title="Follow EXTER on X (Twitter)"
+              aria-label="EXTER X / Twitter">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="https://www.youtube.com/@exterenergy" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--youtube" title="Subscribe to EXTER on YouTube"
+              aria-label="EXTER YouTube">
+              <i class="ri-youtube-line"></i>
+            </a>
+            <a href="https://exterenergy.medium.com/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--medium" title="Read EXTER on Medium"
+              aria-label="EXTER Medium">
+              <i class="ri-medium-line"></i>
+            </a>
+          </div>
+          <div class="footer__rider-container" aria-hidden="true">
+            <img src="../../media/images/Bike/rider-footer.png" alt="EXTER Delivery Partner on Smart EV"
+              class="footer__rider-img" loading="lazy" />
+            <div class="footer__rider-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <div class="footer__col">
+            <h5>Navigation</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="battery-swapping.html">Battery Swapping</a></li>
+              <li><a href="become-a-rider.html">Become a Rider</a></li>
+              <li><a href="rental-policy.html">Rental Policy</a></li>
+              <li><a href="hub-locations.html">Hub Locations</a></li>
+              <li><a href="careers.html">Careers <span
+                    style="font-size:0.68rem; background:rgba(48,40,165,0.1); padding:2px 6px; border-radius:99px; margin-left:4px;">Hiring</span></a>
+              </li>
+              <li><a href="../../../index.html#referralPromo" id="footerReferLink">Refer &amp; Earn &#8377;500</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h5>Solutions</h5>
+            <ul>
+              <li><a href="become-a-rider.html">EV Rentals</a></li>
+              <li><a href="battery-swapping.html">Battery Swapping</a></li>
+              <li><a href="contact.html">Enterprise Fleets</a></li>
+              <li><a href="hub-locations.html">Station Hosting</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h5>Contact &amp; Help</h5>
+            <ul>
+              <li><a href="contact.html">Support Desk</a></li>
+              <li><a href="tel:+918050263303">+91 8050263303</a></li>
+              <li><a href="mailto:hello@exterenergy.com">hello@exterenergy.com</a></li>
+              <li><a href="https://wa.me/918050263303" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>&copy; 2026 Exter Energy Private Limited. All Rights Reserved. Powering India's Mobility.</div>
+        <div class="footer__legal">
+          <a href="rental-policy.html">Rental Policy</a>
+          <span>&bull;</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>&bull;</span>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <span>&bull;</span>
+          <a href="#cookie-settings" class="open-cookie-settings">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
