@@ -249,7 +249,7 @@ window.EXTER_CONFIG = {
       id: "JPN 001",
       city: "Bengaluru",
       area: "JP Nagar",
-      name: "JP Nagar Hub 01 (JPN 001)",
+      name: "JP Nagar Hub 01",
       address: "JP Nagar, Bengaluru, Karnataka",
       phone: "+91 89040 84545",
       phoneTel: "+918904084545",
@@ -265,7 +265,7 @@ window.EXTER_CONFIG = {
       id: "JPN 007",
       city: "Bengaluru",
       area: "JP Nagar Phase 7",
-      name: "JP Nagar Hub 07 (JPN 007)",
+      name: "JP Nagar Hub 07",
       address: "JP Nagar 7th Phase, Bengaluru, Karnataka",
       phone: "+91 80502 63303",
       phoneTel: "+918050263303",
@@ -281,7 +281,7 @@ window.EXTER_CONFIG = {
       id: "TVK004",
       city: "Bengaluru",
       area: "Tavarekere",
-      name: "Tavarekere Hub 04 (TVK004)",
+      name: "Tavarekere Hub 04",
       address: "WJF5+M35 Bengaluru, Karnataka",
       phone: "+91 99023 11939",
       phoneTel: "+919902311939",
@@ -297,7 +297,7 @@ window.EXTER_CONFIG = {
       id: "BTM003",
       city: "Bengaluru",
       area: "BTM Layout",
-      name: "BTM Layout Hub 03 (BTM003)",
+      name: "BTM Layout Hub 03",
       address: "BTM Layout, Bengaluru, Karnataka",
       phone: "+91 80503 54533",
       phoneTel: "+918050354533",
@@ -313,7 +313,7 @@ window.EXTER_CONFIG = {
       id: "BHL002",
       city: "Bengaluru",
       area: "Bhoganhalli",
-      name: "Bhoganhalli Hub 02 (BHL002)",
+      name: "Bhoganhalli Hub 02",
       address: "Bhoganhalli, Bengaluru, Karnataka",
       phone: "+91 80502 63303",
       phoneTel: "+918050263303",
@@ -329,7 +329,7 @@ window.EXTER_CONFIG = {
       id: "MHP 005",
       city: "Bengaluru",
       area: "Mahadevapura / Murugeshpalya",
-      name: "MHP 005 – Exter Battery Swapping Hub",
+      name: "Mahadevapura Hub 05",
       address: "MHP005 Exter Battery Swapping Hub, Bengaluru, Karnataka",
       phone: "+91 80502 63303",
       phoneTel: "+918050263303",
@@ -931,29 +931,45 @@ function initBikeRentalSystem() {
       if (reviewRiderEmail) reviewRiderEmail.textContent = email;
       if (reviewPickupHub) reviewPickupHub.textContent = hubText;
 
+      const renderSafeDocBadge = (container, text, isSkipped = false) => {
+        if (!container) return;
+        container.textContent = '';
+        const badge = document.createElement('span');
+        badge.className = `doc-badge ${isSkipped ? 'doc-badge--skipped' : 'doc-badge--success'}`;
+        if (isSkipped) {
+          const icon = document.createElement('i');
+          icon.className = 'ri-time-line';
+          badge.appendChild(icon);
+          badge.appendChild(document.createTextNode(' ' + text));
+        } else {
+          badge.textContent = text + ' ✓';
+        }
+        container.appendChild(badge);
+      };
+
       if (reviewAadhaarStatus) {
         if (uploadedDocs.aadhaar) {
-          reviewAadhaarStatus.innerHTML = `<span class="doc-badge doc-badge--success">${uploadedDocs.aadhaar.name} ✓</span>`;
+          renderSafeDocBadge(reviewAadhaarStatus, uploadedDocs.aadhaar.name, false);
         } else if (isKycSkipped) {
-          reviewAadhaarStatus.innerHTML = `<span class="doc-badge doc-badge--skipped"><i class="ri-time-line"></i> Verify at Hub (Physical KYC)</span>`;
+          renderSafeDocBadge(reviewAadhaarStatus, 'Verify at Hub (Physical KYC)', true);
         } else {
           reviewAadhaarStatus.textContent = 'Aadhaar Attached ✓';
         }
       }
       if (reviewPanStatus) {
         if (uploadedDocs.pan) {
-          reviewPanStatus.innerHTML = `<span class="doc-badge doc-badge--success">${uploadedDocs.pan.name} ✓</span>`;
+          renderSafeDocBadge(reviewPanStatus, uploadedDocs.pan.name, false);
         } else if (isKycSkipped) {
-          reviewPanStatus.innerHTML = `<span class="doc-badge doc-badge--skipped"><i class="ri-time-line"></i> Verify at Hub (Physical KYC)</span>`;
+          renderSafeDocBadge(reviewPanStatus, 'Verify at Hub (Physical KYC)', true);
         } else {
           reviewPanStatus.textContent = 'PAN Attached ✓';
         }
       }
       if (reviewChequeStatus) {
         if (uploadedDocs.cheque) {
-          reviewChequeStatus.innerHTML = `<span class="doc-badge doc-badge--success">${uploadedDocs.cheque.name} ✓</span>`;
+          renderSafeDocBadge(reviewChequeStatus, uploadedDocs.cheque.name, false);
         } else if (isKycSkipped) {
-          reviewChequeStatus.innerHTML = `<span class="doc-badge doc-badge--skipped"><i class="ri-time-line"></i> 2 Cheques at Hub Collection</span>`;
+          renderSafeDocBadge(reviewChequeStatus, '2 Cheques at Hub Collection', true);
         } else {
           reviewChequeStatus.textContent = 'Cheque Attached ✓';
         }
@@ -1433,31 +1449,41 @@ function initHubsPage() {
       return;
     }
 
-    hubsListEl.innerHTML = hubsToRender.map(hub => `
+    hubsListEl.innerHTML = hubsToRender.map(hub => {
+      const cleanName = (hub.name || "").replace(/\s*\([A-Z0-9\s]+\)\s*/g, "").replace(/^[A-Z0-9\s]+[–-]\s*/g, "").trim() || hub.name;
+      const phoneNum = (hub.phoneTel || hub.phone || window.EXTER_CONFIG.supportPhone || "").replace(/\s+/g, "");
+      return `
       <div class="hub-card" data-city="${hub.city.toLowerCase()}" data-hub-id="${hub.id}">
         <div class="hub-card__top">
-          <span class="hub-id-pill">${hub.id}</span>
+          <div class="hub-card__id-group">
+            <span class="hub-id-pill">${hub.id}</span>
+            <h3 class="hub-card__name">${cleanName}</h3>
+          </div>
           <span class="hub-status-badge">
             <span class="hub-status-beacon"></span>
             ${hub.status}
           </span>
         </div>
-        <h3 class="hub-card__name">${hub.name}</h3>
-        <p class="hub-card__address">${hub.address}</p>
+        <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> ${hub.address}</p>
         <div class="hub-card__meta">
           <span class="hub-meta-item"><i class="ri-time-line"></i> ${hub.hours}</span>
-          <span class="hub-meta-item"><i class="ri-battery-charge-line"></i> ${hub.availableBatteries}</span>
+          <span class="hub-meta-item hub-meta-item--battery"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#34C759;flex-shrink:0;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> ${hub.availableBatteries}</span>
         </div>
         <div class="hub-card__actions-row">
-          <a href="${hub.mapUrl || ('https://maps.google.com/?q=' + encodeURIComponent(hub.address))}" target="_blank" rel="noopener" class="btn-hub-action btn-hub-direction">
+          <button type="button" class="btn-hub-action btn-view-hub-map">
+            <i class="ri-map-pin-line"></i> View on Map
+          </button>
+          <a href="${hub.mapUrl || ("https://maps.google.com/?q=" + encodeURIComponent(hub.address))}" target="_blank" rel="noopener noreferrer" class="btn-hub-action btn-hub-direction">
             <i class="ri-direction-line"></i> Directions
           </a>
-          <a href="tel:${window.EXTER_CONFIG.supportPhone.replace(/\s+/g, '')}" class="btn-hub-action btn-hub-call">
-            <i class="ri-phone-line"></i> Contact Hub
+          <a href="tel:${phoneNum}" class="btn-hub-action btn-hub-call" title="Call ${hub.phone || "Hub"}">
+            <i class="ri-phone-line"></i> Call
           </a>
         </div>
       </div>
-    `).join('');
+    
+    `;
+    }).join('');
   }
 
   function filterHubs() {
@@ -3847,7 +3873,27 @@ function initReferralPromoPopup() {
 /* ==========================================================================
    6. GLOBAL INITIALIZATION
    ========================================================================== */
+function initSkeletonScreen() {
+  const skeleton = document.getElementById('skeletonScreen');
+  if (!skeleton) return;
+
+  function dismiss() {
+    skeleton.classList.add('is-loaded');
+    setTimeout(() => {
+      skeleton.style.display = 'none';
+    }, 450);
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(dismiss, 280);
+  } else {
+    window.addEventListener('load', () => setTimeout(dismiss, 200));
+    setTimeout(dismiss, 1200); // Failsafe
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initSkeletonScreen();
   initNavbar();
   initMobileMenu();
   initSmoothScroll();
