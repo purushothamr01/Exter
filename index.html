@@ -44,6 +44,56 @@
 </head>
 
 <body>
+  <!-- Apple Skeleton Loading Screen -->
+  <div class="skeleton-screen" id="skeletonScreen" aria-hidden="true">
+    <div class="skeleton-screen__inner">
+      <div class="skeleton-nav">
+        <div class="skeleton-pill skeleton-nav__logo"></div>
+        <div class="skeleton-nav__links">
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+        </div>
+        <div class="skeleton-pill skeleton-nav__cta"></div>
+      </div>
+      <div class="skeleton-hero">
+        <div class="skeleton-pill skeleton-hero__badge"></div>
+        <div class="skeleton-bar skeleton-hero__title-1"></div>
+        <div class="skeleton-bar skeleton-hero__title-2"></div>
+        <div class="skeleton-bar skeleton-hero__sub"></div>
+        <div class="skeleton-hero__actions">
+          <div class="skeleton-pill skeleton-btn"></div>
+          <div class="skeleton-pill skeleton-btn skeleton-btn--secondary"></div>
+        </div>
+      </div>
+      <div class="skeleton-grid">
+        <div class="skeleton-card">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+        <div class="skeleton-card skeleton-card--desktop">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var s=document.getElementById('skeletonScreen');
+      if(!s)return;
+      function d(){s.classList.add('is-loaded');setTimeout(function(){s.style.display='none';},450);}
+      if(document.readyState==='complete'){setTimeout(d,280);}else{window.addEventListener('load',function(){setTimeout(d,200);});setTimeout(d,1200);}
+    })();
+  </script>
 
   <!-- =========================================================
        1. NAVIGATION BAR
@@ -62,6 +112,7 @@
           <li><a href="main/assets/pages/about.html" class="navbar__link">About Us</a></li>
           <li><a href="main/assets/pages/become-a-rider.html" class="navbar__link">Become a Rider</a></li>
           <li><a href="main/assets/pages/hub-locations.html" class="navbar__link">Hub Locations</a></li>
+          <li><a href="main/assets/pages/careers.html" class="navbar__link">Careers</a></li>
           <li><a href="main/assets/pages/contact.html" class="navbar__link">Contact</a></li>
         </ul>
       </nav>
@@ -98,10 +149,13 @@
     <!-- Centered Hero Content Box -->
     <div class="hero__content-zypp">
 
-      <h1 class="hero__headline-zypp">
-        Less Waiting. More Moving.
-
-
+            <h1 class="hero__headline-zypp signal-reveal-text" data-slot="signal-reveal-text" aria-label="Less Waiting. More Moving.">
+        <span class="signal-reveal-copy" aria-hidden="true">
+          <span class="signal-reveal-word" style="--signal-delay: 0s;">Less</span>
+          <span class="signal-reveal-word" style="--signal-delay: 0.08s;">Waiting.</span>
+          <span class="signal-reveal-word" style="--signal-delay: 0.16s;">More</span>
+          <span class="signal-reveal-word" style="--signal-delay: 0.24s;">Moving.</span>
+        </span>
       </h1>
 
       <p class="hero__subtext-zypp">
@@ -1226,7 +1280,6 @@
       <!-- Section Header -->
       <div class="section__header-center apple-reveal">
         <div class="apple-eyebrow-pill apple-eyebrow-pill--light" style="margin-bottom: 1rem;">
-          <span class="apple-eyebrow-dot"></span>
           <span>Interactive Cost Comparison</span>
         </div>
         <h2 class="section-title">See How Much More You Could Save.</h2>
@@ -1446,7 +1499,6 @@
         <!-- LEFT: Minimal Apple Editorial Column -->
         <div class="swapping-feature__content apple-reveal">
           <div class="apple-eyebrow-pill apple-eyebrow-pill--light" style="margin-bottom: 1.25rem;">
-            <span class="apple-eyebrow-dot"></span>
             <span>Swapping Experience</span>
           </div>
 
@@ -1565,7 +1617,6 @@
       <!-- Section Heading -->
       <div class="section__header-center">
         <div class="apple-eyebrow-pill apple-eyebrow-pill--light" style="margin-bottom: 1rem;">
-          <span class="apple-eyebrow-dot"></span>
           <span>How to Join EXTER</span>
         </div>
         <h2 class="section__title">Your Journey Starts Here.</h2>
@@ -1751,7 +1802,6 @@
 
           <div class="app-showcase-header">
             <div class="apple-eyebrow-pill apple-eyebrow-pill--light" style="margin-bottom: 0.85rem;">
-              <span class="apple-eyebrow-dot"></span>
               <span>Riders Companion App</span>
             </div>
             <h3 class="app-showcase-title">Everything You Need. One App.</h3>
@@ -3556,7 +3606,7 @@
             <iframe id="googleMapFrame" class="hub-google-map-iframe"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.954413976106!2d77.59008427507554!3d12.910651487399152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae155de5db8bd5%3A0x1e57c79f8c34eee2!2sJPN001%20-%20exter%20Battery%20Swapping%20Point!5e0!3m2!1sen!2sin!4v1794398772421!5m2!1sen!2sin"
               width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin" title="EXTER Official Google Maps Location">
+              referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-popups" title="EXTER Official Google Maps Location">
             </iframe>
           </div>
 
@@ -3587,7 +3637,6 @@
     <div class="container container--bento">
       <div class="section__header-center apple-reveal">
         <div class="apple-eyebrow-pill" role="note" aria-label="The EXTER Difference">
-          <span class="apple-eyebrow-pill__dot"></span>
           <span class="apple-eyebrow-pill__text">The EXTER Difference</span>
         </div>
         <h2 class="section__title">Why Choose EXTER?</h2>
@@ -4281,7 +4330,6 @@
       <div class="apple-cta-showcase apple-reveal">
 
         <div class="apple-eyebrow-pill apple-eyebrow-pill--light" style="margin-bottom: 1.25rem;">
-          <span class="apple-eyebrow-dot"></span>
           <span>Next-Gen Smart Mobility</span>
         </div>
 
@@ -4355,6 +4403,21 @@
               title="Follow EXTER on LinkedIn" aria-label="EXTER LinkedIn">
               <i class="ri-linkedin-fill"></i>
             </a>
+            <a href="https://x.com/exterenergy" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--twitter" title="Follow EXTER on X (Twitter)"
+              aria-label="EXTER X / Twitter">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="https://www.youtube.com/@exterenergy" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--youtube" title="Subscribe to EXTER on YouTube"
+              aria-label="EXTER YouTube">
+              <i class="ri-youtube-line"></i>
+            </a>
+            <a href="https://exterenergy.medium.com/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--medium" title="Read EXTER on Medium"
+              aria-label="EXTER Medium">
+              <i class="ri-medium-line"></i>
+            </a>
           </div>
           <div class="footer__rider-container" aria-hidden="true">
             <img src="main/media/images/Bike/rider-footer.png" alt="EXTER Delivery Partner on Smart EV"
@@ -4372,6 +4435,7 @@
               <li><a href="main/assets/pages/become-a-rider.html">Become a Rider</a></li>
               <li><a href="main/assets/pages/rental-policy.html">Rental Policy</a></li>
               <li><a href="main/assets/pages/hub-locations.html">Hub Locations</a></li>
+              <li><a href="main/assets/pages/careers.html">Careers <span style="font-size:0.68rem; background:rgba(48,40,165,0.1); padding:2px 6px; border-radius:99px; margin-left:4px;">Hiring</span></a></li>
               <li><a href="#referralPromo" id="footerReferLink">Refer &amp; Earn ₹500</a></li>
             </ul>
           </div>
