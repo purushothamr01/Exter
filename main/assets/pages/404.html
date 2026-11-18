@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Headers & Directives -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <title>Page Not Found</title>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../media/images/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../media/images/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../media/images/favicon/apple-touch-icon.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body style="min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+  <!-- Apple Skeleton Loading Screen -->
+  <div class="skeleton-screen" id="skeletonScreen" aria-hidden="true">
+    <div class="skeleton-screen__inner">
+      <div class="skeleton-nav">
+        <div class="skeleton-pill skeleton-nav__logo"></div>
+        <div class="skeleton-nav__links">
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+          <div class="skeleton-pill skeleton-nav__link"></div>
+        </div>
+        <div class="skeleton-pill skeleton-nav__cta"></div>
+      </div>
+      <div class="skeleton-hero">
+        <div class="skeleton-pill skeleton-hero__badge"></div>
+        <div class="skeleton-bar skeleton-hero__title-1"></div>
+        <div class="skeleton-bar skeleton-hero__title-2"></div>
+        <div class="skeleton-bar skeleton-hero__sub"></div>
+        <div class="skeleton-hero__actions">
+          <div class="skeleton-pill skeleton-btn"></div>
+          <div class="skeleton-pill skeleton-btn skeleton-btn--secondary"></div>
+        </div>
+      </div>
+      <div class="skeleton-grid">
+        <div class="skeleton-card">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+        <div class="skeleton-card skeleton-card--desktop">
+          <div class="skeleton-card__media"></div>
+          <div class="skeleton-bar skeleton-card__line-1"></div>
+          <div class="skeleton-bar skeleton-card__line-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var s=document.getElementById('skeletonScreen');
+      if(!s)return;
+      function d(){s.classList.add('is-loaded');setTimeout(function(){s.style.display='none';},450);}
+      if(document.readyState==='complete'){setTimeout(d,280);}else{window.addEventListener('load',function(){setTimeout(d,200);});setTimeout(d,1200);}
+    })();
+  </script>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="../../../index.html" class="navbar__logo" aria-label="EXTER Home">
+        <img src="../../media/images/logo/exter.png" alt="EXTER" class="logo-symbol-img" />
+        <span class="logo-text">exter</span>
+      </a>
+
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="../../../index.html" class="navbar__link">Home</a></li>
+          <li><a href="about.html" class="navbar__link">About Us</a></li>
+          <li><a href="../../../index.html#solutions" class="navbar__link">Our Solutions</a></li>
+          <li><a href="battery-swapping.html" class="navbar__link">Battery Swapping</a></li>
+          <li><a href="become-a-rider.html" class="navbar__link">Become a Rider</a></li>
+          <li><a href="hub-locations.html" class="navbar__link">Hub Locations</a></li>
+          <li><a href="contact.html" class="navbar__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="become-a-rider.html" class="btn btn--primary btn--sm navbar__cta">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 404 Hero (Integrated 404 Component) -->
+  <main class="section not-found-section"
+    style="padding-top:calc(var(--nav-h) + 2.5rem); padding-bottom:5rem; text-align:center; flex-grow:1; display:flex; align-items:center; justify-content:center;">
+    <div class="container">
+      <div style="max-width:760px; margin:0 auto;">
+        <!-- Animated 404 Gif Canvas -->
+        <div
+          style="background-image:url('https://cdn.21st.dev/assets/mirror/35/354f63f88b57aceea4536df0c0cff0c3592aa46fe887ff910751fefc12f3e76c.gif'); height:380px; max-height:45vh; background-position:center; background-repeat:no-repeat; background-size:contain; display:flex; align-items:flex-start; justify-content:center;"
+          aria-hidden="true">
+          <h1
+            style="color:#000000; font-size:clamp(4.5rem, 8vw, 6.5rem); font-weight:800; padding-top:1.5rem; margin:0; letter-spacing:-0.03em; font-family:'Montserrat', sans-serif;">
+            404
+          </h1>
+        </div>
+
+        <!-- Content Overlay -->
+        <div style="margin-top:-45px; position:relative; z-index:2;">
+          <h2
+            style="font-size:clamp(1.75rem, 3.5vw, 2.25rem); color:#111113; font-weight:700; margin-bottom:0.75rem; letter-spacing:-0.02em;">
+            Look like you're lost
+          </h2>
+          <p style="font-size:1.05rem; color:#6E6E73; margin-bottom:1.75rem; line-height:1.5;">
+            The page you are looking for is not available!
+          </p>
+
+          <div style="display:flex; justify-content:center; gap:0.85rem; flex-wrap:wrap;">
+            <a href="../../../index.html" class="btn"
+              style="background:#16A34A; color:#FFFFFF; border:none; border-radius:8px; padding:0.75rem 2rem; font-weight:600; font-size:0.95rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px; box-shadow:0 4px 12px rgba(22, 163, 74, 0.25); transition:background 0.2s ease, transform 0.2s ease;">
+              <span>Go to Home</span>
+              <i class="ri-arrow-right-line"></i>
+            </a>
+            <a href="hub-locations.html" class="btn"
+              style="background:#F5F5F7; color:#1D1D1F; border:1px solid rgba(0,0,0,0.08); border-radius:8px; padding:0.75rem 1.6rem; font-weight:550; font-size:0.95rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:background 0.2s ease;">
+              <span>Find Swapping Hubs</span>
+              <i class="ri-map-pin-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="../../../index.html" class="navbar__logo">
+            <img src="../../media/images/logo/exter.png" alt="EXTER" class="logo-symbol-img" />
+            <span class="logo-text">exter</span>
+          </a>
+          <p class="footer__tagline">Power in Motion.</p>
+          <div class="footer__social" aria-label="EXTER Social Media">
+            <a href="https://www.instagram.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--instagram" title="Follow EXTER on Instagram"
+              aria-label="EXTER Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="https://www.facebook.com/exter.ev.club/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--facebook" title="Follow EXTER on Facebook"
+              aria-label="EXTER Facebook">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/exterapp/posts/?feedView=all" target="_blank"
+              rel="noopener noreferrer" class="footer__social-link footer__social-link--linkedin"
+              title="Follow EXTER on LinkedIn" aria-label="EXTER LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="https://x.com/exterenergy" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--twitter" title="Follow EXTER on X (Twitter)"
+              aria-label="EXTER X / Twitter">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="https://www.youtube.com/@exterenergy" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--youtube" title="Subscribe to EXTER on YouTube"
+              aria-label="EXTER YouTube">
+              <i class="ri-youtube-line"></i>
+            </a>
+            <a href="https://exterenergy.medium.com/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link footer__social-link--medium" title="Read EXTER on Medium"
+              aria-label="EXTER Medium">
+              <i class="ri-medium-line"></i>
+            </a>
+          </div>
+          <div class="footer__rider-container" aria-hidden="true">
+            <img src="../../media/images/Bike/rider-footer.png" alt="EXTER Delivery Partner on Smart EV"
+              class="footer__rider-img" loading="lazy" />
+            <div class="footer__rider-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <div class="footer__col">
+            <h5>Navigation</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="battery-swapping.html">Battery Swapping</a></li>
+              <li><a href="become-a-rider.html">Become a Rider</a></li>
+              <li><a href="rental-policy.html">Rental Policy</a></li>
+              <li><a href="hub-locations.html">Hub Locations</a></li>
+              <li><a href="../../../index.html#referralPromo" id="footerReferLink">Refer &amp; Earn &#8377;500</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h5>Solutions</h5>
+            <ul>
+              <li><a href="become-a-rider.html">EV Rentals</a></li>
+              <li><a href="battery-swapping.html">Battery Swapping</a></li>
+              <li><a href="contact.html">Enterprise Fleets</a></li>
+              <li><a href="hub-locations.html">Station Hosting</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h5>Contact &amp; Help</h5>
+            <ul>
+              <li><a href="contact.html">Support Desk</a></li>
+              <li><a href="tel:+918050263303">+91 8050263303</a></li>
+              <li><a href="mailto:hello@exterenergy.com">hello@exterenergy.com</a></li>
+              <li><a href="https://wa.me/918050263303" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>&copy; 2026 Exter Energy Private Limited. All Rights Reserved. Powering India's Mobility.</div>
+        <div class="footer__legal">
+          <a href="rental-policy.html">Rental Policy</a>
+          <span>&bull;</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>&bull;</span>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <span>&bull;</span>
+          <a href="#cookie-settings" class="open-cookie-settings">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
