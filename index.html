@@ -896,7 +896,7 @@
                     <option value="BTM003">BTM Layout Hub 03 (BTM003) — BTM 2nd Stage</option>
                     <option value="BHL002">Bhoganhalli Hub 02 (BHL002) — Bhoganhalli</option>
                     <option value="MHP 005">MHP 005 – Mahadevapura Hub (Murugeshpalya / HAL)</option>
-                    <option value="MAH006">MAH006 – Mahadevapura Hub 06 (Marathahalli / ORR)</option>
+                    <option value="MAH006">MAH006 – Marathahalli Hub 06 (Marathahalli / ORR)</option>
                   </select>
                 </div>
               </div>
@@ -3167,139 +3167,118 @@
           </div>
 
           <div class="feedback-form-body">
-            <!-- Overall Rating Selector (4-Tile Apple Segmented Group) -->
+            <!-- Overall Rating Selector (Apple Designer 5-Star Experience) -->
             <div class="feedback-field-group">
-              <span class="feedback-field-label">Overall Experience</span>
-              <div class="feedback-rating-grid" role="radiogroup" aria-label="Experience rating">
-                <!-- 1. Needs Work -->
-                <button type="button" class="feedback-rating-card" data-rating="Needs Work" role="radio"
-                  aria-checked="false">
-                  <span class="rating-emoji-stage">
-                    <svg class="apple-animated-emoji emoji-needs-work" viewBox="0 0 36 36" width="38" height="38"
-                      aria-hidden="true">
-                      <defs>
-                        <radialGradient id="faceGradSad" cx="35%" cy="30%" r="65%">
-                          <stop offset="0%" stop-color="#FFE066" />
-                          <stop offset="60%" stop-color="#FFB300" />
-                          <stop offset="100%" stop-color="#F57C00" />
-                        </radialGradient>
-                      </defs>
-                      <circle cx="18" cy="18" r="16" fill="url(#faceGradSad)" />
-                      <ellipse cx="18" cy="8" rx="10" ry="3.5" fill="#FFFFFF" opacity="0.35" />
-                      <path d="M10 11.5 C12 13.5 14 13.5 15 14.5" stroke="#5D4037" stroke-width="1.6"
-                        stroke-linecap="round" fill="none" />
-                      <path d="M26 11.5 C24 13.5 22 13.5 21 14.5" stroke="#5D4037" stroke-width="1.6"
-                        stroke-linecap="round" fill="none" />
-                      <ellipse cx="12.5" cy="16.5" rx="2" ry="2.6" fill="#3E2723" />
-                      <ellipse cx="23.5" cy="16.5" rx="2" ry="2.6" fill="#3E2723" />
-                      <circle cx="12" cy="15.5" r="0.75" fill="#FFFFFF" />
-                      <circle cx="23" cy="15.5" r="0.75" fill="#FFFFFF" />
-                      <path d="M12 25.5 C14.5 21.5 21.5 21.5 24 25.5" stroke="#3E2723" stroke-width="2.2"
-                        stroke-linecap="round" fill="none" />
-                    </svg>
-                  </span>
-                  <span class="rating-card-label">Needs Work</span>
-                </button>
+              <div class="feedback-field-header">
+                <span class="feedback-field-label">Overall Experience</span>
+                <div class="apple-rating-status-pill" id="ratingStatusPill" data-rating="Exceptional" aria-live="polite">
+                  <span class="rating-score-num">5.0</span>
+                  <span class="rating-score-dot">·</span>
+                  <span class="rating-score-text">Exceptional</span>
+                </div>
+              </div>
 
-                <!-- 2. Average -->
-                <button type="button" class="feedback-rating-card" data-rating="Average" role="radio"
-                  aria-checked="false">
-                  <span class="rating-emoji-stage">
-                    <svg class="apple-animated-emoji emoji-average" viewBox="0 0 36 36" width="38" height="38"
-                      aria-hidden="true">
+              <div class="apple-star-rating-container" id="appleStarRating" role="radiogroup" aria-label="Overall Experience rating">
+                <!-- 1 Star - Needs Work -->
+                <button type="button" class="feedback-rating-card apple-star-card is-filled" data-rating="Needs Work" data-rating-val="1" data-score="1.0" role="radio" aria-checked="false" aria-label="1 Star, Needs Work" style="--star-idx: 0;">
+                  <span class="apple-star-hitbox apple-star-hitbox--left" data-half="true" aria-hidden="true"></span>
+                  <span class="apple-star-hitbox apple-star-hitbox--right" data-half="false" aria-hidden="true"></span>
+                  <span class="apple-star-stage">
+                    <svg class="apple-star-svg" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
                       <defs>
-                        <radialGradient id="faceGradNeutral" cx="35%" cy="30%" r="65%">
-                          <stop offset="0%" stop-color="#FFE066" />
-                          <stop offset="60%" stop-color="#FFB300" />
-                          <stop offset="100%" stop-color="#F57C00" />
-                        </radialGradient>
-                      </defs>
-                      <circle cx="18" cy="18" r="16" fill="url(#faceGradNeutral)" />
-                      <ellipse cx="18" cy="8" rx="10" ry="3.5" fill="#FFFFFF" opacity="0.35" />
-                      <line x1="10" y1="12" x2="15" y2="12" stroke="#5D4037" stroke-width="1.5"
-                        stroke-linecap="round" />
-                      <line x1="21" y1="12" x2="26" y2="12" stroke="#5D4037" stroke-width="1.5"
-                        stroke-linecap="round" />
-                      <g class="emoji-neutral-eyes">
-                        <ellipse cx="12.5" cy="16.5" rx="2" ry="2.5" fill="#3E2723" />
-                        <ellipse cx="23.5" cy="16.5" rx="2" ry="2.5" fill="#3E2723" />
-                        <circle cx="12" cy="15.5" r="0.75" fill="#FFFFFF" />
-                        <circle cx="23" cy="15.5" r="0.75" fill="#FFFFFF" />
-                      </g>
-                      <line x1="12.5" y1="24.5" x2="23.5" y2="24.5" stroke="#3E2723" stroke-width="2.2"
-                        stroke-linecap="round" />
-                    </svg>
-                  </span>
-                  <span class="rating-card-label">Average</span>
-                </button>
-
-                <!-- 3. Good -->
-                <button type="button" class="feedback-rating-card" data-rating="Good" role="radio" aria-checked="false">
-                  <span class="rating-emoji-stage">
-                    <svg class="apple-animated-emoji emoji-good" viewBox="0 0 36 36" width="38" height="38"
-                      aria-hidden="true">
-                      <defs>
-                        <radialGradient id="faceGradGood" cx="35%" cy="30%" r="65%">
-                          <stop offset="0%" stop-color="#FFE066" />
-                          <stop offset="60%" stop-color="#FFB300" />
-                          <stop offset="100%" stop-color="#F57C00" />
-                        </radialGradient>
-                        <radialGradient id="blushGrad" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stop-color="#FF5252" stop-opacity="0.45" />
-                          <stop offset="100%" stop-color="#FF5252" stop-opacity="0" />
-                        </radialGradient>
-                      </defs>
-                      <circle cx="18" cy="18" r="16" fill="url(#faceGradGood)" />
-                      <ellipse cx="18" cy="8" rx="10" ry="3.5" fill="#FFFFFF" opacity="0.35" />
-                      <ellipse cx="9" cy="20.5" rx="3.5" ry="2" fill="url(#blushGrad)" />
-                      <ellipse cx="27" cy="20.5" rx="3.5" ry="2" fill="url(#blushGrad)" />
-                      <path d="M10 17.5 C10.5 14 14.5 14 15 17.5" stroke="#3E2723" stroke-width="2.2"
-                        stroke-linecap="round" fill="none" />
-                      <path d="M21 17.5 C21.5 14 25.5 14 26 17.5" stroke="#3E2723" stroke-width="2.2"
-                        stroke-linecap="round" fill="none" />
-                      <path d="M11 22.5 C13 27 23 27 25 22.5" stroke="#3E2723" stroke-width="2.2" stroke-linecap="round"
-                        fill="none" />
-                    </svg>
-                  </span>
-                  <span class="rating-card-label">Good</span>
-                </button>
-
-                <!-- 4. Exceptional -->
-                <button type="button" class="feedback-rating-card is-active" data-rating="Exceptional" role="radio"
-                  aria-checked="true">
-                  <span class="rating-emoji-stage">
-                    <svg class="apple-animated-emoji emoji-exceptional" viewBox="0 0 36 36" width="38" height="38"
-                      aria-hidden="true">
-                      <defs>
-                        <radialGradient id="faceGradStar" cx="35%" cy="30%" r="65%">
-                          <stop offset="0%" stop-color="#FFF066" />
-                          <stop offset="55%" stop-color="#FFB700" />
-                          <stop offset="100%" stop-color="#E65100" />
-                        </radialGradient>
-                        <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%" stop-color="#FFF59D" />
-                          <stop offset="50%" stop-color="#FFD54F" />
-                          <stop offset="100%" stop-color="#FF9800" />
+                        <linearGradient id="appleStarGoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#FFD000" />
+                          <stop offset="60%" stop-color="#FF9E00" />
+                          <stop offset="100%" stop-color="#FF7A00" />
                         </linearGradient>
                       </defs>
-                      <circle cx="18" cy="18" r="16" fill="url(#faceGradStar)" />
-                      <ellipse cx="18" cy="8" rx="10" ry="3.5" fill="#FFFFFF" opacity="0.4" />
-                      <g class="emoji-star-left">
-                        <polygon
-                          points="12.5,10.5 13.8,14 17.5,14.3 14.7,16.6 15.6,20.2 12.5,18.1 9.4,20.2 10.3,16.6 7.5,14.3 11.2,14"
-                          fill="url(#starGrad)" stroke="#E65100" stroke-width="0.4" />
+                      <path class="apple-star-path apple-star-bg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      <g class="apple-star-fg-group">
+                        <path class="apple-star-path apple-star-fg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
                       </g>
-                      <g class="emoji-star-right">
-                        <polygon
-                          points="23.5,10.5 24.8,14 28.5,14.3 25.7,16.6 26.6,20.2 23.5,18.1 20.4,20.2 21.3,16.6 18.5,14.3 22.2,14"
-                          fill="url(#starGrad)" stroke="#E65100" stroke-width="0.4" />
-                      </g>
-                      <path d="M11 20.5 C11 27.5 25 27.5 25 20.5 Z" fill="#C62828" />
-                      <path d="M11.5 20.5 C13.5 22.5 22.5 22.5 24.5 20.5 Z" fill="#FFFFFF" />
-                      <path d="M14 25.5 C15.5 23.5 20.5 23.5 22 25.5 C20 27 16 27 14 25.5 Z" fill="#FF5252" />
                     </svg>
+                    <span class="apple-star-glow" aria-hidden="true"></span>
                   </span>
-                  <span class="rating-card-label">Exceptional</span>
+                  <span class="apple-star-meta">
+                    <span class="apple-star-score">1</span>
+                    <span class="apple-star-label">Needs Work</span>
+                  </span>
+                </button>
+
+                <!-- 2 Stars - Fair -->
+                <button type="button" class="feedback-rating-card apple-star-card is-filled" data-rating="Fair" data-rating-val="2" data-score="2.0" role="radio" aria-checked="false" aria-label="2 Stars, Fair" style="--star-idx: 1;">
+                  <span class="apple-star-hitbox apple-star-hitbox--left" data-half="true" aria-hidden="true"></span>
+                  <span class="apple-star-hitbox apple-star-hitbox--right" data-half="false" aria-hidden="true"></span>
+                  <span class="apple-star-stage">
+                    <svg class="apple-star-svg" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+                      <path class="apple-star-path apple-star-bg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      <g class="apple-star-fg-group">
+                        <path class="apple-star-path apple-star-fg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      </g>
+                    </svg>
+                    <span class="apple-star-glow" aria-hidden="true"></span>
+                  </span>
+                  <span class="apple-star-meta">
+                    <span class="apple-star-score">2</span>
+                    <span class="apple-star-label">Fair</span>
+                  </span>
+                </button>
+
+                <!-- 3 Stars - Average -->
+                <button type="button" class="feedback-rating-card apple-star-card is-filled" data-rating="Average" data-rating-val="3" data-score="3.0" role="radio" aria-checked="false" aria-label="3 Stars, Average" style="--star-idx: 2;">
+                  <span class="apple-star-hitbox apple-star-hitbox--left" data-half="true" aria-hidden="true"></span>
+                  <span class="apple-star-hitbox apple-star-hitbox--right" data-half="false" aria-hidden="true"></span>
+                  <span class="apple-star-stage">
+                    <svg class="apple-star-svg" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+                      <path class="apple-star-path apple-star-bg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      <g class="apple-star-fg-group">
+                        <path class="apple-star-path apple-star-fg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      </g>
+                    </svg>
+                    <span class="apple-star-glow" aria-hidden="true"></span>
+                  </span>
+                  <span class="apple-star-meta">
+                    <span class="apple-star-score">3</span>
+                    <span class="apple-star-label">Average</span>
+                  </span>
+                </button>
+
+                <!-- 4 Stars - Good -->
+                <button type="button" class="feedback-rating-card apple-star-card is-filled" data-rating="Good" data-rating-val="4" data-score="4.0" role="radio" aria-checked="false" aria-label="4 Stars, Good" style="--star-idx: 3;">
+                  <span class="apple-star-hitbox apple-star-hitbox--left" data-half="true" aria-hidden="true"></span>
+                  <span class="apple-star-hitbox apple-star-hitbox--right" data-half="false" aria-hidden="true"></span>
+                  <span class="apple-star-stage">
+                    <svg class="apple-star-svg" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+                      <path class="apple-star-path apple-star-bg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      <g class="apple-star-fg-group">
+                        <path class="apple-star-path apple-star-fg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      </g>
+                    </svg>
+                    <span class="apple-star-glow" aria-hidden="true"></span>
+                  </span>
+                  <span class="apple-star-meta">
+                    <span class="apple-star-score">4</span>
+                    <span class="apple-star-label">Good</span>
+                  </span>
+                </button>
+
+                <!-- 5 Stars - Exceptional -->
+                <button type="button" class="feedback-rating-card apple-star-card is-filled is-active" data-rating="Exceptional" data-rating-val="5" data-score="5.0" role="radio" aria-checked="true" aria-label="5 Stars, Exceptional" style="--star-idx: 4;">
+                  <span class="apple-star-hitbox apple-star-hitbox--left" data-half="true" aria-hidden="true"></span>
+                  <span class="apple-star-hitbox apple-star-hitbox--right" data-half="false" aria-hidden="true"></span>
+                  <span class="apple-star-stage">
+                    <svg class="apple-star-svg" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+                      <path class="apple-star-path apple-star-bg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      <g class="apple-star-fg-group">
+                        <path class="apple-star-path apple-star-fg" d="M16 2.8c.45 0 .86.27 1.03.68l3.6 8.35 9.02.81c.46.04.83.37.95.81.12.44-.04.91-.4 1.2l-6.8 5.62 1.98 8.82c.1.45-.07.92-.45 1.19-.37.27-.87.28-1.25.03L16 24.87l-7.68 4.64c-.38.25-.88.24-1.25-.03-.38-.27-.55-.74-.45-1.19l1.98-8.82-6.8-5.62c-.36-.29-.52-.76-.4-1.2.12-.44.49-.77.95-.81l9.02-.81 3.6-8.35c.17-.41.58-.68 1.03-.68z" />
+                      </g>
+                    </svg>
+                    <span class="apple-star-glow" aria-hidden="true"></span>
+                  </span>
+                  <span class="apple-star-meta">
+                    <span class="apple-star-score">5</span>
+                    <span class="apple-star-label">Exceptional</span>
+                  </span>
                 </button>
               </div>
             </div>
@@ -3322,18 +3301,13 @@
             <div class="feedback-field-group">
               <span class="feedback-field-label">Primary Swapping Hub</span>
               <div class="feedback-segmented-chips" id="feedbackHubChips">
-                <button type="button" class="feedback-segmented-chip is-active" data-hub="JP Nagar Hub 01">JP Nagar Hub
-                  01</button>
-                <button type="button" class="feedback-segmented-chip" data-hub="JP Nagar Hub 07">JP Nagar Hub
-                  07</button>
-                <button type="button" class="feedback-segmented-chip" data-hub="Tavarekere Hub 04">Tavarekere Hub
-                  04</button>
-                <button type="button" class="feedback-segmented-chip" data-hub="BTM Layout Hub 03">BTM Layout Hub
-                  03</button>
-                <button type="button" class="feedback-segmented-chip" data-hub="BHL002 (Bhoganhalli)">BHL002
-                  (Bhoganhalli)</button>
-                <button type="button" class="feedback-segmented-chip" data-hub="Mahadevapura Hub 05">Mahadevapura Hub
-                  05</button>
+                <button type="button" class="feedback-segmented-chip is-active" data-hub="JP Nagar Hub 01">JP Nagar Hub 01</button>
+                <button type="button" class="feedback-segmented-chip" data-hub="JP Nagar Hub 07">JP Nagar Hub 07</button>
+                <button type="button" class="feedback-segmented-chip" data-hub="Tavarekere Hub 04">Tavarekere Hub 04</button>
+                <button type="button" class="feedback-segmented-chip" data-hub="BTM Layout Hub 03">BTM Layout Hub 03</button>
+                <button type="button" class="feedback-segmented-chip" data-hub="Bhoganhalli Hub 02">Bhoganhalli Hub 02</button>
+                <button type="button" class="feedback-segmented-chip" data-hub="Mahadevapura Hub 05">Mahadevapura Hub 05</button>
+                <button type="button" class="feedback-segmented-chip" data-hub="Marathahalli Hub 06">Marathahalli Hub 06</button>
               </div>
             </div>
 
@@ -3415,7 +3389,6 @@
                 <span class="hub-id-pill">JPN 001</span>
                 <h4 class="hub-card__name">JP Nagar Hub 01</h4>
               </div>
-              <span class="hub-status-badge"><span class="hub-status-beacon"></span>24/7 Pods</span>
             </div>
             <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> JP Nagar, Bengaluru · Pod Ready</p>
             <div class="hub-card__actions-row">
@@ -3443,7 +3416,6 @@
                 <span class="hub-id-pill">JPN 007</span>
                 <h4 class="hub-card__name">JP Nagar Hub 07</h4>
               </div>
-              <span class="hub-status-badge"><span class="hub-status-beacon"></span>24/7 Pods</span>
             </div>
             <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> JP Nagar 7th Phase, Bengaluru · Pod Ready</p>
             <div class="hub-card__actions-row">
@@ -3471,7 +3443,6 @@
                 <span class="hub-id-pill">TVK004</span>
                 <h4 class="hub-card__name">Tavarekere Hub 04</h4>
               </div>
-              <span class="hub-status-badge"><span class="hub-status-beacon"></span>24/7 Pods</span>
             </div>
             <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> Tavarekere, Bengaluru · Pod Ready</p>
             <div class="hub-card__actions-row">
@@ -3498,7 +3469,6 @@
                 <span class="hub-id-pill">BTM003</span>
                 <h4 class="hub-card__name">BTM Layout Hub 03</h4>
               </div>
-              <span class="hub-status-badge"><span class="hub-status-beacon"></span>24/7 Pods</span>
             </div>
             <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> BTM Layout, Bengaluru · Pod Ready</p>
             <div class="hub-card__actions-row">
@@ -3525,7 +3495,6 @@
                 <span class="hub-id-pill">BHL002</span>
                 <h4 class="hub-card__name">Bhoganhalli Hub 02</h4>
               </div>
-              <span class="hub-status-badge"><span class="hub-status-beacon"></span>24/7 Pods</span>
             </div>
             <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> Bhoganhalli, Bengaluru · Pod Ready</p>
             <div class="hub-card__actions-row">
@@ -3544,7 +3513,7 @@
 
           <!-- Hub 6: MHP 005 -->
           <div class="hub-card" data-hub-id="MHP 005" data-lat="12.9935" data-lng="77.6506"
-            data-name="Mahadevapura Hub 05" data-address="MHP005 Exter Battery Swapping Hub, Bengaluru, Karnataka"
+            data-name="Mahadevapura Hub 05" data-address="Mahadevapura, Bengaluru, Karnataka"
             data-phone="+91 80502 63303" data-phone-tel="+918050263303"
             data-map-url="https://maps.google.com/?q=12.9935115,77.6505872+(MHP005+Exter+Battery+Swapping+Hub)"
             data-embed-url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31101.289199345592!2d77.6505872!3d12.9935115!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11f8dd1fc2e3%3A0xd158d80331d80931!2sMHP005%20Exter%20Battery%20Swapping%20Hub!5e0!3m2!1sen!2sin!4v1794400652354!5m2!1sen!2sin">
@@ -3553,7 +3522,6 @@
                 <span class="hub-id-pill">MHP 005</span>
                 <h4 class="hub-card__name">Mahadevapura Hub 05</h4>
               </div>
-              <span class="hub-status-badge"><span class="hub-status-beacon"></span>24/7 Pods</span>
             </div>
             <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> Mahadevapura, Bengaluru · Pod Ready</p>
             <div class="hub-card__actions-row">
@@ -3572,18 +3540,17 @@
 
           <!-- Hub 7: MAH006 -->
           <div class="hub-card" data-hub-id="MAH006" data-lat="12.9520" data-lng="77.6945"
-            data-name="Mahadevapura Hub 06" data-address="MAH006 Exter Battery Swapping Hub, Bengaluru, Karnataka"
+            data-name="Marathahalli Hub 06" data-address="Marathahalli, Bengaluru, Karnataka"
             data-phone="+91 80502 63303" data-phone-tel="+918050263303"
             data-map-url="https://www.google.com/maps/search/?api=1&query=MAH006+Exter+Battery+Swapping+Hub"
             data-embed-url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.3105511184685!2d77.69454139999999!3d12.951969199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae131274ccf837%3A0x5284dd285788665b!2sMAH006%20Exter%20Battery%20Swapping%20Hub!5e0!3m2!1sen!2sin!4v1794910007580!5m2!1sen!2sin">
             <div class="hub-card__top">
               <div class="hub-card__id-group">
                 <span class="hub-id-pill">MAH006</span>
-                <h4 class="hub-card__name">Mahadevapura Hub 06</h4>
+                <h4 class="hub-card__name">Marathahalli Hub 06</h4>
               </div>
-              <span class="hub-status-badge"><span class="hub-status-beacon"></span>24/7 Pods</span>
             </div>
-            <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> Mahadevapura, Bengaluru · Pod Ready</p>
+            <p class="hub-card__address"><i class="ri-map-pin-2-line"></i> Marathahalli, Bengaluru · Pod Ready</p>
             <div class="hub-card__actions-row">
               <button type="button" class="btn-hub-action btn-view-hub-map">
                 <i class="ri-map-pin-line"></i><span>View on Map</span>
@@ -3819,14 +3786,8 @@
             <span class="rsa-radar-wave"></span>
             <i class="ri-map-pin-range-fill"></i>
           </div>
-          <div class="rsa-capsule-content">
-            <span class="rsa-capsule-tag">6 KM GUARANTEE</span>
-            <span class="rsa-capsule-message">Rapid roadside dispatch provided within a <strong>6 km radius</strong> of the designated godown or hub.</span>
-          </div>
-          <div class="rsa-capsule-status" aria-hidden="true">
-            <span class="rsa-status-dot"></span>
-            <span>Live Standby</span>
-          </div>
+          <span class="rsa-capsule-tag">6 KM GUARANTEE</span>
+          <span class="rsa-capsule-message">Rapid roadside dispatch provided within a <strong>6 km radius</strong> across our swapping hub network.</span>
         </div>
       </div>
       <div class="rsa-grid rsa-bento-grid">
@@ -4180,17 +4141,10 @@
                     </div>
                   </div>
                   <!-- 8. Amazon Minutes -->
-                  <div class="partner-card" style="--brand-clr: #FF9900;">
+                  <div class="partner-card" style="--brand-clr: #00A8E1;">
                     <div class="partner-card__icon-wrap">
-                      <svg width="38" height="38" viewBox="0 0 40 40" fill="none" aria-label="Amazon Minutes">
-                        <rect width="40" height="40" rx="10" fill="#131921" /><text x="20" y="21" text-anchor="middle"
-                          font-family="'SF Pro Display', sans-serif" font-weight="800" font-size="12" fill="#FFFFFF"
-                          letter-spacing="-0.5">a<tspan fill="#FF9900">m</tspan>z</text>
-                        <path d="M14 25c3.5 2.2 8.5 2.2 12 0" stroke="#FF9900" stroke-width="2" stroke-linecap="round"
-                          fill="none" />
-                        <path d="M25 24.5l2 1.5-2 1.5" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" fill="none" />
-                      </svg>
+                      <img src="main/media/images/E-commerce/14.png" alt="Amazon Minutes" class="partner-card__logo-img"
+                        loading="lazy" />
                     </div>
                     <div class="partner-card__body">
                       <span class="partner-card__name">Amazon Minutes</span>
@@ -4211,7 +4165,7 @@
                   <!-- 10. Shadowfax -->
                   <div class="partner-card" style="--brand-clr: #00BCD4;">
                     <div class="partner-card__icon-wrap">
-                      <img src="main/media/images/E-commerce/14.png" alt="Shadowfax" class="partner-card__logo-img"
+                      <img src="main/media/images/E-commerce/11.png" alt="Shadowfax" class="partner-card__logo-img"
                         loading="lazy" />
                     </div>
                     <div class="partner-card__body">
@@ -4268,17 +4222,10 @@
                     </div>
                   </div>
                   <!-- 8. Amazon Minutes -->
-                  <div class="partner-card" style="--brand-clr: #FF9900;">
+                  <div class="partner-card" style="--brand-clr: #00A8E1;">
                     <div class="partner-card__icon-wrap">
-                      <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
-                        <rect width="40" height="40" rx="10" fill="#131921" /><text x="20" y="21" text-anchor="middle"
-                          font-family="'SF Pro Display', sans-serif" font-weight="800" font-size="12" fill="#FFFFFF"
-                          letter-spacing="-0.5">a<tspan fill="#FF9900">m</tspan>z</text>
-                        <path d="M14 25c3.5 2.2 8.5 2.2 12 0" stroke="#FF9900" stroke-width="2" stroke-linecap="round"
-                          fill="none" />
-                        <path d="M25 24.5l2 1.5-2 1.5" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" fill="none" />
-                      </svg>
+                      <img src="main/media/images/E-commerce/14.png" alt="Amazon Minutes" class="partner-card__logo-img"
+                        loading="lazy" />
                     </div>
                     <div class="partner-card__body">
                       <span class="partner-card__name">Amazon Minutes</span>
@@ -4299,7 +4246,7 @@
                   <!-- 10. Shadowfax -->
                   <div class="partner-card" style="--brand-clr: #00BCD4;">
                     <div class="partner-card__icon-wrap">
-                      <img src="main/media/images/E-commerce/14.png" alt="Shadowfax" class="partner-card__logo-img"
+                      <img src="main/media/images/E-commerce/11.png" alt="Shadowfax" class="partner-card__logo-img"
                         loading="lazy" />
                     </div>
                     <div class="partner-card__body">
